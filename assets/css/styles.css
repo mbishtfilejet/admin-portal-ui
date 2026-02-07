@@ -1,0 +1,239 @@
+.left-side-menu-dark .metismenu li a[aria-expanded=true] {
+    color: #fff !important
+}
+
+.left-side-menu-dark .left-side-menu #sidebar-menu>ul>li>a.active {
+    color: #fff !important;
+    background-color: #434e59 !important;
+    border-right-color: #fff !important
+}
+
+.dt-buttons {
+    float: right;
+    margin-left: 1.5rem
+}
+
+.dataTables_filter {
+    float: right
+}
+
+.dataTables_length {
+    float: left
+}
+
+a.line-item {
+    cursor: pointer
+}
+
+.table.order-line-item tr:nth-of-type(even),
+.table.order-line-item tr:nth-of-type(odd) {
+    background: #fff
+}
+
+.order-service-table td {
+    vertical-align: middle
+}
+
+.order-documents-preview {
+    padding: 35px 0 0 0
+}
+
+.text-tag {
+    background: red;
+    padding: 2px;
+    border-radius: 10px;
+    color: #fff;
+    top: -.9em;
+    font-size: 8px
+}
+
+#auth-login-modal {
+    background-color: rgba(0, 0, 0, .5)
+}
+
+.custom-error-div {
+    color: red
+}
+
+.info-text-tag {
+    background: #3f51b5 !important;
+    padding: 2px 2px;
+    border-radius: 10px;
+    color: #fff;
+    margin-top: 16px;
+    font-size: 7px;
+    left: 5em
+}
+
+.price-input .input::before {
+    margin-left: 5px;
+    top: 39px;
+    font-size: 13px;
+    content: "$0.";
+    position: absolute
+}
+
+.price-input .input input {
+    padding-left: 23px !important
+}
+
+.fee-input .input::before {
+    margin-left: 5px;
+    top: 39px;
+    font-size: 13px;
+    content: "$";
+    position: absolute
+}
+
+.skeleton {
+    animation: skeleton-loading 1s linear infinite alternate
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-color: #c1cfd6
+    }
+
+    100% {
+        background-color: #eff3f4
+    }
+}
+
+.skeleton-text {
+    width: 100%;
+    height: .7rem;
+    margin-bottom: .5rem;
+    border-radius: .25rem
+}
+
+.skeleton-text__body {
+    width: 75%;
+    height: .7rem;
+    margin-bottom: .5rem;
+    border-radius: .25rem
+}
+
+.skeleton-footer {
+    width: 30%;
+    height: .7rem;
+    margin-bottom: .5rem;
+    border-radius: .25rem
+}
+
+.platform-tbody td.skeleton-last-item {
+    display: none
+}
+
+.manage-billing-popup-list .select2-container {
+    width: 200px !important;
+    max-width: 200px !important;
+    display: block
+}
+
+.manage-billing-popup-list td,
+.manage-billing-popup-list th {
+    vertical-align: middle
+}
+
+.manage-billing-popup-list tr.even {
+    background: #f0f8ff
+}
+
+.mark-all {
+    margin-left: 85px;
+    position: relative;
+    top: 40px
+}
+
+.font-awesome-ban-red {
+    color: #fff;
+    background-color: red;
+    border-radius: 58px;
+    padding: .4em .3em .3em .3em
+}
+
+.checkbox input[type=checkbox]:checked+label::after {
+    display: block
+}
+
+.sso-img-height {
+    height: 20px
+}
+
+.fs-8rem {
+    font-size: .82rem !important
+}
+
+.text-inherit {
+    color: inherit !important
+}
+
+.text-inherit:hover {
+    color: inherit !important;
+    text-decoration: inherit !important
+}
+
+.clipboard-container {
+    position: relative;
+    display: inline-block
+}
+
+.clipboard-container .btn-clipboard {
+    width: 80px;
+    border: solid 1px #d3d3d3;
+    text-align: center;
+    padding: 2px;
+    color: #000;
+    font-size: .7875rem;
+    line-height: 1.5;
+    border-radius: .15rem
+}
+
+.clipboard-container .copy-text-info {
+    display: none;
+    color: #fff;
+    background-color: rgba(0, 0, 0, .8);
+    padding: 5px 10px;
+    position: absolute;
+    right: -32px;
+    top: 34%;
+    transform: translateY(-50%);
+    font-size: .8em;
+    white-space: nowrap
+}
+
+.sharedDocumnent_tablist {
+    position: relative;
+    background-color: #F3F5F8;
+    max-width: fit-content;
+    padding: 0.25rem;
+    border-radius: 5px;
+
+    &::after {
+        position: absolute;
+        content: "";
+        background-color: #D8DDDF;
+        top: anchor(--tab-anchor top);
+        left: anchor(--tab-anchor left);
+        width: anchor-size(--tab-anchor inline);
+        height: anchor-size(--tab-anchor block);
+        position-anchor: --tab-anchor;
+        transition: all 0.5s ease-in-out;
+        z-index: 0;
+        border-radius: 5px;
+    }
+
+    .nav-link {
+        position: relative;
+        z-index: 1;
+        color: var(--bs-nw-gray-600);
+        font-size: 14px;
+
+        &[aria-selected=true],
+        &.active {
+            anchor-name: --tab-anchor;
+            color: #272A2E;
+            font-weight: 700;
+        }
+    }
+}
