@@ -237,3 +237,79 @@ a.line-item {
         }
     }
 }
+
+.document-viewer {
+
+    iframe {
+        height: 705px;
+    }
+
+    .progress {
+        height: 1.2rem !important;
+        font-size: 1rem !important;
+        font-weight: 600;
+        text-transform: uppercase;
+
+        .progress-bar {
+            color: #000;
+        }
+    }
+}
+
+.accordion {
+    a[data-toggle="collapse"] {
+        &[aria-expanded=true] .fe-chevron-down {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.ai-badge{
+    padding: 5px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.bg-100{
+    background-color: #00BA70 !important;
+}
+
+.bg-90{
+    background-color: #1AAC66 !important;
+}
+
+.bg-80{
+    background-color: #339E5C !important;
+}
+
+.bg-70{
+    background-color: #4D9053 !important;
+}
+
+.bg-60{
+    background-color: #678249 !important;
+}
+
+.bg-50{
+    background-color: #80733F !important;
+}
+
+.bg-40{
+    background-color: #9A6535 !important;
+}
+
+.bg-30{
+    background-color: #B4572C !important;
+}
+
+.bg-20{
+    background-color: #CD4922 !important;
+}
+
+.bg-10{
+    background-color: #E73B18 !important;
+}
+
