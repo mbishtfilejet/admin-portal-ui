@@ -260,7 +260,7 @@
                                     </ul>
 
                                     <div class="accordion" id="accordionExample">
-                                        <div class="tab-content">
+                                        <div class="tab-content sharedDocTabContent">
                                             <div class="tab-pane fade active show" id="SOPTabContent">
                                                 <div class="accordion" id="accordionExample_SOP">
                                                     <div class="card mb-1 shadow-none border rounded-lg bg-light">
@@ -299,7 +299,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div id="file-preview_1" class="file-previewContainer d-none">
+                                                <div id="file-preview_1" class="file-previewContainer">
                                                     <div class="accordion" id="accordionExample_SOP_scan">
                                                         <div
                                                             class="card mb-3 mt-3 shadow-none border rounded-lg bg-light">
@@ -339,10 +339,11 @@
                                                                                         <div class="form-group mb-1">
                                                                                             <label for="inputEntity"
                                                                                                 class="col-form-label pt-0">Entity</label>
-                                                                                            <select
-                                                                                                class="form-control">
+                                                                                            <select id="inputEntity"
+                                                                                                class="form-control select2">
                                                                                                 <option value=""
-                                                                                                    selected hidden>
+                                                                                                    selected hidden=""
+                                                                                                    disabled="">
                                                                                                     Search Entity
                                                                                                 </option>
                                                                                                 <option>Home Entity 1
@@ -356,12 +357,23 @@
 
                                                                                         <div class="form-group mb-1">
                                                                                             <label for="inputCustomer"
+                                                                                                placeholder="Search Customer"
                                                                                                 class="col-form-label">Customer
                                                                                                 Name</label>
-                                                                                            <input type="search"
-                                                                                                class="form-control"
-                                                                                                id="inputCustomer"
-                                                                                                placeholder="Search Customer">
+                                                                                            <select id="inputCustomer"
+                                                                                                class="form-control select2">
+                                                                                                <option value=""
+                                                                                                    selected hidden=""
+                                                                                                    disabled="">
+                                                                                                    Search Customer Name
+                                                                                                </option>
+                                                                                                <option>Home Entity 1
+                                                                                                    (DE)
+                                                                                                </option>
+                                                                                                <option>Child Entity -
+                                                                                                    II (FL)
+                                                                                                </option>
+                                                                                            </select>
                                                                                         </div>
                                                                                         <div class="form-row">
                                                                                             <div
@@ -369,20 +381,47 @@
                                                                                                 <label for="inputGroup"
                                                                                                     class="col-form-label">Group
                                                                                                     Name</label>
-                                                                                                <input type="search"
-                                                                                                    class="form-control"
-                                                                                                    id="inputGroup"
-                                                                                                    placeholder="Search Group">
+                                                                                                <select id="inputGroup"
+                                                                                                    class="form-control select2">
+                                                                                                    <option value=""
+                                                                                                        selected
+                                                                                                        hidden=""
+                                                                                                        disabled="">
+                                                                                                        Search Group
+                                                                                                    </option>
+                                                                                                    <option>Home Entity
+                                                                                                        1
+                                                                                                        (DE)
+                                                                                                    </option>
+                                                                                                    <option>Child Entity
+                                                                                                        -
+                                                                                                        II (FL)
+                                                                                                    </option>
+                                                                                                </select>
                                                                                             </div>
                                                                                             <div
                                                                                                 class="form-group mb-0 col-md-6">
                                                                                                 <label
                                                                                                     for="inputJurisdiction"
                                                                                                     class="col-form-label">Jurisdiction</label>
-                                                                                                <input type="search"
-                                                                                                    class="form-control"
+                                                                                                <select
                                                                                                     id="inputJurisdiction"
-                                                                                                    placeholder="Search Jurisdiction">
+                                                                                                    class="form-control select2">
+                                                                                                    <option value=""
+                                                                                                        selected
+                                                                                                        hidden=""
+                                                                                                        disabled="">
+                                                                                                        Search Jurisdiction
+                                                                                                    </option>
+                                                                                                    <option>Home Entity
+                                                                                                        1
+                                                                                                        (DE)
+                                                                                                    </option>
+                                                                                                    <option>Child Entity
+                                                                                                        -
+                                                                                                        II (FL)
+                                                                                                    </option>
+                                                                                                </select>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -506,6 +545,7 @@
                                                                                                         class="col-form-label">File
                                                                                                         Type</label>
                                                                                                     <select
+                                                                                                        id="inputFileType"
                                                                                                         class="form-control">
                                                                                                         <option value=""
                                                                                                             selected
@@ -586,11 +626,18 @@
                                                                                                     for="inputCoverPage"
                                                                                                     class="col-form-label">Has
                                                                                                     Cover Page</label>
-                                                                                                <input type="text"
-                                                                                                    class="form-control"
+                                                                                                <select
                                                                                                     id="inputCoverPage"
-                                                                                                    value="Yes"
-                                                                                                    placeholder="Has Cover Page">
+                                                                                                    placeholder="Has Cover Page"
+                                                                                                    class="form-control select2">
+                                                                                                    <option value=""
+                                                                                                        selected hidden
+                                                                                                        disabled>
+                                                                                                        Has Cover Page
+                                                                                                    </option>
+                                                                                                    <option>Yes</option>
+                                                                                                    <option>No</option>
+                                                                                                </select>
                                                                                             </div>
 
                                                                                             <div
@@ -599,11 +646,17 @@
                                                                                                     for="inputHasCheck"
                                                                                                     class="col-form-label">Has
                                                                                                     Check</label>
-                                                                                                <input type="text"
-                                                                                                    class="form-control"
+                                                                                                <select
                                                                                                     id="inputHasCheck"
-                                                                                                    value="Yes"
-                                                                                                    placeholder="Has Check">
+                                                                                                    class="form-control select2">
+                                                                                                    <option value=""
+                                                                                                        selected hidden
+                                                                                                        disabled>
+                                                                                                        Has Check
+                                                                                                    </option>
+                                                                                                    <option>Yes</option>
+                                                                                                    <option>No</option>
+                                                                                                </select>
                                                                                             </div>
 
                                                                                             <div class="form-row">
@@ -944,6 +997,7 @@
 
                                                                                                 <div class="d-flex">
                                                                                                     <select
+                                                                                                        id="inputDOCType"
                                                                                                         class="form-control">
                                                                                                         <option>Annual
                                                                                                             Report
@@ -964,6 +1018,7 @@
 
                                                                                                 <div class="d-flex">
                                                                                                     <select
+                                                                                                        id="inputGeneralFileType"
                                                                                                         class="form-control">
                                                                                                         <option>PDF
                                                                                                         </option>

@@ -1,4 +1,330 @@
 
+$(function () {
+
+    const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 2
+    })
+
+    new Chartist.Bar('#top-selling-products', {
+        labels: [
+            "Apr 2025 - Jun 2025",
+            "Jul 2025 - Sep 2025",
+            "Oct 2025 - Dec 2025",
+            "Jan 2026 - Mar 2026"
+        ],
+        series: [
+            [
+                {
+                    "value": 9,
+                    "meta": "Basic",
+                    "className": "foo"
+                },
+                {
+                    "value": 6,
+                    "meta": "Basic",
+                    "className": "foo"
+                },
+                {
+                    "value": null,
+                    "meta": "Basic",
+                    "className": "foo"
+                },
+                {
+                    "value": null,
+                    "meta": "Basic",
+                    "className": "foo"
+                }
+            ],
+            [
+                {
+                    "value": 10,
+                    "meta": "Gold",
+                    "className": "foo"
+                },
+                {
+                    "value": 7,
+                    "meta": "Gold",
+                    "className": "foo"
+                },
+                {
+                    "value": null,
+                    "meta": "Gold",
+                    "className": "foo"
+                },
+                {
+                    "value": null,
+                    "meta": "Gold",
+                    "className": "foo"
+                }
+            ],
+            [
+                {
+                    "value": 63,
+                    "meta": "Silver",
+                    "className": "foo"
+                },
+                {
+                    "value": 13,
+                    "meta": "Silver",
+                    "className": "foo"
+                },
+                {
+                    "value": 9,
+                    "meta": "Silver",
+                    "className": "foo"
+                },
+                {
+                    "value": 2,
+                    "meta": "Silver",
+                    "className": "foo"
+                }
+            ],
+            [
+                {
+                    "value": 7,
+                    "meta": "Platinum",
+                    "className": "foo"
+                },
+                {
+                    "value": null,
+                    "meta": "Platinum",
+                    "className": "foo"
+                },
+                {
+                    "value": 1,
+                    "meta": "Platinum",
+                    "className": "foo"
+                },
+                {
+                    "value": null,
+                    "meta": "Platinum",
+                    "className": "foo"
+                }
+            ],
+            [
+                {
+                    "value": 7,
+                    "meta": "Diamond",
+                    "className": "foo"
+                },
+                {
+                    "value": 1,
+                    "meta": "Diamond",
+                    "className": "foo"
+                },
+                {
+                    "value": null,
+                    "meta": "Diamond",
+                    "className": "foo"
+                },
+                {
+                    "value": null,
+                    "meta": "Diamond",
+                    "className": "foo"
+                }
+            ],
+            [
+                {
+                    "value": 7,
+                    "meta": "Deluxe",
+                    "className": "foo"
+                },
+                {
+                    "value": null,
+                    "meta": "Deluxe",
+                    "className": "foo"
+                },
+                {
+                    "value": null,
+                    "meta": "Deluxe",
+                    "className": "foo"
+                },
+                {
+                    "value": null,
+                    "meta": "Deluxe",
+                    "className": "foo"
+                }
+            ],
+            [
+                {
+                    "value": 9,
+                    "meta": "Premium",
+                    "className": "foo"
+                },
+                {
+                    "value": null,
+                    "meta": "Premium",
+                    "className": "foo"
+                },
+                {
+                    "value": null,
+                    "meta": "Premium",
+                    "className": "foo"
+                },
+                {
+                    "value": null,
+                    "meta": "Premium",
+                    "className": "foo"
+                }
+            ]
+        ],
+        color: ['#000']
+
+    }, {
+        // Default mobile configuration
+        stackBars: true,
+        axisX: {
+            labelInterpolationFnc: function (value) {
+                console.log(value.split(/\s+/).map(function (word) {
+                    return word[0];
+                }).join(''));
+                return value.split(/\s+/).map(function (word) {
+                    return word[0];
+                }).join('');
+            }
+        },
+        axisY: {
+            offset: 20
+        },
+        plugins: [
+            Chartist.plugins.tooltip()
+        ]
+    }, [
+        // Options override for media > 400px
+        ['screen and (min-width: 400px)', {
+            reverseData: true,
+            horizontalBars: true,
+            axisX: {
+                labelInterpolationFnc: Chartist.noop
+            },
+            axisY: {
+                offset: 60
+            }
+        }],
+        // Options override for media > 800px
+        ['screen and (min-width: 800px)', {
+            stackBars: false,
+            seriesBarDistance: 10
+        }],
+        // Options override for media > 1000px
+        ['screen and (min-width: 1000px)', {
+            reverseData: false,
+            horizontalBars: false,
+            seriesBarDistance: 15
+        }]
+    ]);
+
+
+
+    filingStatusOptions = {
+        chart: {
+            height: 300,
+            type: "pie"
+        },
+        series: [979, 0, 12, 3108],
+        labels: [
+            "Info Gathering",
+            "Sent to Client",
+            "Sent to State",
+            "Completed"
+        ],
+        colors: [
+            "#ffc107",
+            "#00bcd4",
+            "#3f51b5",
+            "#009688"
+        ],
+        tooltip: {
+            y: {
+                formatter: function (value, {
+                    series,
+                    seriesIndex,
+                    dataPointIndex,
+                    w
+                }) {
+                    return value
+                }
+            }
+        },
+        responsive: [{
+            breakpoint: 480,
+            options: {
+                chart: {
+                    height: 240
+                },
+                legend: {
+                    show: !1
+                }
+            }
+        }]
+    };
+
+    chart = new ApexCharts(document.querySelector("#filing-status"), filingStatusOptions);
+
+    chart.render();
+
+
+    options = {
+        chart: {
+            height: 380,
+            type: "bar",
+            toolbar: {
+                show: !1
+            }
+        },
+        plotOptions: {
+            bar: {
+                horizontal: !0
+            }
+        },
+        dataLabels: {
+            enabled: !1
+        },
+        series: [{
+            name: 'Revenue',
+            data: [292711.05, 285303.47, 206148.23, 196693.18, 68858.99, 63565.48, 60361.83, 30179.25, 28279.19, 24083.2]
+        }],
+        colors: ["#009688"],
+        xaxis: {
+            categories: [
+                "Amazon Warehouses",
+                "Corporation Inc.",
+                "Alphabet Inc.",
+                "Test QA Customer",
+                "Corporation 2 Inc.",
+                "Pricebook FileJet",
+                "Fun Foods ",
+                "Test New Flow 1 LLC",
+                "ApexAlphaVentures",
+                "dtestqa"
+            ]
+
+        },
+        tooltip: {
+            y: {
+                formatter: function (val) {
+                    return formatter.format(val)
+                }
+            }
+        },
+        yaxis: {
+            labels: {
+                y: {
+                    text: 'TESTT'
+                }
+            }
+        },
+        grid: {
+            borderColor: "#f1f3fa"
+        }
+    };
+    (chart = new ApexCharts(document.querySelector("#apex-bar-1"), options)).render();
+
+})
+
+
 Dropzone.autoDiscover = false;
 
 $(function () {
@@ -118,3 +444,24 @@ $(function () {
     generalDropzoneContainer.dropzone(opts);
 
 })
+
+$(document).ready(function () {
+
+    const tabsSelect = [
+        { id: "inputEntity", placeholder: "Select Entity", searchAllowed: true },
+        { id: "inputCustomer", placeholder: "Select Customer Name", searchAllowed: true },
+        { id: "inputGroup", placeholder: "Select Group", searchAllowed: true },
+        { id: "inputJurisdiction", placeholder: "Select Jurisdiction", searchAllowed: true },
+    ]
+
+    tabsSelect.forEach(select => {
+        $(`.tab-content #${select.id}.select2`).select2({
+            placeholder: select.placeholder,
+            ...(!select.searchAllowed ? { minimumResultsForSearch: Infinity } : {})
+        });
+    })
+
+    $('.tab-content .select2').on('select2:open select2:select', () => {
+        $('.select2-search__field').attr('placeholder', 'Search...');
+    });
+});

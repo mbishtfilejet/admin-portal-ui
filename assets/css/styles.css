@@ -238,33 +238,65 @@ a.line-item {
     }
 }
 
-.document-viewer {
+.sharedDocTabContent {
+    .document-viewer {
 
-    iframe {
-        height: 705px;
-    }
+        iframe {
+            height: 705px;
+        }
 
-    .progress {
-        height: 1.2rem !important;
-        font-size: 1rem !important;
-        font-weight: 600;
-        text-transform: uppercase;
+        .progress {
+            height: 1.2rem !important;
+            font-size: 1rem !important;
+            font-weight: 600;
+            text-transform: uppercase;
 
-        .progress-bar {
-            color: #000;
+            .progress-bar {
+                color: #000;
+            }
         }
     }
-}
 
-.accordion {
-    a[data-toggle="collapse"] {
-        &[aria-expanded=true] .fe-chevron-down {
-            transform: rotate(180deg);
+
+    .accordion {
+        a[data-toggle="collapse"] {
+            &[aria-expanded=true] .fe-chevron-down {
+                transform: rotate(180deg);
+            }
         }
     }
+
+    /* .select2-container .select2-selection--single .select2-selection__arrow b {
+        border: none !important;
+        position: relative;
+
+        &::before {
+            position: absolute;
+            top: -7px;
+            left: 3px;
+            font-family: 'feather' !important;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            content: "\e842";
+        }
+    }
+
+    .select2-container .select2-selection--single[aria-expanded=true] .select2-selection__arrow b {
+        border: none !important;
+
+        &::before {
+            content: "\e845";
+        }
+    } */
 }
 
-.ai-badge{
+
+.ai-badge {
     padding: 5px;
     width: 50px;
     display: flex;
@@ -273,43 +305,42 @@ a.line-item {
     font-size: 1rem;
 }
 
-.bg-100{
+.bg-100 {
     background-color: #00BA70 !important;
 }
 
-.bg-90{
+.bg-90 {
     background-color: #1AAC66 !important;
 }
 
-.bg-80{
+.bg-80 {
     background-color: #339E5C !important;
 }
 
-.bg-70{
+.bg-70 {
     background-color: #4D9053 !important;
 }
 
-.bg-60{
+.bg-60 {
     background-color: #678249 !important;
 }
 
-.bg-50{
+.bg-50 {
     background-color: #80733F !important;
 }
 
-.bg-40{
+.bg-40 {
     background-color: #9A6535 !important;
 }
 
-.bg-30{
+.bg-30 {
     background-color: #B4572C !important;
 }
 
-.bg-20{
+.bg-20 {
     background-color: #CD4922 !important;
 }
 
-.bg-10{
+.bg-10 {
     background-color: #E73B18 !important;
 }
-
