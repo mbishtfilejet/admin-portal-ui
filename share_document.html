@@ -17,6 +17,7 @@
     <!-- App css -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="assets/libs/select2/select2.min.css" type="text/css">
+    <link rel="stylesheet" href="assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.css">
     <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/styles.css" rel="stylesheet" type="text/css" />
@@ -299,7 +300,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div id="file-preview_1" class="file-previewContainer">
+                                                <div id="file-preview_1" class="file-previewContainer d-none">
                                                     <div class="accordion" id="accordionExample_SOP_scan">
                                                         <div
                                                             class="card mb-3 mt-3 shadow-none border rounded-lg bg-light">
@@ -307,7 +308,7 @@
                                                                 id="heading_SOP_scan">
                                                                 <a class="d-flex align-items-center justify-content-between"
                                                                     data-toggle="collapse" href="#collapse_SOP_scan"
-                                                                    aria-expanded="true"
+                                                                    aria-expanded="false"
                                                                     aria-controls="collapse_SOP_scan">
                                                                     <h4 class="my-0 header-title">
                                                                         Scanned Document
@@ -316,7 +317,7 @@
                                                                 </a>
                                                             </div>
 
-                                                            <div id="collapse_SOP_scan" class="collapse show"
+                                                            <div id="collapse_SOP_scan" class="collapse"
                                                                 aria-labelledby="heading_SOP_scan"
                                                                 data-parent="#accordionExample_SOP_scan">
                                                                 <div class="card-body pt-0">
@@ -335,43 +336,102 @@
                                                                             <div class="document-details col-lg-6">
                                                                                 <form role="form">
                                                                                     <div
-                                                                                        class="card-box bg-white border rounded-lg p-2">
+                                                                                        class="card-box bg-white border rounded-lg p-2 prefilled-container">
                                                                                         <div class="form-group mb-1">
                                                                                             <label for="inputEntity"
-                                                                                                class="col-form-label pt-0">Entity</label>
+                                                                                                class="col-form-label pt-0">Entity
+                                                                                                <i class="fa-xs mdi mdi-asterisk"
+                                                                                                    style="color: #ff551aff;"></i></label>
                                                                                             <select id="inputEntity"
-                                                                                                class="form-control select2">
+                                                                                                placeholder="Search by Entity Name"
+                                                                                                data-search-allowed="true"
+                                                                                                class="form-control select2 entity-field">
                                                                                                 <option value=""
-                                                                                                    selected hidden=""
-                                                                                                    disabled="">
-                                                                                                    Search Entity
+                                                                                                    disabled selected
+                                                                                                    hidden>
+                                                                                                    Select Entity
                                                                                                 </option>
-                                                                                                <option>Home Entity 1
-                                                                                                    (DE)
+                                                                                                <option value="RASA
+                                                                                                    Realty LLC (DE) -
+                                                                                                    Domestic">RASA
+                                                                                                    Realty LLC (DE) -
+                                                                                                    Domestic</option>
+                                                                                                <option
+                                                                                                    value="KK
+                                                                                                    RENEWAL HOLDINGS
+                                                                                                    CORP (CA) - Domestic">
+                                                                                                    KK
+                                                                                                    RENEWAL HOLDINGS
+                                                                                                    CORP (CA) - Domestic
                                                                                                 </option>
-                                                                                                <option>Child Entity -
-                                                                                                    II (FL)
+                                                                                                <option value="RESOURCE INCOME
+                                                                                                    PARTNERS LIMITED
+                                                                                                    PARTNERSHIP (FL) -
+                                                                                                    Foreign">
+                                                                                                    RESOURCE INCOME
+                                                                                                    PARTNERS LIMITED
+                                                                                                    PARTNERSHIP (FL) -
+                                                                                                    Foreign
                                                                                                 </option>
+                                                                                                <option value="Pikewood Group, LLC
+                                                                                                    (AI) - Foreign">
+                                                                                                    Pikewood Group, LLC
+                                                                                                    (AI) - Foreign
+                                                                                                </option>
+                                                                                                <option value="MARKSET FUND I
+                                                                                                    -01-SERIES 1 L.L.C.,
+                                                                                                    (WY) - Domestic">
+                                                                                                    MARKSET FUND I
+                                                                                                    -01-SERIES 1 L.L.C.,
+                                                                                                    (WY) - Domestic
+                                                                                                </option>
+                                                                                                <option value="DEJONG'S QUANTUM TAX
+                                                                                                    STRATEGIES, A
+                                                                                                    PROFESSIONAL
+                                                                                                    ACCOUNTANCY
+                                                                                                    CORPORATION (CA) -
+                                                                                                    Domestic">
+                                                                                                    DEJONG'S QUANTUM TAX
+                                                                                                    STRATEGIES, A
+                                                                                                    PROFESSIONAL
+                                                                                                    ACCOUNTANCY
+                                                                                                    CORPORATION (CA) -
+                                                                                                    Domestic</option>
                                                                                             </select>
                                                                                         </div>
 
                                                                                         <div class="form-group mb-1">
                                                                                             <label for="inputCustomer"
-                                                                                                placeholder="Search Customer"
                                                                                                 class="col-form-label">Customer
                                                                                                 Name</label>
                                                                                             <select id="inputCustomer"
-                                                                                                class="form-control select2">
+                                                                                                placeholder="Customer Name"
+                                                                                                data-search-allowed="true"
+                                                                                                class="form-control select2 customer-field">
                                                                                                 <option value=""
                                                                                                     selected hidden=""
                                                                                                     disabled="">
                                                                                                     Search Customer Name
                                                                                                 </option>
-                                                                                                <option>Home Entity 1
-                                                                                                    (DE)
+                                                                                                <option
+                                                                                                    value="Corporation Inc.">
+                                                                                                    Corporation Inc.
                                                                                                 </option>
-                                                                                                <option>Child Entity -
-                                                                                                    II (FL)
+                                                                                                <option
+                                                                                                    value="Alphabet Inc.">
+                                                                                                    Alphabet Inc.
+                                                                                                </option>
+                                                                                                <option
+                                                                                                    value="ApexAplhaVentures">
+                                                                                                    ApexAplhaVentures
+                                                                                                </option>
+                                                                                                <option
+                                                                                                    value="Amazon Warehouse">
+                                                                                                    Amazon Warehouse
+                                                                                                </option>
+                                                                                                <option
+                                                                                                    value="Nexa Creations">
+                                                                                                    Nexa Creations
                                                                                                 </option>
                                                                                             </select>
                                                                                         </div>
@@ -382,20 +442,24 @@
                                                                                                     class="col-form-label">Group
                                                                                                     Name</label>
                                                                                                 <select id="inputGroup"
-                                                                                                    class="form-control select2">
+                                                                                                    placeholder="Group Name"
+                                                                                                    data-search-allowed="true"
+                                                                                                    class="form-control select2 group-field">
                                                                                                     <option value=""
-                                                                                                        selected
-                                                                                                        hidden=""
-                                                                                                        disabled="">
-                                                                                                        Search Group
+                                                                                                        disabled=""
+                                                                                                        selected=""
+                                                                                                        hidden="">Group
+                                                                                                        Name
                                                                                                     </option>
-                                                                                                    <option>Home Entity
-                                                                                                        1
-                                                                                                        (DE)
+                                                                                                    <option
+                                                                                                        value="Adept HR">
+                                                                                                        Adept HR
                                                                                                     </option>
-                                                                                                    <option>Child Entity
-                                                                                                        -
-                                                                                                        II (FL)
+                                                                                                    <option
+                                                                                                        value="AIC CAPITAL V V MANAGER - Terminated">
+                                                                                                        AIC CAPITAL V V
+                                                                                                        MANAGER -
+                                                                                                        Terminated
                                                                                                     </option>
                                                                                                 </select>
                                                                                             </div>
@@ -406,21 +470,117 @@
                                                                                                     class="col-form-label">Jurisdiction</label>
                                                                                                 <select
                                                                                                     id="inputJurisdiction"
-                                                                                                    class="form-control select2">
+                                                                                                    placeholder="Jurisdiction"
+                                                                                                    data-search-allowed="true"
+                                                                                                    class="form-control select2 jurisdiction-field">
                                                                                                     <option value=""
                                                                                                         selected
                                                                                                         hidden=""
                                                                                                         disabled="">
-                                                                                                        Search Jurisdiction
+                                                                                                        Jurisdiction
                                                                                                     </option>
-                                                                                                    <option>Home Entity
-                                                                                                        1
-                                                                                                        (DE)
-                                                                                                    </option>
-                                                                                                    <option>Child Entity
-                                                                                                        -
-                                                                                                        II (FL)
-                                                                                                    </option>
+                                                                                                    <option value="AL">
+                                                                                                        AL</option>
+                                                                                                    <option value="AK">
+                                                                                                        AK</option>
+                                                                                                    <option value="AZ">
+                                                                                                        AZ</option>
+                                                                                                    <option value="AR">
+                                                                                                        AR</option>
+                                                                                                    <option value="CA">
+                                                                                                        CA</option>
+                                                                                                    <option value="CO">
+                                                                                                        CO</option>
+                                                                                                    <option value="CT">
+                                                                                                        CT</option>
+                                                                                                    <option value="DE">
+                                                                                                        DE</option>
+                                                                                                    <option value="DC">
+                                                                                                        DC</option>
+                                                                                                    <option value="FL">
+                                                                                                        FL</option>
+                                                                                                    <option value="GA">
+                                                                                                        GA</option>
+                                                                                                    <option value="HI">
+                                                                                                        HI</option>
+                                                                                                    <option value="ID">
+                                                                                                        ID</option>
+                                                                                                    <option value="IL">
+                                                                                                        IL</option>
+                                                                                                    <option value="IN">
+                                                                                                        IN</option>
+                                                                                                    <option value="IA">
+                                                                                                        IA</option>
+                                                                                                    <option value="KS">
+                                                                                                        KS</option>
+                                                                                                    <option value="KY">
+                                                                                                        KY</option>
+                                                                                                    <option value="LA">
+                                                                                                        LA</option>
+                                                                                                    <option value="ME">
+                                                                                                        ME</option>
+                                                                                                    <option value="MD">
+                                                                                                        MD</option>
+                                                                                                    <option value="MA">
+                                                                                                        MA</option>
+                                                                                                    <option value="MI">
+                                                                                                        MI</option>
+                                                                                                    <option value="MN">
+                                                                                                        MN</option>
+                                                                                                    <option value="MS">
+                                                                                                        MS</option>
+                                                                                                    <option value="MO">
+                                                                                                        MO</option>
+                                                                                                    <option value="MT">
+                                                                                                        MT</option>
+                                                                                                    <option value="NE">
+                                                                                                        NE</option>
+                                                                                                    <option value="NV">
+                                                                                                        NV</option>
+                                                                                                    <option value="NH">
+                                                                                                        NH</option>
+                                                                                                    <option value="NJ">
+                                                                                                        NJ</option>
+                                                                                                    <option value="NM">
+                                                                                                        NM</option>
+                                                                                                    <option value="NY">
+                                                                                                        NY</option>
+                                                                                                    <option value="NC">
+                                                                                                        NC</option>
+                                                                                                    <option value="ND">
+                                                                                                        ND</option>
+                                                                                                    <option value="OH">
+                                                                                                        OH</option>
+                                                                                                    <option value="OK">
+                                                                                                        OK</option>
+                                                                                                    <option value="OR">
+                                                                                                        OR</option>
+                                                                                                    <option value="PA">
+                                                                                                        PA</option>
+                                                                                                    <option value="RI">
+                                                                                                        RI</option>
+                                                                                                    <option value="SC">
+                                                                                                        SC</option>
+                                                                                                    <option value="SD">
+                                                                                                        SD</option>
+                                                                                                    <option value="TN">
+                                                                                                        TN</option>
+                                                                                                    <option value="TX">
+                                                                                                        TX</option>
+                                                                                                    <option value="UT">
+                                                                                                        UT</option>
+                                                                                                    <option value="VT">
+                                                                                                        VT</option>
+                                                                                                    <option value="VA">
+                                                                                                        VA</option>
+                                                                                                    <option value="WA">
+                                                                                                        WA</option>
+                                                                                                    <option value="WV">
+                                                                                                        WV</option>
+                                                                                                    <option value="WI">
+                                                                                                        WI</option>
+                                                                                                    <option value="WY">
+                                                                                                        WY</option>
                                                                                                 </select>
                                                                                             </div>
                                                                                         </div>
@@ -440,7 +600,9 @@
                                                                                                 <label
                                                                                                     for="inputEntityorDBA"
                                                                                                     class="col-form-label pt-0">Entity
-                                                                                                    or DBA Name</label>
+                                                                                                    or DBA Name <i
+                                                                                                        class="fa-xs mdi mdi-asterisk"
+                                                                                                        style="color: #ff551aff;"></i></label>
                                                                                                 <div
                                                                                                     class="d-flex h-100">
                                                                                                     <input type="text"
@@ -460,12 +622,15 @@
                                                                                                 <label
                                                                                                     for="inputServiceJurisdiction"
                                                                                                     class="col-form-label">Service
-                                                                                                    Jurisdiction</label>
+                                                                                                    Jurisdiction <i
+                                                                                                        class="fa-xs mdi mdi-asterisk"
+                                                                                                        style="color: #ff551aff;"></i></label>
                                                                                                 <div
                                                                                                     class="d-flex h-100">
                                                                                                     <input type="text"
                                                                                                         class="form-control"
                                                                                                         id="inputServiceJurisdiction"
+                                                                                                        required
                                                                                                         value="Los Angeles County Court"
                                                                                                         placeholder="Service Jurisdiction" />
                                                                                                     <span
@@ -532,21 +697,54 @@
                                                                                                     <label
                                                                                                         for="inputSOPType"
                                                                                                         class="col-form-label">SOP
-                                                                                                        Type</label>
-                                                                                                    <input type="text"
-                                                                                                        class="form-control"
+                                                                                                        Type <i
+                                                                                                            class="fa-xs mdi mdi-asterisk"
+                                                                                                            style="color: #ff551aff;"></i></label>
+                                                                                                    <select
                                                                                                         id="inputSOPType"
-                                                                                                        placeholder="Choose a type of Service of process">
+                                                                                                        required
+                                                                                                        placeholder="Choose a type of process"
+                                                                                                        data-search-allowed="false"
+                                                                                                        class="form-control select2">
+                                                                                                        <option value=""
+                                                                                                            selected
+                                                                                                            hidden>
+                                                                                                            Choose a
+                                                                                                            type of
+                                                                                                            service of
+                                                                                                            process
+                                                                                                        </option>
+                                                                                                        <option>
+                                                                                                            Certified
+                                                                                                            Mail
+                                                                                                        </option>
+                                                                                                        <option>Summons
+                                                                                                        </option>
+                                                                                                        <option>
+                                                                                                            Sheriff's
+                                                                                                            Notice
+                                                                                                        </option>
+                                                                                                        <option>Wage
+                                                                                                            Garnishment
+                                                                                                        </option>
+                                                                                                        <option>Other
+                                                                                                        </option>
+                                                                                                    </select>
                                                                                                 </div>
                                                                                                 <div
                                                                                                     class="form-group mb-1 col-md-6">
                                                                                                     <label
                                                                                                         for="inputFileType"
                                                                                                         class="col-form-label">File
-                                                                                                        Type</label>
+                                                                                                        Type <i
+                                                                                                            class="fa-xs mdi mdi-asterisk"
+                                                                                                            style="color: #ff551aff;"></i></label>
                                                                                                     <select
                                                                                                         id="inputFileType"
-                                                                                                        class="form-control">
+                                                                                                        required
+                                                                                                        placeholder="Choose a file type"
+                                                                                                        data-search-allowed="false"
+                                                                                                        class="form-control select2">
                                                                                                         <option value=""
                                                                                                             selected
                                                                                                             hidden>
@@ -565,11 +763,30 @@
                                                                                                 <label
                                                                                                     for="inputDeliveryMethod"
                                                                                                     class="col-form-label">Delivery
-                                                                                                    Method</label>
-                                                                                                <input type="text"
-                                                                                                    class="form-control"
+                                                                                                    Method <i
+                                                                                                        class="fa-xs mdi mdi-asterisk"
+                                                                                                        style="color: #ff551aff;"></i></label>
+                                                                                                <select
                                                                                                     id="inputDeliveryMethod"
-                                                                                                    placeholder="Choose a delivery method">
+                                                                                                    required
+                                                                                                    placeholder="Choose a delivery method"
+                                                                                                    data-search-allowed="false"
+                                                                                                    class="form-control select2">
+                                                                                                    <option value=""
+                                                                                                        selected
+                                                                                                        disabled hidden>
+                                                                                                        Choose a
+                                                                                                        delivery method
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="Certified Mail">
+                                                                                                        Certified Mail
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="In Person">
+                                                                                                        In Person
+                                                                                                    </option>
+                                                                                                </select>
                                                                                             </div>
 
                                                                                             <div class="form-row">
@@ -579,14 +796,23 @@
                                                                                                         for="inputDateServed"
                                                                                                         class="col-form-label">Date
                                                                                                         Served</label>
-
                                                                                                     <div class="d-flex">
-                                                                                                        <input
-                                                                                                            type="text"
-                                                                                                            class="form-control"
-                                                                                                            id="inputDateServed"
-                                                                                                            value="01/22/2025"
-                                                                                                            placeholder="Date Served" />
+                                                                                                        <div
+                                                                                                            class="input-group">
+                                                                                                            <input
+                                                                                                                id="inputDateServed"
+                                                                                                                type="text"
+                                                                                                                class="form-control"
+                                                                                                                data-provide="datepicker"
+                                                                                                                value="02/13/2025"
+                                                                                                                data-date-autoclose="true">
+                                                                                                            <div
+                                                                                                                class="input-group-append">
+                                                                                                                <span
+                                                                                                                    class="input-group-text"><i
+                                                                                                                        class="ti-calendar"></i></span>
+                                                                                                            </div>
+                                                                                                        </div>
                                                                                                         <span
                                                                                                             class="ml-1 flex-grow-1 rounded-sm text-white ai-badge bg-60">60%</span>
                                                                                                     </div>
@@ -598,12 +824,22 @@
                                                                                                         class="col-form-label">Respond
                                                                                                         By Date</label>
                                                                                                     <div class="d-flex">
-                                                                                                        <input
-                                                                                                            type="text"
-                                                                                                            class="form-control"
-                                                                                                            id="inputRespondDte"
-                                                                                                            value="05/22/2025"
-                                                                                                            placeholder="Respond By Date" />
+                                                                                                        <div
+                                                                                                            class="input-group">
+                                                                                                            <input
+                                                                                                                id="inputRespondDte"
+                                                                                                                type="text"
+                                                                                                                class="form-control"
+                                                                                                                value="03/13/2025"
+                                                                                                                data-provide="datepicker"
+                                                                                                                data-date-autoclose="true">
+                                                                                                            <div
+                                                                                                                class="input-group-append">
+                                                                                                                <span
+                                                                                                                    class="input-group-text"><i
+                                                                                                                        class="ti-calendar"></i></span>
+                                                                                                            </div>
+                                                                                                        </div>
                                                                                                         <span
                                                                                                             class="ml-1 flex-grow-1 rounded-sm text-white ai-badge bg-50">50%</span>
                                                                                                     </div>
@@ -629,13 +865,14 @@
                                                                                                 <select
                                                                                                     id="inputCoverPage"
                                                                                                     placeholder="Has Cover Page"
+                                                                                                    data-search-allowed="false"
                                                                                                     class="form-control select2">
                                                                                                     <option value=""
-                                                                                                        selected hidden
-                                                                                                        disabled>
+                                                                                                        hidden disabled>
                                                                                                         Has Cover Page
                                                                                                     </option>
-                                                                                                    <option>Yes</option>
+                                                                                                    <option selected>Yes
+                                                                                                    </option>
                                                                                                     <option>No</option>
                                                                                                 </select>
                                                                                             </div>
@@ -645,16 +882,21 @@
                                                                                                 <label
                                                                                                     for="inputHasCheck"
                                                                                                     class="col-form-label">Has
-                                                                                                    Check</label>
+                                                                                                    Check <i
+                                                                                                        class="fa-xs mdi mdi-asterisk"
+                                                                                                        style="color: #ff551aff;"></i></label>
                                                                                                 <select
                                                                                                     id="inputHasCheck"
+                                                                                                    required
+                                                                                                    placeholder="Has Check"
+                                                                                                    data-search-allowed="false"
                                                                                                     class="form-control select2">
                                                                                                     <option value=""
-                                                                                                        selected hidden
-                                                                                                        disabled>
+                                                                                                        hidden disabled>
                                                                                                         Has Check
                                                                                                     </option>
-                                                                                                    <option>Yes</option>
+                                                                                                    <option selected>Yes
+                                                                                                    </option>
                                                                                                     <option>No</option>
                                                                                                 </select>
                                                                                             </div>
@@ -909,7 +1151,7 @@
                                                                 id="heading_general_scan">
                                                                 <a class="d-flex align-items-center justify-content-between"
                                                                     data-toggle="collapse" href="#collapse_general_scan"
-                                                                    aria-expanded="true"
+                                                                    aria-expanded="false"
                                                                     aria-controls="collapse_general_scan">
                                                                     <h4 class="my-0 header-title">
                                                                         Scanned Document
@@ -918,7 +1160,7 @@
                                                                 </a>
                                                             </div>
 
-                                                            <div id="collapse_general_scan" class="collapse show"
+                                                            <div id="collapse_general_scan" class="collapse"
                                                                 aria-labelledby="heading_general_scan"
                                                                 data-parent="#accordionExample_general_scan">
                                                                 <div class="card-body pt-0">
@@ -935,46 +1177,254 @@
                                                                         <div class="document-details col-lg-6">
                                                                             <form role="form">
                                                                                 <div
-                                                                                    class="card-box bg-white border rounded-lg p-2">
+                                                                                    class="card-box bg-white border rounded-lg p-2 prefilled-container">
                                                                                     <div class="form-group mb-1">
-                                                                                        <label for="inputEntity"
-                                                                                            class="col-form-label pt-0">Entity</label>
-                                                                                        <input type="search"
-                                                                                            class="form-control"
-                                                                                            id="inputEntity"
-                                                                                            placeholder="Search Entity"
-                                                                                            value="hi" required>
+                                                                                        <label for="inputGeneralEntity"
+                                                                                            class="col-form-label pt-0">Entity
+                                                                                            <i class="fa-xs mdi mdi-asterisk"
+                                                                                                style="color: #ff551aff;"></i></label>
+                                                                                        <select id="inputGeneralEntity"
+                                                                                            placeholder="Search by Entity Name"
+                                                                                            data-search-allowed="true"
+                                                                                            class="form-control select2 entity-field">
+                                                                                            <option value="" disabled
+                                                                                                selected hidden>
+                                                                                                Search by Entity Name
+                                                                                            </option>
+                                                                                            <option value="RASA
+                                                                                                    Realty LLC (DE) -
+                                                                                                    Domestic">RASA
+                                                                                                Realty LLC (DE) -
+                                                                                                Domestic</option>
+                                                                                            <option
+                                                                                                value="KK
+                                                                                                    RENEWAL HOLDINGS
+                                                                                                    CORP (CA) - Domestic">
+                                                                                                KK
+                                                                                                RENEWAL HOLDINGS
+                                                                                                CORP (CA) - Domestic
+                                                                                            </option>
+                                                                                            <option value="RESOURCE INCOME
+                                                                                                    PARTNERS LIMITED
+                                                                                                    PARTNERSHIP (FL) -
+                                                                                                    Foreign">
+                                                                                                RESOURCE INCOME
+                                                                                                PARTNERS LIMITED
+                                                                                                PARTNERSHIP (FL) -
+                                                                                                Foreign
+                                                                                            </option>
+                                                                                            <option value="Pikewood Group, LLC
+                                                                                                    (AI) - Foreign">
+                                                                                                Pikewood Group, LLC
+                                                                                                (AI) - Foreign
+                                                                                            </option>
+                                                                                            <option value="MARKSET FUND I
+                                                                                                    -01-SERIES 1 L.L.C.,
+                                                                                                    (WY) - Domestic">
+                                                                                                MARKSET FUND I
+                                                                                                -01-SERIES 1 L.L.C.,
+                                                                                                (WY) - Domestic
+                                                                                            </option>
+                                                                                            <option value="DEJONG'S QUANTUM TAX
+                                                                                                    STRATEGIES, A
+                                                                                                    PROFESSIONAL
+                                                                                                    ACCOUNTANCY
+                                                                                                    CORPORATION (CA) -
+                                                                                                    Domestic">
+                                                                                                DEJONG'S QUANTUM TAX
+                                                                                                STRATEGIES, A
+                                                                                                PROFESSIONAL
+                                                                                                ACCOUNTANCY
+                                                                                                CORPORATION (CA) -
+                                                                                                Domestic</option>
+                                                                                        </select>
                                                                                     </div>
 
                                                                                     <div class="form-group mb-1">
-                                                                                        <label for="inputCustomer"
+                                                                                        <label
+                                                                                            for="inputGeneralCustomer"
+                                                                                            placeholder="Search Customer"
                                                                                             class="col-form-label">Customer
                                                                                             Name</label>
-                                                                                        <input type="search"
-                                                                                            class="form-control"
-                                                                                            id="inputCustomer"
-                                                                                            placeholder="Search Customer">
+                                                                                        <select
+                                                                                            id="inputGeneralCustomer"
+                                                                                            placeholder="Customer Name"
+                                                                                            data-search-allowed="true"
+                                                                                            class="form-control select2 customer-field">
+                                                                                            <option value="" selected
+                                                                                                hidden="" disabled="">
+                                                                                                Customer Name
+                                                                                            </option>
+                                                                                            <option
+                                                                                                value="Corporation Inc.">
+                                                                                                Corporation Inc.
+                                                                                            </option>
+                                                                                            <option
+                                                                                                value="Alphabet Inc.">
+                                                                                                Alphabet Inc.
+                                                                                            </option>
+                                                                                            <option
+                                                                                                value="ApexAplhaVentures">
+                                                                                                ApexAplhaVentures
+                                                                                            </option>
+                                                                                            <option
+                                                                                                value="Amazon Warehouse">
+                                                                                                Amazon Warehouse
+                                                                                            </option>
+                                                                                            <option
+                                                                                                value="Nexa Creations">
+                                                                                                Nexa Creations
+                                                                                            </option>
+                                                                                        </select>
                                                                                     </div>
                                                                                     <div class="form-row">
                                                                                         <div
                                                                                             class="form-group mb-0 col-md-6">
-                                                                                            <label for="inputGroup"
+                                                                                            <label
+                                                                                                for="inputGeneralGroup"
                                                                                                 class="col-form-label">Group
                                                                                                 Name</label>
-                                                                                            <input type="search"
-                                                                                                class="form-control"
-                                                                                                id="inputGroup"
-                                                                                                placeholder="Search Group">
+                                                                                            <select
+                                                                                                id="inputGeneralGroup"
+                                                                                                placeholder="Group Name"
+                                                                                                data-search-allowed="true"
+                                                                                                class="form-control select2 group-field">
+                                                                                                <option value=""
+                                                                                                    disabled=""
+                                                                                                    selected=""
+                                                                                                    hidden="">Group
+                                                                                                    Name
+                                                                                                </option>
+                                                                                                <option
+                                                                                                    value="Adept HR">
+                                                                                                    Adept HR
+                                                                                                </option>
+                                                                                                <option
+                                                                                                    value="AIC CAPITAL V V MANAGER - Terminated">
+                                                                                                    AIC CAPITAL V V
+                                                                                                    MANAGER -
+                                                                                                    Terminated
+                                                                                                </option>
+                                                                                            </select>
                                                                                         </div>
                                                                                         <div
                                                                                             class="form-group mb-0 col-md-6">
                                                                                             <label
-                                                                                                for="inputJurisdiction"
+                                                                                                for="inputGeneralJurisdiction"
                                                                                                 class="col-form-label">Jurisdiction</label>
-                                                                                            <input type="search"
-                                                                                                class="form-control"
-                                                                                                id="inputJurisdiction"
-                                                                                                placeholder="Search Jurisdiction">
+                                                                                            <select
+                                                                                                id="inputGeneralJurisdiction"
+                                                                                                placeholder="Jurisdiction"
+                                                                                                data-search-allowed="true"
+                                                                                                class="form-control select2 jurisdiction-field">
+                                                                                                <option value=""
+                                                                                                    selected hidden=""
+                                                                                                    disabled="">
+                                                                                                    Jurisdiction
+                                                                                                </option>
+                                                                                                <option value="AL">
+                                                                                                    AL</option>
+                                                                                                <option value="AK">
+                                                                                                    AK</option>
+                                                                                                <option value="AZ">
+                                                                                                    AZ</option>
+                                                                                                <option value="AR">
+                                                                                                    AR</option>
+                                                                                                <option value="CA">
+                                                                                                    CA</option>
+                                                                                                <option value="CO">
+                                                                                                    CO</option>
+                                                                                                <option value="CT">
+                                                                                                    CT</option>
+                                                                                                <option value="DE">
+                                                                                                    DE</option>
+                                                                                                <option value="DC">
+                                                                                                    DC</option>
+                                                                                                <option value="FL">
+                                                                                                    FL</option>
+                                                                                                <option value="GA">
+                                                                                                    GA</option>
+                                                                                                <option value="HI">
+                                                                                                    HI</option>
+                                                                                                <option value="ID">
+                                                                                                    ID</option>
+                                                                                                <option value="IL">
+                                                                                                    IL</option>
+                                                                                                <option value="IN">
+                                                                                                    IN</option>
+                                                                                                <option value="IA">
+                                                                                                    IA</option>
+                                                                                                <option value="KS">
+                                                                                                    KS</option>
+                                                                                                <option value="KY">
+                                                                                                    KY</option>
+                                                                                                <option value="LA">
+                                                                                                    LA</option>
+                                                                                                <option value="ME">
+                                                                                                    ME</option>
+                                                                                                <option value="MD">
+                                                                                                    MD</option>
+                                                                                                <option value="MA">
+                                                                                                    MA</option>
+                                                                                                <option value="MI">
+                                                                                                    MI</option>
+                                                                                                <option value="MN">
+                                                                                                    MN</option>
+                                                                                                <option value="MS">
+                                                                                                    MS</option>
+                                                                                                <option value="MO">
+                                                                                                    MO</option>
+                                                                                                <option value="MT">
+                                                                                                    MT</option>
+                                                                                                <option value="NE">
+                                                                                                    NE</option>
+                                                                                                <option value="NV">
+                                                                                                    NV</option>
+                                                                                                <option value="NH">
+                                                                                                    NH</option>
+                                                                                                <option value="NJ">
+                                                                                                    NJ</option>
+                                                                                                <option value="NM">
+                                                                                                    NM</option>
+                                                                                                <option value="NY">
+                                                                                                    NY</option>
+                                                                                                <option value="NC">
+                                                                                                    NC</option>
+                                                                                                <option value="ND">
+                                                                                                    ND</option>
+                                                                                                <option value="OH">
+                                                                                                    OH</option>
+                                                                                                <option value="OK">
+                                                                                                    OK</option>
+                                                                                                <option value="OR">
+                                                                                                    OR</option>
+                                                                                                <option value="PA">
+                                                                                                    PA</option>
+                                                                                                <option value="RI">
+                                                                                                    RI</option>
+                                                                                                <option value="SC">
+                                                                                                    SC</option>
+                                                                                                <option value="SD">
+                                                                                                    SD</option>
+                                                                                                <option value="TN">
+                                                                                                    TN</option>
+                                                                                                <option value="TX">
+                                                                                                    TX</option>
+                                                                                                <option value="UT">
+                                                                                                    UT</option>
+                                                                                                <option value="VT">
+                                                                                                    VT</option>
+                                                                                                <option value="VA">
+                                                                                                    VA</option>
+                                                                                                <option value="WA">
+                                                                                                    WA</option>
+                                                                                                <option value="WV">
+                                                                                                    WV</option>
+                                                                                                <option value="WI">
+                                                                                                    WI</option>
+                                                                                                <option value="WY">
+                                                                                                    WY</option>
+                                                                                            </select>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -994,12 +1444,20 @@
                                                                                                     for="inputDOCType"
                                                                                                     class="col-form-label">DOC
                                                                                                     Type</label>
-
                                                                                                 <div class="d-flex">
                                                                                                     <select
                                                                                                         id="inputDOCType"
-                                                                                                        class="form-control">
-                                                                                                        <option>Annual
+                                                                                                        placeholder="Choose a DOC type"
+                                                                                                        data-search-allowed="false"
+                                                                                                        class="form-control select2">
+                                                                                                        <option value=""
+                                                                                                            hidden>
+                                                                                                            Choose a DOC
+                                                                                                            type
+                                                                                                        </option>
+                                                                                                        <option
+                                                                                                            selected>
+                                                                                                            Annual
                                                                                                             Report
                                                                                                         </option>
                                                                                                         <option>SOP
@@ -1019,8 +1477,16 @@
                                                                                                 <div class="d-flex">
                                                                                                     <select
                                                                                                         id="inputGeneralFileType"
-                                                                                                        class="form-control">
-                                                                                                        <option>PDF
+                                                                                                        placeholder="Choose a file type"
+                                                                                                        data-search-allowed="false"
+                                                                                                        class="form-control select2">
+                                                                                                        <option value=""
+                                                                                                            hidden>
+                                                                                                            Choose a
+                                                                                                            file type
+                                                                                                        </option>
+                                                                                                        <option
+                                                                                                            selected>PDF
                                                                                                         </option>
                                                                                                         <option>WORD
                                                                                                         </option>
@@ -1276,14 +1742,14 @@
         <!-- Plugins js -->
         <script src="assets/libs/dropzone/dropzone.min.js"></script>
 
+        <script src="assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+
         <script src="assets/libs/select2/select2.min.js"></script>
 
         <!-- App js -->
         <script src="assets/js/app.min.js"></script>
 
         <script src="assets/js/shared_doc.js"></script>
-
-
 
 </body>
 

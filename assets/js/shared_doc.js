@@ -447,21 +447,56 @@ $(function () {
 
 $(document).ready(function () {
 
-    const tabsSelect = [
-        { id: "inputEntity", placeholder: "Select Entity", searchAllowed: true },
-        { id: "inputCustomer", placeholder: "Select Customer Name", searchAllowed: true },
-        { id: "inputGroup", placeholder: "Select Group", searchAllowed: true },
-        { id: "inputJurisdiction", placeholder: "Select Jurisdiction", searchAllowed: true },
-    ]
+    $(".tab-content .select2").each(function () {
+        const selectEl = $(this);
+        const placeholder = selectEl.attr('placeholder');
+        const searchAllowed = selectEl.data('searchAllowed');
 
-    tabsSelect.forEach(select => {
-        $(`.tab-content #${select.id}.select2`).select2({
-            placeholder: select.placeholder,
-            ...(!select.searchAllowed ? { minimumResultsForSearch: Infinity } : {})
-        });
+        selectEl.select2({
+            placeholder: placeholder,
+            ...(!searchAllowed ? { minimumResultsForSearch: Infinity } : {})
+        })
     })
 
     $('.tab-content .select2').on('select2:open select2:select', () => {
         $('.select2-search__field').attr('placeholder', 'Search...');
     });
 });
+
+// functionality wise code just for reference
+$(function () {
+    // const searchFieldId = ["#inputEntity", "#inputGeneralEntity"];
+
+    $(document).on('select2:select', '.tab-content .select2.entity-field', function () {
+
+
+        const parent = $(this).closest('.prefilled-container');
+
+        const customerField = parent.find('.customer-field');
+        const groupField = parent.find('.group-field');
+        const jurisdictionField = parent.find('.jurisdiction-field');
+
+        setValue(customerField, "Alphabet Inc.");
+        setValue(groupField, "Adept HR");
+        setValue(jurisdictionField, "AZ");
+
+    })
+
+    function setValue(element, data) {
+        if (!data) return;
+
+        let option = element.find(`option[value="${data}"]`);
+
+        option.prop('selected', true);
+
+        element.trigger('change');
+
+    }
+
+
+    // serachFieldId.forEach((fieldID) => {
+    //     $(`.tab-content ${fieldID}.select2`).on('select2:select', () => {
+
+    //     });
+    // })
+})
