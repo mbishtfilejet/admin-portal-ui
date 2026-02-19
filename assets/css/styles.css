@@ -266,7 +266,7 @@ a.line-item {
         }
     }
 
-    .col-form-label{
+    .col-form-label {
         display: flex;
         align-items: center;
         gap: 2px;
@@ -281,6 +281,7 @@ a.line-item {
     align-items: center;
     justify-content: center;
     font-size: 1rem;
+    background-color: #F82B02;
 }
 
 .bg-100 {
@@ -321,4 +322,62 @@ a.line-item {
 
 .bg-10 {
     background-color: #E73B18 !important;
+}
+
+.generalSection {
+    min-height: 0;
+    transition: all 1s ease-in-out;
+
+    .form-group>* {
+        position: relative;
+        transition: all 0.5s ease-in-out;
+
+        &::before {
+            position: absolute;
+            content: "";
+            inset: -1px;
+            border-radius: 2px;
+            z-index: 2000;
+            animation: skeleton-loading 1s linear infinite alternate
+        }
+
+        &.show::before {
+            display: none;
+        }
+    }
+}
+
+.ai-animate-box {
+    inset: 0;
+    backdrop-filter: blur(10px);
+    z-index: 1030;
+
+    display: none;
+
+    &.show {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & .mdi-star-four-points::before {
+            font-size: 2rem;
+            animation: rotate 1.5s infinite linear;
+        }
+    }
+}
+
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    60% {
+        transform: rotate(300deg);
+    }
+
+    100% {
+        transform: rotate(300deg);
+        content: "\FAE2";
+    }
 }

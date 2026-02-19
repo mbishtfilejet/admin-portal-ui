@@ -347,6 +347,10 @@ $(function () {
 
                 sopPreviewEl.removeClass('d-none').hide().fadeIn(300);
 
+                setTimeout(() => sopPreviewEl.find('.ai-animate-box').fadeOut(200).removeClass('show'), 4000);
+
+                animateAIExtractionField(sopPreviewEl);
+
                 sopPreviewEl.find('.progress-bar')
                     .css('width', '0%')
                     .attr('aria-valuenow', 0)
@@ -405,6 +409,10 @@ $(function () {
             this.on('addedfile', function (file) {
 
                 generalPreviewEl.removeClass('d-none').hide().fadeIn(300);
+
+                setTimeout(() => generalPreviewEl.find('.ai-animate-box').fadeOut(200).removeClass('show'), 4000);
+
+                animateAIExtractionField(generalPreviewEl);
 
                 generalPreviewEl.find('.progress-bar')
                     .css('width', '0%')
@@ -492,11 +500,88 @@ $(function () {
         element.trigger('change');
 
     }
-
-
-    // serachFieldId.forEach((fieldID) => {
-    //     $(`.tab-content ${fieldID}.select2`).on('select2:select', () => {
-
-    //     });
-    // })
 })
+
+function animateAIExtractionField(element) {
+    const formFields = element.find(".generalSection .form-group");
+    formFields.hide();
+    showNext(0, formFields);
+}
+
+function animateFields(cb) {
+    let current = 0;
+    const interval = setInterval(() => {
+        current += 10;
+        if (current <= 190) {
+            clearInterval(interval)
+            if (cb) cb();
+        }
+    }, 2000)
+}
+
+
+function showNext(index, formFields) {
+
+    if (index >= formFields.length) return;
+    const innerFields = formFields.eq(index).children();
+
+    innerFields.removeClass("show");
+
+    formFields.eq(index).fadeIn(200);
+
+    innerFields.eq(0).addClass("show");
+
+    setTimeout(() => {
+        innerFields.eq(1).addClass("show");
+        const aiBadge = formFields.eq(index).find('.ai-badge');
+        if (aiBadge) {
+            animateBadge(aiBadge);
+        }
+    }, 1000)
+
+
+    animateFields(() => showNext(index + 1, formFields))
+}
+
+
+
+function animateBadge(element) {
+
+    let counter = 0
+
+    let currentbadgeClass = null;
+
+    const value = element.data('value');
+
+
+
+    element.text('')
+
+    if (value === 100) {
+        rounded = 100;
+    }
+
+    let interval = setInterval(() => {
+
+        counter += 10;
+        let rounded = Math.floor(counter / 10) * 10;
+        if (rounded >= value) {
+            rounded = Math.floor(value / 10) * 10;
+            clearInterval(interval);
+            element.removeClass(currentbadgeClass);
+            element.addClass(`bg-${rounded}`)
+            element.text(`${value}%`);
+            return;
+        }
+        if (currentbadgeClass) {
+            element.removeClass(currentbadgeClass)
+        }
+
+        currentbadgeClass = "bg-" + rounded;
+        element.addClass(currentbadgeClass);
+
+        element.text(`${counter}%`)
+    }, 100)
+
+
+}
