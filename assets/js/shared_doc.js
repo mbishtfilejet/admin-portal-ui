@@ -500,7 +500,46 @@ $(function () {
         element.trigger('change');
 
     }
+
+
+    $('.tab-content .select2.entity-field').on('select2:open select2:select', function () {
+
+        const selectElement = $(this);
+        const matchIcon = selectElement.closest('.form-group').find('.multi-match-icon');
+
+        $('.select2-search__field').on('input', debounce(function (e) {
+            let matchCount = 0;
+            let value = e.target.value.trim().toLowerCase();
+            let results = $('.select2-results__option');
+
+            if (value) {
+                results.each(function () {
+                    let optionValue = $(this).text().trim().toLowerCase();
+                    if (optionValue.startsWith(value)) matchCount++;
+                });
+            } else {
+                matchCount = 0;
+            }
+
+            if (matchCount > 1) {
+                matchIcon.fadeIn(50);
+            } else {
+                matchIcon.fadeOut(50);
+            }
+        }, 500));
+    });
 })
+
+function debounce(func, wait) {
+    let timeout;
+    return function (...args) {
+        const context = this;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+            func.apply(context, args);
+        }, wait);
+    };
+}
 
 function animateAIExtractionField(element) {
     const formFields = element.find(".generalSection .form-group");

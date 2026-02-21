@@ -381,3 +381,8 @@ a.line-item {
         content: "\FAE2";
     }
 }
+
+
+.multi-match-icon{
+    display: none;
+}
