@@ -26,6 +26,18 @@
 
 <body class="left-side-menu-dark topbar-light">
 
+    <!-- Pre-loader -->
+    <div id="preloader">
+        <div id="status">
+            <div class="bouncingLoader">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <!-- End Preloader-->
+
     <!-- Begin page -->
     <div id="wrapper">
 
@@ -272,7 +284,7 @@
                                                                 <h4 class="my-0 header-title">
                                                                     Upload Document
                                                                 </h4>
-                                                                <span class="fe-chevron-down"></span>
+                                                                <span class="fe-chevron-down text-dark"></span>
                                                             </a>
                                                         </div>
 
@@ -313,7 +325,7 @@
                                                                     <h4 class="my-0 header-title">
                                                                         Scanned Document
                                                                     </h4>
-                                                                    <span class="fe-chevron-down"></span>
+                                                                    <span class="fe-chevron-down text-dark"></span>
                                                                 </a>
                                                             </div>
 
@@ -574,7 +586,220 @@
                                                                                                 General
                                                                                             </h4>
                                                                                         </div>
-                                                                                        <div class="card-body p-0">
+                                                                                        <div
+                                                                                            class="card-body p-0 placeholderSection">
+                                                                                            <div
+                                                                                                class="form-group mb-1">
+                                                                                                <label for=""
+                                                                                                    class="col-form-label pt-0">Entity
+                                                                                                    or DBA Name <i
+                                                                                                        class="fa-xs mdi mdi-asterisk"
+                                                                                                        style="color: #ff551aff;"></i></label>
+                                                                                                <div class="d-flex">
+                                                                                                    <div
+                                                                                                        class="placeholder form-control w-100">
+                                                                                                    </div>
+                                                                                                    <span
+                                                                                                        class="ml-1 flex-grow-1 rounded-sm ai-badge placeholder">10%</span>
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                            <div
+                                                                                                class="form-group mb-1">
+                                                                                                <label for=""
+                                                                                                    class="col-form-label">Service
+                                                                                                    Jurisdiction <i
+                                                                                                        class="fa-xs mdi mdi-asterisk"
+                                                                                                        style="color: #ff551aff;"></i></label>
+                                                                                                <div class="d-flex">
+                                                                                                    <div
+                                                                                                        class="placeholder form-control w-100">
+                                                                                                    </div>
+                                                                                                    <span
+                                                                                                        class="ml-1 flex-grow-1 rounded-sm ai-badge placeholder">10%</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div
+                                                                                                class="form-group mb-1">
+                                                                                                <label for=""
+                                                                                                    class="col-form-label">Entity
+                                                                                                    File Number</label>
+
+                                                                                                <div class="d-flex">
+                                                                                                    <div
+                                                                                                        class="placeholder form-control w-100">
+                                                                                                    </div>
+                                                                                                    <span
+                                                                                                        class="ml-1 flex-grow-1 rounded-sm ai-badge placeholder">10%</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div
+                                                                                                class="form-group mb-1">
+                                                                                                <label for=""
+                                                                                                    class="col-form-label">Matter
+                                                                                                    Name</label>
+
+                                                                                                <div class="d-flex">
+                                                                                                    <div
+                                                                                                        class="placeholder form-control w-100">
+                                                                                                    </div>
+                                                                                                    <span
+                                                                                                        class="ml-1 flex-grow-1 rounded-sm ai-badge placeholder">10%</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div
+                                                                                                class="form-group mb-1">
+                                                                                                <label for=""
+                                                                                                    class="col-form-label">Case
+                                                                                                    #</label>
+                                                                                                <div class="d-flex">
+                                                                                                    <div
+                                                                                                        class="placeholder form-control w-100">
+                                                                                                    </div>
+                                                                                                    <span
+                                                                                                        class="ml-1 flex-grow-1 rounded-sm ai-badge placeholder">10%</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="form-row">
+                                                                                                <div
+                                                                                                    class="form-group mb-1 col-md-6">
+                                                                                                    <label for=""
+                                                                                                        class="col-form-label">SOP
+                                                                                                        Type <i
+                                                                                                            class="fa-xs mdi mdi-asterisk"
+                                                                                                            style="color: #ff551aff;"></i></label>
+                                                                                                    <div class="d-flex">
+                                                                                                        <div
+                                                                                                            class="placeholder form-control w-100">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="form-group mb-1 col-md-6">
+                                                                                                    <label for=""
+                                                                                                        class="col-form-label">File
+                                                                                                        Type <i
+                                                                                                            class="fa-xs mdi mdi-asterisk"
+                                                                                                            style="color: #ff551aff;"></i></label>
+                                                                                                    <div class="d-flex">
+                                                                                                        <div
+                                                                                                            class="placeholder form-control w-100">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div
+                                                                                                class="form-group mb-1">
+                                                                                                <label for=""
+                                                                                                    class="col-form-label">Delivery
+                                                                                                    Method <i
+                                                                                                        class="fa-xs mdi mdi-asterisk"
+                                                                                                        style="color: #ff551aff;"></i></label>
+                                                                                                <div class="d-flex">
+                                                                                                    <div
+                                                                                                        class="placeholder form-control w-100">
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                            <div class="form-row">
+                                                                                                <div
+                                                                                                    class="form-group mb-1 col-md-6">
+                                                                                                    <label for=""
+                                                                                                        class="col-form-label">Date
+                                                                                                        Served</label>
+                                                                                                    <div class="d-flex">
+                                                                                                        <div
+                                                                                                            class="placeholder form-control w-100">
+                                                                                                        </div>
+                                                                                                        <span
+                                                                                                            class="ml-1 flex-grow-1 rounded-sm ai-badge placeholder">10%</span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="form-group mb-1 col-md-6">
+                                                                                                    <label for=""
+                                                                                                        class="col-form-label">Respond
+                                                                                                        By Date</label>
+                                                                                                    <div class="d-flex">
+                                                                                                        <div
+                                                                                                            class="placeholder form-control w-100">
+                                                                                                        </div>
+                                                                                                        <span
+                                                                                                            class="ml-1 flex-grow-1 rounded-sm ai-badge placeholder">10%</span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                            <div
+                                                                                                class="form-group mb-1">
+                                                                                                <label for=""
+                                                                                                    class="col-form-label">Issuer</label>
+                                                                                                <div class="d-flex">
+                                                                                                    <div
+                                                                                                        class="placeholder form-control w-100">
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div
+                                                                                                class="form-group mb-1">
+                                                                                                <label for=""
+                                                                                                    class="col-form-label">Has
+                                                                                                    Cover Page</label>
+                                                                                                <div class="d-flex">
+                                                                                                    <div
+                                                                                                        class="placeholder form-control w-100">
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                            <div
+                                                                                                class="form-group mb-1">
+                                                                                                <label for=""
+                                                                                                    class="col-form-label">Has
+                                                                                                    Check <i
+                                                                                                        class="fa-xs mdi mdi-asterisk"
+                                                                                                        style="color: #ff551aff;"></i></label>
+                                                                                                <div class="d-flex">
+                                                                                                    <div
+                                                                                                        class="placeholder form-control w-100">
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                            <div class="form-row">
+                                                                                                <div
+                                                                                                    class="form-group mb-0 col-md-6">
+                                                                                                    <label for=""
+                                                                                                        class="col-form-label">Check
+                                                                                                        #</label>
+
+                                                                                                    <div class="d-flex">
+                                                                                                        <div
+                                                                                                            class="placeholder form-control w-100">
+                                                                                                        </div>
+                                                                                                        <span
+                                                                                                            class="ml-1 flex-grow-1 rounded-sm ai-badge placeholder">10%</span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="form-group mb-0 col-md-6">
+                                                                                                    <label for=""
+                                                                                                        class="col-form-label">Check
+                                                                                                        Amount</label>
+
+                                                                                                    <div class="d-flex">
+                                                                                                        <div
+                                                                                                            class="placeholder form-control w-100">
+                                                                                                        </div>
+                                                                                                        <span
+                                                                                                            class="ml-1 flex-grow-1 rounded-sm ai-badge placeholder">10%</span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div
+                                                                                            class="card-body p-0 aiFormSection d-none">
                                                                                             <div
                                                                                                 class="form-group mb-1">
                                                                                                 <label
@@ -972,7 +1197,7 @@
                                                                                                     AI Summary
                                                                                                 </h4>
                                                                                                 <span
-                                                                                                    class="fe-chevron-down"></span>
+                                                                                                    class="fe-chevron-down text-dark"></span>
                                                                                             </a>
                                                                                         </div>
 
@@ -1135,7 +1360,7 @@
                                                                 <h4 class="my-0 header-title">
                                                                     Upload Document
                                                                 </h4>
-                                                                <span class="fe-chevron-down"></span>
+                                                                <span class="fe-chevron-down text-dark"></span>
                                                             </a>
                                                         </div>
 
@@ -1176,7 +1401,7 @@
                                                                     <h4 class="my-0 header-title">
                                                                         Scanned Document
                                                                     </h4>
-                                                                    <span class="fe-chevron-down"></span>
+                                                                    <span class="fe-chevron-down text-dark"></span>
                                                                 </a>
                                                             </div>
 
@@ -1208,36 +1433,36 @@
                                                                                             data-search-allowed="true"
                                                                                             class="form-control select2 entity-field">
                                                                                             <option value="" disabled
-                                                                                                selected hidden>
-                                                                                                Search by Entity Name
-                                                                                            </option>
-                                                                                            <option
-                                                                                                value="RASA Realty LLC (DE) - Domestic">
-                                                                                                RASA Realty LLC (DE) - Domestic</option>
-                                                                                            <option
-                                                                                                value="KK RENEWAL HOLDINGS CORP (CA) - Domestic">
-                                                                                                KK RENEWAL HOLDINGS CORP (CA) - Domestic
-                                                                                            </option>
-                                                                                            <option
-                                                                                                value="RESOURCE INCOME PARTNERS LIMITED PARTNERSHIP (FL) - Foreign">
-                                                                                                RESOURCE INCOME PARTNERS LIMITED PARTNERSHIP (FL) - Foreign
-                                                                                            </option>
-                                                                                            <option
-                                                                                                value="Pikewood Group, LLC (AI) - Foreign">
-                                                                                                Pikewood Group, LLC (AI) - Foreign
-                                                                                            </option>
-                                                                                            <option
-                                                                                                value="MARKSET FUND I-01-SERIES 1 L.L.C., (WY) - Domestic">
-                                                                                                MARKSET FUND I-01-SERIES 1 L.L.C., (WY) - Domestic
-                                                                                            </option>
-                                                                                            <option
-                                                                                                value="DEJONG'S QUANTUM TAX STRATEGIES, A PROFESSIONAL ACCOUNTANCY CORPORATION (CA) - Domestic">
-                                                                                                DEJONG'S QUANTUM TAX STRATEGIES, A PROFESSIONAL ACCOUNTANCY CORPORATION (CA) - Domestic
-                                                                                            </option>
-                                                                                            <option
-                                                                                                value="Pikewood Group, LLC (DA) - Domestic">
-                                                                                                Pikewood Group, LLC (DA) - Domestic
-                                                                                            </option>
+                                                                                                    selected hidden>
+                                                                                                    Search by Entity Name
+                                                                                                </option>
+                                                                                                <option
+                                                                                                    value="RASA Realty LLC (DE) - Domestic">
+                                                                                                    RASA Realty LLC (DE) - Domestic</option>
+                                                                                                <option
+                                                                                                    value="KK RENEWAL HOLDINGS CORP (CA) - Domestic">
+                                                                                                    KK RENEWAL HOLDINGS CORP (CA) - Domestic
+                                                                                                </option>
+                                                                                                <option
+                                                                                                    value="RESOURCE INCOME PARTNERS LIMITED PARTNERSHIP (FL) - Foreign">
+                                                                                                    RESOURCE INCOME PARTNERS LIMITED PARTNERSHIP (FL) - Foreign
+                                                                                                </option>
+                                                                                                <option
+                                                                                                    value="Pikewood Group, LLC (AI) - Foreign">
+                                                                                                    Pikewood Group, LLC (AI) - Foreign
+                                                                                                </option>
+                                                                                                <option
+                                                                                                    value="MARKSET FUND I-01-SERIES 1 L.L.C., (WY) - Domestic">
+                                                                                                    MARKSET FUND I-01-SERIES 1 L.L.C., (WY) - Domestic
+                                                                                                </option>
+                                                                                                <option
+                                                                                                    value="DEJONG'S QUANTUM TAX STRATEGIES, A PROFESSIONAL ACCOUNTANCY CORPORATION (CA) - Domestic">
+                                                                                                    DEJONG'S QUANTUM TAX STRATEGIES, A PROFESSIONAL ACCOUNTANCY CORPORATION (CA) - Domestic
+                                                                                                </option>
+                                                                                                <option
+                                                                                                    value="Pikewood Group, LLC (DA) - Domestic">
+                                                                                                    Pikewood Group, LLC (DA) - Domestic
+                                                                                                </option>
                                                                                         </select>
                                                                                     </div>
 
@@ -1437,7 +1662,66 @@
                                                                                             General
                                                                                         </h4>
                                                                                     </div>
-                                                                                    <div class="card-body p-0">
+                                                                                    <div
+                                                                                        class="card-body p-0 placeholderSection">
+                                                                                        <div class="form-row">
+                                                                                            <div
+                                                                                                class="form-group mb-1 col-md-6">
+                                                                                                <label for=""
+                                                                                                    class="col-form-label">DOC
+                                                                                                    Type <i
+                                                                                                        class="fa-xs mdi mdi-asterisk"
+                                                                                                        style="color: #ff551aff;"></i></label>
+                                                                                                <div class="d-flex">
+                                                                                                    <div
+                                                                                                        class="placeholder form-control w-100">
+                                                                                                    </div>
+                                                                                                    <span
+                                                                                                        class="ml-1 flex-grow-1 rounded-sm ai-badge placeholder">10%</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div
+                                                                                                class="form-group mb-1 col-md-6">
+                                                                                                <label for=""
+                                                                                                    class="col-form-label">File
+                                                                                                    Type <i
+                                                                                                        class="fa-xs mdi mdi-asterisk"
+                                                                                                        style="color: #ff551aff;"></i></label>
+                                                                                                <div class="d-flex">
+                                                                                                    <div
+                                                                                                        class="placeholder form-control w-100">
+                                                                                                    </div>
+                                                                                                    <span
+                                                                                                        class="ml-1 flex-grow-1 rounded-sm ai-badge placeholder">10%</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="form-group mb-1">
+                                                                                            <label for=""
+                                                                                                class="col-form-label">Delivery
+                                                                                                Method <i
+                                                                                                    class="fa-xs mdi mdi-asterisk"
+                                                                                                    style="color: #ff551aff;"></i></label>
+                                                                                            <div class="d-flex">
+                                                                                                <div
+                                                                                                    class="placeholder form-control w-100">
+                                                                                                </div>
+                                                                                                <span class="ml-1 flex-grow-1 rounded-sm ai-badge placeholder">10%</span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="form-group mb-1">
+                                                                                            <label for=""
+                                                                                                class="col-form-label">Issuer</label>
+                                                                                            <div class="d-flex">
+                                                                                                <div
+                                                                                                    class="placeholder form-control w-100">
+                                                                                                </div>
+                                                                                                <span class="ml-1 flex-grow-1 rounded-sm ai-badge placeholder">10%</span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="card-body p-0 aiFormSection">
                                                                                         <div class="form-row">
                                                                                             <div
                                                                                                 class="form-group mb-1 col-md-6">
@@ -1553,7 +1837,7 @@
                                                                                                 AI Summary
                                                                                             </h4>
                                                                                             <span
-                                                                                                class="fe-chevron-down"></span>
+                                                                                                class="fe-chevron-down text-dark"></span>
                                                                                         </a>
                                                                                     </div>
 

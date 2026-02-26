@@ -327,24 +327,21 @@ a.line-item {
 .generalSection {
     min-height: 0;
     transition: all 1s ease-in-out;
+}
 
-    .form-group>* {
-        position: relative;
-        transition: all 0.5s ease-in-out;
+.placeholder {
+    position: relative;
+    transition: all 0.5s ease-in-out;
+}
 
-        &::before {
-            position: absolute;
-            content: "";
-            inset: -1px;
-            border-radius: 2px;
-            z-index: 2000;
-            animation: skeleton-loading 1s linear infinite alternate
-        }
 
-        &.show::before {
-            display: none;
-        }
-    }
+.placeholder::before {
+    position: absolute;
+    content: "";
+    inset: -1px;
+    border-radius: 2px;
+    z-index: 1;
+    animation: skeleton-loading 1s linear infinite alternate
 }
 
 .ai-animate-box {
@@ -383,6 +380,6 @@ a.line-item {
 }
 
 
-.multi-match-icon{
+.multi-match-icon {
     display: none;
 }

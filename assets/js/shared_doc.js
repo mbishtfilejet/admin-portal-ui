@@ -347,9 +347,19 @@ $(function () {
 
                 sopPreviewEl.removeClass('d-none').hide().fadeIn(300);
 
+                $('#collapse_SOP_scan').collapse('show');
+                sopPreviewEl.find('.placeholderSection').removeClass('d-none');
+                sopPreviewEl.find('.aiFormSection').addClass('d-none');
+                sopPreviewEl.find('.ai-animate-box').addClass('show')
+
                 setTimeout(() => sopPreviewEl.find('.ai-animate-box').fadeOut(200).removeClass('show'), 4000);
 
-                animateAIExtractionField(sopPreviewEl);
+                setTimeout(() => {
+                    sopPreviewEl.find('.placeholderSection').addClass('d-none');
+                    sopPreviewEl.find('.aiFormSection').removeClass('d-none').hide().fadeIn(500);
+                    animateAIExtractionField(sopPreviewEl);
+                }, 4000)
+
 
                 sopPreviewEl.find('.progress-bar')
                     .css('width', '0%')
@@ -410,9 +420,18 @@ $(function () {
 
                 generalPreviewEl.removeClass('d-none').hide().fadeIn(300);
 
+                $("#collapse_general").collapse('show')
+                generalPreviewEl.find('.placeholderSection').removeClass('d-none');
+                generalPreviewEl.find('.aiFormSection').addClass('d-none');
+                generalPreviewEl.find('.ai-animate-box').addClass('show')
+
                 setTimeout(() => generalPreviewEl.find('.ai-animate-box').fadeOut(200).removeClass('show'), 4000);
 
-                animateAIExtractionField(generalPreviewEl);
+                setTimeout(() => {
+                    generalPreviewEl.find('.placeholderSection').addClass('d-none');
+                    generalPreviewEl.find('.aiFormSection').removeClass('d-none').hide().fadeIn(500);
+                    animateAIExtractionField(generalPreviewEl);
+                }, 4000)
 
                 generalPreviewEl.find('.progress-bar')
                     .css('width', '0%')
@@ -541,48 +560,18 @@ function debounce(func, wait) {
     };
 }
 
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms))
+}
+
 function animateAIExtractionField(element) {
-    const formFields = element.find(".generalSection .form-group");
-    formFields.hide();
-    showNext(0, formFields);
+    const aiBadgeFields = element.find(".generalSection .form-group .ai-badge");
+
+    aiBadgeFields.each(function () {
+        const aiBadge = $(this);
+        animateBadge(aiBadge);
+    })
 }
-
-function animateFields(cb) {
-    let current = 0;
-    const interval = setInterval(() => {
-        current += 10;
-        if (current <= 190) {
-            clearInterval(interval)
-            if (cb) cb();
-        }
-    }, 2000)
-}
-
-
-function showNext(index, formFields) {
-
-    if (index >= formFields.length) return;
-    const innerFields = formFields.eq(index).children();
-
-    innerFields.removeClass("show");
-
-    formFields.eq(index).fadeIn(200);
-
-    innerFields.eq(0).addClass("show");
-
-    setTimeout(() => {
-        innerFields.eq(1).addClass("show");
-        const aiBadge = formFields.eq(index).find('.ai-badge');
-        if (aiBadge) {
-            animateBadge(aiBadge);
-        }
-    }, 1000)
-
-
-    animateFields(() => showNext(index + 1, formFields))
-}
-
-
 
 function animateBadge(element) {
 
@@ -591,9 +580,6 @@ function animateBadge(element) {
     let currentbadgeClass = null;
 
     const value = element.data('value');
-
-
-
     element.text('')
 
     if (value === 100) {
