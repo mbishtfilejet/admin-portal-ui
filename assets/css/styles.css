@@ -344,25 +344,6 @@ a.line-item {
     animation: skeleton-loading 1s linear infinite alternate
 }
 
-.ai-animate-box {
-    inset: 0;
-    backdrop-filter: blur(10px);
-    z-index: 1030;
-
-    display: none;
-
-    &.show {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        & .mdi-star-four-points::before {
-            font-size: 2rem;
-            animation: rotate 1.5s infinite linear;
-        }
-    }
-}
-
 
 @keyframes rotate {
     0% {

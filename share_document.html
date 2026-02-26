@@ -353,7 +353,9 @@
                                                                                             <label for="inputEntity"
                                                                                                 class="col-form-label pt-0">Entity
                                                                                                 <i class="fa-xs mdi mdi-asterisk"
-                                                                                                    style="color: #ff551aff;"></i> <i class="fe-info multi-match-icon"></i></label>
+                                                                                                    style="color: #ff551aff;"></i>
+                                                                                                <i
+                                                                                                    class="fe-info multi-match-icon"></i></label>
                                                                                             <select id="inputEntity"
                                                                                                 placeholder="Search by Entity Name"
                                                                                                 data-search-allowed="true"
@@ -1205,117 +1207,176 @@
                                                                                             class="collapse show"
                                                                                             aria-labelledby="heading_SOP_AI"
                                                                                             data-parent="#accordionExample_SOP_AI">
-                                                                                            <div
-                                                                                                class="card-body pt-0 position-relative">
+                                                                                            <div class="card-body pt-0">
                                                                                                 <div
-                                                                                                    class="ai-animate-box position-absolute show">
-                                                                                                    <i
-                                                                                                        class="mdi mdi-star-four-points"></i>Generating...
+                                                                                                    class="ai-summary-placeholder">
+                                                                                                    <ul
+                                                                                                        class="d-flex flex-column m-0 ml-2 pl-1">
+                                                                                                        <li
+                                                                                                            class="flex-grow-1">
+                                                                                                            <span
+                                                                                                                class="d-block skeleton skeleton-text mb-1"></span>
+                                                                                                            <span
+                                                                                                                class="d-block skeleton skeleton-text mb-1"></span>
+                                                                                                            <span
+                                                                                                                class="d-block skeleton skeleton-text w-50 mb-2"></span>
+                                                                                                        </li>
+                                                                                                        <li
+                                                                                                            class="flex-grow-1">
+                                                                                                            <span
+                                                                                                                class="d-block skeleton skeleton-text mb-1"></span>
+                                                                                                            <span
+                                                                                                                class="d-block skeleton skeleton-text w-25 mb-2"></span>
+                                                                                                        </li>
+                                                                                                        <li
+                                                                                                            class="flex-grow-1">
+                                                                                                            <span
+                                                                                                                class="d-block skeleton skeleton-text mb-1"></span>
+                                                                                                            <span
+                                                                                                                class="d-block skeleton skeleton-text w-75 mb-2"></span>
+                                                                                                        </li>
+                                                                                                        <li
+                                                                                                            class="flex-grow-1">
+                                                                                                            <span
+                                                                                                                class="d-block skeleton skeleton-text mb-1"></span>
+                                                                                                            <span
+                                                                                                                class="d-block skeleton skeleton-text mb-1"></span>
+                                                                                                            <span
+                                                                                                                class="d-block skeleton skeleton-text w-25 mb-2"></span>
+                                                                                                        </li>
+                                                                                                        <li
+                                                                                                            class="flex-grow-1">
+                                                                                                            <span
+                                                                                                                class="d-block skeleton skeleton-text mb-1"></span>
+                                                                                                            <span
+                                                                                                                class="d-block skeleton skeleton-text w-25"></span>
+                                                                                                        </li>
+                                                                                                    </ul>
                                                                                                 </div>
-                                                                                                <ul
-                                                                                                    class="d-flex flex-column m-0 ml-2 pl-1">
-                                                                                                    <li>
-                                                                                                        <span
-                                                                                                            class="text-muted">
-                                                                                                            Lorem ipsum
-                                                                                                            dolor sit,
-                                                                                                            amet
-                                                                                                            consectetur
-                                                                                                            adipisicing
-                                                                                                            elit.
-                                                                                                            Quae
-                                                                                                            necessitatibus
-                                                                                                            maiores
-                                                                                                            obcaecati
-                                                                                                            veritatis,
-                                                                                                            exercitationem
-                                                                                                            recusandae!
-                                                                                                            Minus,
-                                                                                                            repellat?
-                                                                                                        </span>
-                                                                                                    </li>
-                                                                                                    <li>
-                                                                                                        <span
-                                                                                                            class="text-muted">
-                                                                                                            Lorem ipsum
-                                                                                                            dolor sit
-                                                                                                            amet
-                                                                                                            consectetur
-                                                                                                            adipisicing
-                                                                                                            elit. Unde
-                                                                                                            atque quo
-                                                                                                            voluptatibus
-                                                                                                            odit amet,
-                                                                                                            nam
-                                                                                                            quis, dicta
-                                                                                                            mollitia
-                                                                                                            incidunt
-                                                                                                            placeat
-                                                                                                        </span>
-                                                                                                    </li>
-                                                                                                    <li>
-                                                                                                        <span
-                                                                                                            class="text-muted">
-                                                                                                            Lorem ipsum
-                                                                                                            dolor sit
-                                                                                                            amet
-                                                                                                            consectetur
-                                                                                                            adipisicing
-                                                                                                            elit.
-                                                                                                            Magni
-                                                                                                            facilis
-                                                                                                            sit
-                                                                                                            cupiditate
-                                                                                                            hic
-                                                                                                            nostrum
-                                                                                                            delectus
-                                                                                                            minima
-                                                                                                            voluptatem
-                                                                                                            elit
-                                                                                                        </span>
-                                                                                                    </li>
-                                                                                                    <li>
-                                                                                                        <span
-                                                                                                            class="text-muted">
+                                                                                                <div
+                                                                                                    class="ai-extracted-summary d-none">
+                                                                                                    <ul
+                                                                                                        class="d-flex flex-column m-0 ml-2 pl-1">
+                                                                                                        <li>
+                                                                                                            <span
+                                                                                                                class="text-muted">
+                                                                                                                Lorem
+                                                                                                                ipsum
+                                                                                                                dolor
+                                                                                                                sit,
+                                                                                                                amet
+                                                                                                                consectetur
+                                                                                                                adipisicing
+                                                                                                                elit.
+                                                                                                                Quae
+                                                                                                                necessitatibus
+                                                                                                                maiores
+                                                                                                                obcaecati
+                                                                                                                veritatis,
+                                                                                                                exercitationem
+                                                                                                                recusandae!
+                                                                                                                Minus,
+                                                                                                                repellat?
+                                                                                                            </span>
+                                                                                                        </li>
+                                                                                                        <li>
+                                                                                                            <span
+                                                                                                                class="text-muted">
+                                                                                                                Lorem
+                                                                                                                ipsum
+                                                                                                                dolor
+                                                                                                                sit
+                                                                                                                amet
+                                                                                                                consectetur
+                                                                                                                adipisicing
+                                                                                                                elit.
+                                                                                                                Unde
+                                                                                                                atque
+                                                                                                                quo
+                                                                                                                voluptatibus
+                                                                                                                odit
+                                                                                                                amet,
+                                                                                                                nam
+                                                                                                                quis,
+                                                                                                                dicta
+                                                                                                                mollitia
+                                                                                                                incidunt
+                                                                                                                placeat
+                                                                                                            </span>
+                                                                                                        </li>
+                                                                                                        <li>
+                                                                                                            <span
+                                                                                                                class="text-muted">
+                                                                                                                Lorem
+                                                                                                                ipsum
+                                                                                                                dolor
+                                                                                                                sit
+                                                                                                                amet
+                                                                                                                consectetur
+                                                                                                                adipisicing
+                                                                                                                elit.
+                                                                                                                Magni
+                                                                                                                facilis
+                                                                                                                sit
+                                                                                                                cupiditate
+                                                                                                                hic
+                                                                                                                nostrum
+                                                                                                                delectus
+                                                                                                                minima
+                                                                                                                voluptatem
+                                                                                                                elit
+                                                                                                            </span>
+                                                                                                        </li>
+                                                                                                        <li>
+                                                                                                            <span
+                                                                                                                class="text-muted">
 
-                                                                                                            Lorem ipsum
-                                                                                                            dolor sit
-                                                                                                            amet
-                                                                                                            consectetur
-                                                                                                            adipisicing
-                                                                                                            elit. Ab
-                                                                                                            velit est
-                                                                                                            possimus
-                                                                                                            beatae
-                                                                                                            minima
-                                                                                                            nostrum
-                                                                                                            obcaecati
-                                                                                                            placeat ex
-                                                                                                            maiores
-                                                                                                            assumenda?
-                                                                                                        </span>
-                                                                                                    </li>
-                                                                                                    <li>
-                                                                                                        <span
-                                                                                                            class="text-muted">
-                                                                                                            Lorem ipsum
-                                                                                                            dolor sit
-                                                                                                            amet
-                                                                                                            consectetur
-                                                                                                            adipisicing
-                                                                                                            elit.
-                                                                                                            Libero neque
-                                                                                                            earum
-                                                                                                            facilis
-                                                                                                            beatae
-                                                                                                            blanditiis
-                                                                                                            unde
-                                                                                                            culpa
-                                                                                                            architecto
-                                                                                                            quibusdam
-                                                                                                        </span>
-                                                                                                    </li>
-                                                                                                </ul>
+                                                                                                                Lorem
+                                                                                                                ipsum
+                                                                                                                dolor
+                                                                                                                sit
+                                                                                                                amet
+                                                                                                                consectetur
+                                                                                                                adipisicing
+                                                                                                                elit. Ab
+                                                                                                                velit
+                                                                                                                est
+                                                                                                                possimus
+                                                                                                                beatae
+                                                                                                                minima
+                                                                                                                nostrum
+                                                                                                                obcaecati
+                                                                                                                placeat
+                                                                                                                ex
+                                                                                                                maiores
+                                                                                                                assumenda?
+                                                                                                            </span>
+                                                                                                        </li>
+                                                                                                        <li>
+                                                                                                            <span
+                                                                                                                class="text-muted">
+                                                                                                                Lorem
+                                                                                                                ipsum
+                                                                                                                dolor
+                                                                                                                sit
+                                                                                                                amet
+                                                                                                                consectetur
+                                                                                                                adipisicing
+                                                                                                                elit.
+                                                                                                                Libero
+                                                                                                                neque
+                                                                                                                earum
+                                                                                                                facilis
+                                                                                                                beatae
+                                                                                                                blanditiis
+                                                                                                                unde
+                                                                                                                culpa
+                                                                                                                architecto
+                                                                                                                quibusdam
+                                                                                                            </span>
+                                                                                                        </li>
+                                                                                                    </ul>
+                                                                                                </div>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -1427,7 +1488,8 @@
                                                                                         <label for="inputGeneralEntity"
                                                                                             class="col-form-label pt-0">Entity
                                                                                             <i class="fa-xs mdi mdi-asterisk"
-                                                                                                style="color: #ff551aff;"></i><i class="fe-info multi-match-icon"></i></label>
+                                                                                                style="color: #ff551aff;"></i><i
+                                                                                                class="fe-info multi-match-icon"></i></label>
                                                                                         <select id="inputGeneralEntity"
                                                                                             placeholder="Search by Entity Name"
                                                                                             data-search-allowed="true"
@@ -1706,7 +1768,8 @@
                                                                                                 <div
                                                                                                     class="placeholder form-control w-100">
                                                                                                 </div>
-                                                                                                <span class="ml-1 flex-grow-1 rounded-sm ai-badge placeholder">10%</span>
+                                                                                                <span
+                                                                                                    class="ml-1 flex-grow-1 rounded-sm ai-badge placeholder">10%</span>
                                                                                             </div>
                                                                                         </div>
                                                                                         <div class="form-group mb-1">
@@ -1716,7 +1779,8 @@
                                                                                                 <div
                                                                                                     class="placeholder form-control w-100">
                                                                                                 </div>
-                                                                                                <span class="ml-1 flex-grow-1 rounded-sm ai-badge placeholder">10%</span>
+                                                                                                <span
+                                                                                                    class="ml-1 flex-grow-1 rounded-sm ai-badge placeholder">10%</span>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -1846,116 +1910,176 @@
                                                                                         aria-labelledby="heading_general_AI"
                                                                                         data-parent="#accordionExample_general_AI">
                                                                                         <div
-                                                                                            class="card-body pt-0 position-relative">
+                                                                                            class="card-body pt-0">
                                                                                             <div
-                                                                                                class="ai-animate-box position-absolute show">
-                                                                                                <i
-                                                                                                    class="mdi mdi-star-four-points"></i>Generating...
-                                                                                            </div>
-                                                                                            <ul
-                                                                                                class="d-flex flex-column m-0 ml-2 pl-1">
-                                                                                                <li>
-                                                                                                    <span
-                                                                                                        class="text-muted">
-                                                                                                        Lorem ipsum
-                                                                                                        dolor sit,
-                                                                                                        amet
-                                                                                                        consectetur
-                                                                                                        adipisicing
-                                                                                                        elit.
-                                                                                                        Quae
-                                                                                                        necessitatibus
-                                                                                                        maiores
-                                                                                                        obcaecati
-                                                                                                        veritatis,
-                                                                                                        exercitationem
-                                                                                                        recusandae!
-                                                                                                        Minus,
-                                                                                                        repellat?
-                                                                                                    </span>
-                                                                                                </li>
-                                                                                                <li>
-                                                                                                    <span
-                                                                                                        class="text-muted">
-                                                                                                        Lorem ipsum
-                                                                                                        dolor sit
-                                                                                                        amet
-                                                                                                        consectetur
-                                                                                                        adipisicing
-                                                                                                        elit. Unde
-                                                                                                        atque quo
-                                                                                                        voluptatibus
-                                                                                                        odit amet,
-                                                                                                        nam
-                                                                                                        quis, dicta
-                                                                                                        mollitia
-                                                                                                        incidunt
-                                                                                                        placeat
-                                                                                                    </span>
-                                                                                                </li>
-                                                                                                <li>
-                                                                                                    <span
-                                                                                                        class="text-muted">
-                                                                                                        Lorem ipsum
-                                                                                                        dolor sit
-                                                                                                        amet
-                                                                                                        consectetur
-                                                                                                        adipisicing
-                                                                                                        elit.
-                                                                                                        Magni
-                                                                                                        facilis
-                                                                                                        sit
-                                                                                                        cupiditate
-                                                                                                        hic
-                                                                                                        nostrum
-                                                                                                        delectus
-                                                                                                        minima
-                                                                                                        voluptatem
-                                                                                                        elit
-                                                                                                    </span>
-                                                                                                </li>
-                                                                                                <li>
-                                                                                                    <span
-                                                                                                        class="text-muted">
+                                                                                                    class="ai-summary-placeholder">
+                                                                                                    <ul
+                                                                                                        class="d-flex flex-column m-0 ml-2 pl-1">
+                                                                                                        <li
+                                                                                                            class="flex-grow-1">
+                                                                                                            <span
+                                                                                                                class="d-block skeleton skeleton-text mb-1"></span>
+                                                                                                            <span
+                                                                                                                class="d-block skeleton skeleton-text mb-1"></span>
+                                                                                                            <span
+                                                                                                                class="d-block skeleton skeleton-text w-50 mb-2"></span>
+                                                                                                        </li>
+                                                                                                        <li
+                                                                                                            class="flex-grow-1">
+                                                                                                            <span
+                                                                                                                class="d-block skeleton skeleton-text mb-1"></span>
+                                                                                                            <span
+                                                                                                                class="d-block skeleton skeleton-text w-25 mb-2"></span>
+                                                                                                        </li>
+                                                                                                        <li
+                                                                                                            class="flex-grow-1">
+                                                                                                            <span
+                                                                                                                class="d-block skeleton skeleton-text mb-1"></span>
+                                                                                                            <span
+                                                                                                                class="d-block skeleton skeleton-text w-75 mb-2"></span>
+                                                                                                        </li>
+                                                                                                        <li
+                                                                                                            class="flex-grow-1">
+                                                                                                            <span
+                                                                                                                class="d-block skeleton skeleton-text mb-1"></span>
+                                                                                                            <span
+                                                                                                                class="d-block skeleton skeleton-text mb-1"></span>
+                                                                                                            <span
+                                                                                                                class="d-block skeleton skeleton-text w-25 mb-2"></span>
+                                                                                                        </li>
+                                                                                                        <li
+                                                                                                            class="flex-grow-1">
+                                                                                                            <span
+                                                                                                                class="d-block skeleton skeleton-text mb-1"></span>
+                                                                                                            <span
+                                                                                                                class="d-block skeleton skeleton-text w-25"></span>
+                                                                                                        </li>
+                                                                                                    </ul>
+                                                                                                </div>
+                                                                                            <div
+                                                                                                class="ai-extracted-summary d-none">
+                                                                                                <ul
+                                                                                                    class="d-flex flex-column m-0 ml-2 pl-1">
+                                                                                                    <li>
+                                                                                                        <span
+                                                                                                            class="text-muted">
+                                                                                                            Lorem
+                                                                                                            ipsum
+                                                                                                            dolor
+                                                                                                            sit,
+                                                                                                            amet
+                                                                                                            consectetur
+                                                                                                            adipisicing
+                                                                                                            elit.
+                                                                                                            Quae
+                                                                                                            necessitatibus
+                                                                                                            maiores
+                                                                                                            obcaecati
+                                                                                                            veritatis,
+                                                                                                            exercitationem
+                                                                                                            recusandae!
+                                                                                                            Minus,
+                                                                                                            repellat?
+                                                                                                        </span>
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                        <span
+                                                                                                            class="text-muted">
+                                                                                                            Lorem
+                                                                                                            ipsum
+                                                                                                            dolor
+                                                                                                            sit
+                                                                                                            amet
+                                                                                                            consectetur
+                                                                                                            adipisicing
+                                                                                                            elit.
+                                                                                                            Unde
+                                                                                                            atque
+                                                                                                            quo
+                                                                                                            voluptatibus
+                                                                                                            odit
+                                                                                                            amet,
+                                                                                                            nam
+                                                                                                            quis,
+                                                                                                            dicta
+                                                                                                            mollitia
+                                                                                                            incidunt
+                                                                                                            placeat
+                                                                                                        </span>
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                        <span
+                                                                                                            class="text-muted">
+                                                                                                            Lorem
+                                                                                                            ipsum
+                                                                                                            dolor
+                                                                                                            sit
+                                                                                                            amet
+                                                                                                            consectetur
+                                                                                                            adipisicing
+                                                                                                            elit.
+                                                                                                            Magni
+                                                                                                            facilis
+                                                                                                            sit
+                                                                                                            cupiditate
+                                                                                                            hic
+                                                                                                            nostrum
+                                                                                                            delectus
+                                                                                                            minima
+                                                                                                            voluptatem
+                                                                                                            elit
+                                                                                                        </span>
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                        <span
+                                                                                                            class="text-muted">
 
-                                                                                                        Lorem ipsum
-                                                                                                        dolor sit
-                                                                                                        amet
-                                                                                                        consectetur
-                                                                                                        adipisicing
-                                                                                                        elit. Ab
-                                                                                                        velit est
-                                                                                                        possimus
-                                                                                                        beatae
-                                                                                                        minima
-                                                                                                        nostrum
-                                                                                                        obcaecati
-                                                                                                        placeat ex
-                                                                                                        maiores
-                                                                                                        assumenda?
-                                                                                                    </span>
-                                                                                                </li>
-                                                                                                <li>
-                                                                                                    <span
-                                                                                                        class="text-muted">
-                                                                                                        Lorem ipsum
-                                                                                                        dolor sit
-                                                                                                        amet
-                                                                                                        consectetur
-                                                                                                        adipisicing
-                                                                                                        elit.
-                                                                                                        Libero neque
-                                                                                                        earum
-                                                                                                        facilis
-                                                                                                        beatae
-                                                                                                        blanditiis
-                                                                                                        unde
-                                                                                                        culpa
-                                                                                                        architecto
-                                                                                                        quibusdam
-                                                                                                    </span>
-                                                                                                </li>
-                                                                                            </ul>
+                                                                                                            Lorem
+                                                                                                            ipsum
+                                                                                                            dolor
+                                                                                                            sit
+                                                                                                            amet
+                                                                                                            consectetur
+                                                                                                            adipisicing
+                                                                                                            elit. Ab
+                                                                                                            velit
+                                                                                                            est
+                                                                                                            possimus
+                                                                                                            beatae
+                                                                                                            minima
+                                                                                                            nostrum
+                                                                                                            obcaecati
+                                                                                                            placeat
+                                                                                                            ex
+                                                                                                            maiores
+                                                                                                            assumenda?
+                                                                                                        </span>
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                        <span
+                                                                                                            class="text-muted">
+                                                                                                            Lorem
+                                                                                                            ipsum
+                                                                                                            dolor
+                                                                                                            sit
+                                                                                                            amet
+                                                                                                            consectetur
+                                                                                                            adipisicing
+                                                                                                            elit.
+                                                                                                            Libero
+                                                                                                            neque
+                                                                                                            earum
+                                                                                                            facilis
+                                                                                                            beatae
+                                                                                                            blanditiis
+                                                                                                            unde
+                                                                                                            culpa
+                                                                                                            architecto
+                                                                                                            quibusdam
+                                                                                                        </span>
+                                                                                                    </li>
+                                                                                                </ul>
+                                                                                            </div>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>

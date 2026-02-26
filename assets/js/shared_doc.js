@@ -350,14 +350,15 @@ $(function () {
                 $('#collapse_SOP_scan').collapse('show');
                 sopPreviewEl.find('.placeholderSection').removeClass('d-none');
                 sopPreviewEl.find('.aiFormSection').addClass('d-none');
-                sopPreviewEl.find('.ai-animate-box').addClass('show')
-
-                setTimeout(() => sopPreviewEl.find('.ai-animate-box').fadeOut(200).removeClass('show'), 4000);
+                sopPreviewEl.find('.ai-summary-placeholder').removeClass('d-none');
+                sopPreviewEl.find('.ai-extracted-summary').addClass('d-none');
 
                 setTimeout(() => {
                     sopPreviewEl.find('.placeholderSection').addClass('d-none');
+                    sopPreviewEl.find('.ai-summary-placeholder').addClass('d-none');
                     sopPreviewEl.find('.aiFormSection').removeClass('d-none').hide().fadeIn(500);
                     animateAIExtractionField(sopPreviewEl);
+                    sopPreviewEl.find('.ai-extracted-summary').removeClass('d-none').hide().fadeIn(500);
                 }, 4000)
 
 
@@ -423,14 +424,15 @@ $(function () {
                 $("#collapse_general").collapse('show')
                 generalPreviewEl.find('.placeholderSection').removeClass('d-none');
                 generalPreviewEl.find('.aiFormSection').addClass('d-none');
-                generalPreviewEl.find('.ai-animate-box').addClass('show')
-
-                setTimeout(() => generalPreviewEl.find('.ai-animate-box').fadeOut(200).removeClass('show'), 4000);
+                generalPreviewEl.find('.ai-summary-placeholder').removeClass('d-none');
+                generalPreviewEl.find('.ai-extracted-summary').addClass('d-none');
 
                 setTimeout(() => {
                     generalPreviewEl.find('.placeholderSection').addClass('d-none');
+                    generalPreviewEl.find('.ai-summary-placeholder').addClass('d-none');
                     generalPreviewEl.find('.aiFormSection').removeClass('d-none').hide().fadeIn(500);
                     animateAIExtractionField(generalPreviewEl);
+                    generalPreviewEl.find('.ai-extracted-summary').removeClass('d-none').hide().fadeIn(500);
                 }, 4000)
 
                 generalPreviewEl.find('.progress-bar')
