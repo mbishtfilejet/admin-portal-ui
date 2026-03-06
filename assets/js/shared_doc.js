@@ -345,6 +345,10 @@ $(function () {
             const dz = this;
             this.on('addedfile', function (file) {
 
+                //added below code just for mimicking backend, code not need
+                if (dz.files.length > 1) {
+                    dz.removeFile(dz.files[0]);
+                }
                 sopPreviewEl.removeClass('d-none').hide().fadeIn(300);
 
                 $('#collapse_SOP_scan').collapse('show');
@@ -352,6 +356,14 @@ $(function () {
                 sopPreviewEl.find('.aiFormSection').addClass('d-none');
                 sopPreviewEl.find('.ai-summary-placeholder').removeClass('d-none');
                 sopPreviewEl.find('.ai-extracted-summary').addClass('d-none');
+                sopPreviewEl.find('iframe').addClass('d-none')
+                sopPreviewEl.find('.progress').show();
+                sopPreviewEl.find('.progress-bar')
+                    .css('width', '0%')
+                    .attr('aria-valuenow', 0)
+                    .text('Uploading...');
+
+                sopPreviewEl.find('.file-loader').show();
 
                 setTimeout(() => {
                     sopPreviewEl.find('.placeholderSection').addClass('d-none');
@@ -361,23 +373,23 @@ $(function () {
                     sopPreviewEl.find('.ai-extracted-summary').removeClass('d-none').hide().fadeIn(500);
                 }, 4000)
 
-
-                sopPreviewEl.find('.progress-bar')
-                    .css('width', '0%')
-                    .attr('aria-valuenow', 0)
-                    .text('Uploading...');
-
+                // emittting this just for mimicking backend, code not need
                 this.emit('success', file, { alert: 'success', url: URL.createObjectURL(file) });
+
             }).on('uploadprogress', function (file, progress, bytesSent) {
                 sopPreviewEl.find('.progress-bar')
                     .css('width', progress + '%')
                     .attr('aria-valuenow', progress);
                 if (progress == 100) {
                     sopPreviewEl.find('.progress').fadeOut(1000);
-                    sopPreviewEl.find('iframe').removeClass('d-none').hide().fadeIn(1000);
                 };
             }).on('success', function (file, response) {
                 if (response.alert !== "success") return;
+                // adding loading timeout to just show loader
+                setTimeout(() => {
+                    sopPreviewEl.find('.file-loader').fadeOut(100);
+                    sopPreviewEl.find('iframe').removeClass('d-none').hide().fadeIn(1000);
+                }, 3000)
 
                 sopPreviewEl.find('iframe').attr('src', response.url);
             }).on('removedfile', function (file) {
@@ -419,6 +431,10 @@ $(function () {
             const dz = this;
             this.on('addedfile', function (file) {
 
+                 //added below code just for mimicking backend, code not need
+                if (dz.files.length > 1) {
+                    dz.removeFile(dz.files[0]);
+                }
                 generalPreviewEl.removeClass('d-none').hide().fadeIn(300);
 
                 $("#collapse_general").collapse('show')
@@ -426,6 +442,14 @@ $(function () {
                 generalPreviewEl.find('.aiFormSection').addClass('d-none');
                 generalPreviewEl.find('.ai-summary-placeholder').removeClass('d-none');
                 generalPreviewEl.find('.ai-extracted-summary').addClass('d-none');
+                generalPreviewEl.find('iframe').addClass('d-none')
+                generalPreviewEl.find('.progress').show();
+                generalPreviewEl.find('.progress-bar')
+                    .css('width', '0%')
+                    .attr('aria-valuenow', 0)
+                    .text('Uploading...');
+
+                generalPreviewEl.find('.file-loader').show();
 
                 setTimeout(() => {
                     generalPreviewEl.find('.placeholderSection').addClass('d-none');
@@ -435,22 +459,24 @@ $(function () {
                     generalPreviewEl.find('.ai-extracted-summary').removeClass('d-none').hide().fadeIn(500);
                 }, 4000)
 
-                generalPreviewEl.find('.progress-bar')
-                    .css('width', '0%')
-                    .attr('aria-valuenow', 0)
-                    .text('Uploading...');
-
+                // emittting this just for mimicking backend, code not need
                 this.emit('success', file, { alert: 'success', url: URL.createObjectURL(file) });
+
             }).on('uploadprogress', function (file, progress) {
                 generalPreviewEl.find('.progress-bar')
                     .css('width', progress + '%')
                     .attr('aria-valuenow', progress);
                 if (progress == 100) {
                     generalPreviewEl.find('.progress').fadeOut(1000);
-                    generalPreviewEl.find('iframe').removeClass('d-none').hide().fadeIn(1000);
                 };
             }).on('success', function (file, response) {
                 if (response.alert !== "success") return;
+
+                // adding loading timeout to just show loader
+                setTimeout(() => {
+                    generalPreviewEl.find('.file-loader').fadeOut(100);
+                    generalPreviewEl.find('iframe').removeClass('d-none').hide().fadeIn(1000);
+                }, 3000)
 
                 generalPreviewEl.find('iframe').attr('src', response.url);
             }).on('removedfile', function (file) {
