@@ -213,11 +213,10 @@ a.line-item {
         position: absolute;
         content: "";
         background-color: #D8DDDF;
-        top: anchor(--tab-anchor top);
-        left: anchor(--tab-anchor left);
-        width: anchor-size(--tab-anchor inline);
-        height: anchor-size(--tab-anchor block);
-        position-anchor: --tab-anchor;
+        left: var(--tab-left);
+        right: var(--tab-right);
+        width: var(--tab-width);
+        height: var(--tab-height);
         transition: all 0.5s ease-in-out;
         z-index: 0;
         border-radius: 5px;
@@ -231,7 +230,6 @@ a.line-item {
 
         &[aria-selected=true],
         &.active {
-            anchor-name: --tab-anchor;
             color: #272A2E;
             font-weight: 700;
         }

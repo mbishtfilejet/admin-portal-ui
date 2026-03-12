@@ -501,6 +501,32 @@ $(function () {
 })
 
 $(document).ready(function () {
+  function highlightTabs(tab) {
+
+    const tabOffset = tab.position();
+ 
+    $(".sharedDocumnent_tablist").css({
+      '--tab-left': tabOffset.left + 'px',
+      '--tab-top': tabOffset.top + 'px',
+      '--tab-width': tab.outerWidth() + 'px',
+      '--tab-height': tab.outerHeight() + 'px'
+    })
+  }
+
+  //tab change event
+  $('.sharedDocumnent_tablist .nav-link').on('shown.bs.tab', function () {
+    highlightTabs($(this));
+  });
+
+  // handle resize
+  $(window).on('resize', function () {
+    highlightTabs($('.sharedDocumnent_tablist  .nav-link.active'));
+  });
+
+  highlightTabs($(".sharedDocumnent_tablist .nav-link.active"))
+})
+
+$(document).ready(function () {
 
     $(".tab-content .select2").each(function () {
         const selectEl = $(this);
