@@ -327,6 +327,32 @@ $(function () {
 
 Dropzone.autoDiscover = false;
 
+function runScanUI(element, collapse_container_id) {
+    element.removeClass('d-none').hide().fadeIn(300);
+
+    $(`#${collapse_container_id}`).collapse('show');
+    element.find('.placeholderSection').removeClass('d-none');
+    element.find('.aiFormSection').addClass('d-none');
+    element.find('.ai-summary-placeholder').removeClass('d-none');
+    element.find('.ai-extracted-summary').addClass('d-none');
+    element.find('iframe').addClass('d-none')
+    element.find('.progress').show();
+    element.find('.progress-bar')
+        .css('width', '0%')
+        .attr('aria-valuenow', 0)
+        .text('Uploading...');
+
+    element.find('.file-loader').show();
+
+    setTimeout(() => {
+        element.find('.placeholderSection').addClass('d-none');
+        element.find('.ai-summary-placeholder').addClass('d-none');
+        element.find('.aiFormSection').removeClass('d-none').hide().fadeIn(500);
+        animateAIExtractionField(element);
+        element.find('.ai-extracted-summary').removeClass('d-none').hide().fadeIn(500);
+    }, 4000)
+}
+
 $(function () {
     /**
      * Dropzone - Service of Process(Upload Documents)
@@ -334,77 +360,75 @@ $(function () {
     const sopDropzoneContainer = $('#myAwesomeDropzone1');
     const sopActionUrl = sopDropzoneContainer.attr('action')
     const sopPreviewSelector = sopDropzoneContainer.data('previewsContainer');
-    const sopPreviewEl = $(sopPreviewSelector);
+    const sopScannedSelector = sopDropzoneContainer.data('scannedContainer');
+    const uploadpreviewSelector = sopDropzoneContainer.data('uploadPreviewTemplate')
+    const sopScannedEl = $(sopScannedSelector);
 
     let opts = {
         url: sopActionUrl,
         previewsContainer: sopPreviewSelector,
-        previewTemplate: '<div></div>',
-        maxFiles: 1,
+        previewTemplate: $(uploadpreviewSelector).html(),
         init: function () {
             const dz = this;
             this.on('addedfile', function (file) {
-
                 //added below code just for mimicking backend, code not need
-                if (dz.files.length > 1) {
-                    dz.removeFile(dz.files[0]);
+                // if (dz.files.length > 1) {
+                //     dz.removeFile(dz.files[0]);
+                // }
+                let nameEl = file.previewElement.querySelector("[data-dz-name]");
+
+                if (nameEl) {
+                    nameEl.setAttribute("title", file.name);
                 }
-                sopPreviewEl.removeClass('d-none').hide().fadeIn(300);
 
-                $('#collapse_SOP_scan').collapse('show');
-                sopPreviewEl.find('.placeholderSection').removeClass('d-none');
-                sopPreviewEl.find('.aiFormSection').addClass('d-none');
-                sopPreviewEl.find('.ai-summary-placeholder').removeClass('d-none');
-                sopPreviewEl.find('.ai-extracted-summary').addClass('d-none');
-                sopPreviewEl.find('iframe').addClass('d-none')
-                sopPreviewEl.find('.progress').show();
-                sopPreviewEl.find('.progress-bar')
-                    .css('width', '0%')
-                    .attr('aria-valuenow', 0)
-                    .text('Uploading...');
-
-                sopPreviewEl.find('.file-loader').show();
-
-                setTimeout(() => {
-                    sopPreviewEl.find('.placeholderSection').addClass('d-none');
-                    sopPreviewEl.find('.ai-summary-placeholder').addClass('d-none');
-                    sopPreviewEl.find('.aiFormSection').removeClass('d-none').hide().fadeIn(500);
-                    animateAIExtractionField(sopPreviewEl);
-                    sopPreviewEl.find('.ai-extracted-summary').removeClass('d-none').hide().fadeIn(500);
-                }, 4000)
-
+                runScanUI(sopScannedEl, 'collapse_SOP_scan')
                 // emittting this just for mimicking backend, code not need
                 this.emit('success', file, { alert: 'success', url: URL.createObjectURL(file) });
 
             }).on('uploadprogress', function (file, progress, bytesSent) {
-                sopPreviewEl.find('.progress-bar')
+                const pillFileUploadProgressBar = $(file.previewElement).find(".dz-progress");
+                sopScannedEl.find('.progress-bar')
                     .css('width', progress + '%')
                     .attr('aria-valuenow', progress);
                 if (progress == 100) {
-                    sopPreviewEl.find('.progress').fadeOut(1000);
+                    pillFileUploadProgressBar.fadeOut(2000)
+                    sopScannedEl.find('.progress').fadeOut(1000);
                 };
             }).on('success', function (file, response) {
                 if (response.alert !== "success") return;
                 // adding loading timeout to just show loader
                 setTimeout(() => {
-                    sopPreviewEl.find('.file-loader').fadeOut(100);
-                    sopPreviewEl.find('iframe').removeClass('d-none').hide().fadeIn(1000);
+                    sopScannedEl.find('.file-loader').fadeOut(100);
+                    sopScannedEl.find('iframe').removeClass('d-none').hide().fadeIn(1000);
                 }, 3000)
 
-                sopPreviewEl.find('iframe').attr('src', response.url);
-            }).on('removedfile', function (file) {
+                sopScannedEl.find('iframe').attr('src', response.url);
+            }).on('removedfile', function () {
+                const remainingFiles = dz.files;
 
-                sopPreviewEl.fadeOut(200);
+                if (remainingFiles.length > 0) {
+                    const latestFile = remainingFiles[remainingFiles.length - 1];
+                    runScanUI(sopScannedEl, 'collapse_SOP_scan');
+
+                    // mocking code to showcase backend when file is removed
+                    // fading out progress bar for now
+                    this.emit('success', latestFile, { alert: 'success', url: URL.createObjectURL(latestFile) });
+                    sopScannedEl.find('.progress').fadeOut(10);
+                } else {
+                    sopScannedEl.fadeOut(200);
+                    sopScannedEl.find('iframe').attr('src', '');
+                }
                 window.scrollTo({
                     top: 0,
                     behavior: 'smooth'
                 });
             })
 
-            sopPreviewEl.on('click', '[data-bz-remove]', function () {
-                if (dz.files.length) {
-                    dz.removeFile(dz.files[0]);
-                }
+            sopScannedEl.on('click', '[data-bz-remove]', function () {
+                sopScannedEl.fadeOut(200);
+                sopScannedEl.find('iframe').attr('src', '');
+                dz.removeAllFiles(true);
+
             });
         }
 
@@ -419,78 +443,79 @@ $(function () {
      */
     const generalDropzoneContainer = $('#myAwesomeDropzone2');
     const generalDropzoneContainerActionUrl = generalDropzoneContainer.attr('action')
+    const generalScannedSelector = generalDropzoneContainer.data('scannedContainer');
+    const generaluploadpreviewSelector = generalDropzoneContainer.data('uploadPreviewTemplate')
     const generalPreviewSelector = generalDropzoneContainer.data('previewsContainer');
-    const generalPreviewEl = $(generalPreviewSelector);
+    const generalScannedEl = $(generalScannedSelector);
 
     opts = {
         url: generalDropzoneContainerActionUrl,
         previewsContainer: generalPreviewSelector,
-        previewTemplate: '<div></div>',
-        maxFiles: 1,
+        previewTemplate: $(generaluploadpreviewSelector).html(),
         init: function () {
             const dz = this;
             this.on('addedfile', function (file) {
 
-                 //added below code just for mimicking backend, code not need
-                if (dz.files.length > 1) {
-                    dz.removeFile(dz.files[0]);
+                //added below code just for mimicking backend, code not need
+                // if (dz.files.length > 1) {
+                //     dz.removeFile(dz.files[0]);
+                // }
+
+                let nameEl = file.previewElement.querySelector("[data-dz-name]");
+
+                if (nameEl) {
+                    nameEl.setAttribute("title", file.name);
                 }
-                generalPreviewEl.removeClass('d-none').hide().fadeIn(300);
 
-                $("#collapse_general").collapse('show')
-                generalPreviewEl.find('.placeholderSection').removeClass('d-none');
-                generalPreviewEl.find('.aiFormSection').addClass('d-none');
-                generalPreviewEl.find('.ai-summary-placeholder').removeClass('d-none');
-                generalPreviewEl.find('.ai-extracted-summary').addClass('d-none');
-                generalPreviewEl.find('iframe').addClass('d-none')
-                generalPreviewEl.find('.progress').show();
-                generalPreviewEl.find('.progress-bar')
-                    .css('width', '0%')
-                    .attr('aria-valuenow', 0)
-                    .text('Uploading...');
-
-                generalPreviewEl.find('.file-loader').show();
-
-                setTimeout(() => {
-                    generalPreviewEl.find('.placeholderSection').addClass('d-none');
-                    generalPreviewEl.find('.ai-summary-placeholder').addClass('d-none');
-                    generalPreviewEl.find('.aiFormSection').removeClass('d-none').hide().fadeIn(500);
-                    animateAIExtractionField(generalPreviewEl);
-                    generalPreviewEl.find('.ai-extracted-summary').removeClass('d-none').hide().fadeIn(500);
-                }, 4000)
-
+                runScanUI(generalScannedEl,'collapse_general_scan')
+        
                 // emittting this just for mimicking backend, code not need
                 this.emit('success', file, { alert: 'success', url: URL.createObjectURL(file) });
 
             }).on('uploadprogress', function (file, progress) {
-                generalPreviewEl.find('.progress-bar')
+                const pillFileUploadProgressBar = $(file.previewElement).find(".dz-progress");
+                generalScannedEl.find('.progress-bar')
                     .css('width', progress + '%')
                     .attr('aria-valuenow', progress);
                 if (progress == 100) {
-                    generalPreviewEl.find('.progress').fadeOut(1000);
+                    pillFileUploadProgressBar.fadeOut(2000)
+                    generalScannedEl.find('.progress').fadeOut(1000);
                 };
             }).on('success', function (file, response) {
                 if (response.alert !== "success") return;
 
                 // adding loading timeout to just show loader
                 setTimeout(() => {
-                    generalPreviewEl.find('.file-loader').fadeOut(100);
-                    generalPreviewEl.find('iframe').removeClass('d-none').hide().fadeIn(1000);
+                    generalScannedEl.find('.file-loader').fadeOut(100);
+                    generalScannedEl.find('iframe').removeClass('d-none').hide().fadeIn(1000);
                 }, 3000)
 
-                generalPreviewEl.find('iframe').attr('src', response.url);
+                generalScannedEl.find('iframe').attr('src', response.url);
             }).on('removedfile', function (file) {
-                generalPreviewEl.fadeOut(200);
+                const remainingFiles = dz.files;
+
+                if (remainingFiles.length > 0) {
+                    const latestFile = remainingFiles[remainingFiles.length - 1];
+                    runScanUI(generalScannedEl, 'collapse_general_scan');
+
+                    // mocking code to showcase backend when file is removed
+                    // fading out progress for now
+                    this.emit('success', latestFile, { alert: 'success', url: URL.createObjectURL(latestFile) });
+                    generalScannedEl.find('.progress').fadeOut(10);
+                } else {
+                    generalScannedEl.fadeOut(200);
+                    generalScannedEl.find('iframe').attr('src', '');
+                }
                 window.scrollTo({
                     top: 0,
                     behavior: 'smooth'
                 });
             })
 
-            generalPreviewEl.on('click', '[data-bz-remove]', function () {
-                if (dz.files.length) {
-                    dz.removeFile(dz.files[0]);
-                }
+            generalScannedEl.on('click', '[data-bz-remove]', function () {
+                generalScannedEl.fadeOut(200);
+                generalScannedEl.find('iframe').attr('src', '');
+                dz.removeAllFiles(true);
             });
         }
 
@@ -501,29 +526,29 @@ $(function () {
 })
 
 $(document).ready(function () {
-  function highlightTabs(tab) {
+    function highlightTabs(tab) {
 
-    const tabOffset = tab.position();
- 
-    $(".sharedDocumnent_tablist").css({
-      '--tab-left': tabOffset.left + 'px',
-      '--tab-top': tabOffset.top + 'px',
-      '--tab-width': tab.outerWidth() + 'px',
-      '--tab-height': tab.outerHeight() + 'px'
-    })
-  }
+        const tabOffset = tab.position();
 
-  //tab change event
-  $('.sharedDocumnent_tablist .nav-link').on('shown.bs.tab', function () {
-    highlightTabs($(this));
-  });
+        $(".sharedDocumnent_tablist").css({
+            '--tab-left': tabOffset.left + 'px',
+            '--tab-top': tabOffset.top + 'px',
+            '--tab-width': tab.outerWidth() + 'px',
+            '--tab-height': tab.outerHeight() + 'px'
+        })
+    }
 
-  // handle resize
-  $(window).on('resize', function () {
-    highlightTabs($('.sharedDocumnent_tablist  .nav-link.active'));
-  });
+    //tab change event
+    $('.sharedDocumnent_tablist .nav-link').on('shown.bs.tab', function () {
+        highlightTabs($(this));
+    });
 
-  highlightTabs($(".sharedDocumnent_tablist .nav-link.active"))
+    // handle resize
+    $(window).on('resize', function () {
+        highlightTabs($('.sharedDocumnent_tablist  .nav-link.active'));
+    });
+
+    highlightTabs($(".sharedDocumnent_tablist .nav-link.active"))
 })
 
 $(document).ready(function () {

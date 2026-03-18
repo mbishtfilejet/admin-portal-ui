@@ -297,7 +297,9 @@
                                                                     profile</p>
                                                                 <form action="/" method="post" class="dropzone bg-white"
                                                                     id="myAwesomeDropzone1" data-plugin="dropzone"
-                                                                    data-previews-container="#file-preview_1">
+                                                                    data-previews-container="#file-preview_1"
+                                                                    data-scanned-container="#scan-preview_1"
+                                                                    data-upload-preview-template="#uploadPreviewTemplate_1">
                                                                     <div class="fallback">
                                                                         <input name="file" type="file" />
                                                                     </div>
@@ -308,11 +310,66 @@
                                                                         <h3>Drop document here or click to upload.</h3>
                                                                     </div>
                                                                 </form>
+                                                                <div class="dropzone-previews d-flex flex-wrap"
+                                                                    id="file-preview_1"></div>
+                                                                <div id="uploadPreviewTemplate_1" class="d-none">
+                                                                    <div class="file-preview-pill">
+                                                                        <div
+                                                                            class="d-flex align-items-center border rounded bg-white rounded-lg p-0">
+
+                                                                            <!-- File Icon -->
+                                                                            <div
+                                                                                class="icon-wrapper text-danger d-flex align-items-center justify-content-center flex-shrink-0">
+                                                                                <span
+                                                                                    class="mdi mdi-pdf-box mdi-24px file-icon flex-shrink-0"></span>
+                                                                            </div>
+
+                                                                            <!-- File Info -->
+                                                                            <div class="flex-grow-1">
+                                                                                <div class="d-flex align-items-center">
+                                                                                    <div class="text-truncate"
+                                                                                        style="max-width: 300px;">
+                                                                                        <span
+                                                                                            class="font-weight-bold text-dark"
+                                                                                            title=""
+                                                                                            data-dz-name></span>
+                                                                                    </div>
+                                                                                    <span class="ml-1 text-muted"
+                                                                                        data-dz-size></span>
+                                                                                </div>
+
+                                                                                <!-- Progress -->
+                                                                                <div class="dz-progress progress mb-1"
+                                                                                    style="height: 4px;">
+                                                                                    <div class="dz-upload progress-bar bg-success"
+                                                                                        role="progressbar"
+                                                                                        style="width: 0%;"
+                                                                                        data-dz-uploadprogress>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Remove Button -->
+                                                                            <div class="mx-1">
+                                                                                <button type="button"
+                                                                                    class="btn btn-sm border-0 bg-transparent text-danger p-0 shadow-none"
+                                                                                    data-dz-remove>
+                                                                                    <i
+                                                                                        class="mdi mdi-window-close remove-icon"></i>
+                                                                                </button>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <!-- Error Message -->
+                                                                        <div class="text-danger small d-none"
+                                                                            data-dz-errormessage></div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div id="file-preview_1" class="file-previewContainer d-none">
+                                                <div id="scan-preview_1" class="file-previewContainer d-none">
                                                     <div class="accordion" id="accordionExample_SOP_scan">
                                                         <div
                                                             class="card mb-3 mt-3 shadow-none border rounded-lg bg-light">
@@ -329,7 +386,7 @@
                                                                 </a>
                                                             </div>
 
-                                                            <div id="collapse_SOP_scan" class="collapse show"
+                                                            <div id="collapse_SOP_scan" class="collapse"
                                                                 aria-labelledby="heading_SOP_scan"
                                                                 data-parent="#accordionExample_SOP_scan">
                                                                 <div class="card-body pt-0">
@@ -369,36 +426,53 @@
                                                                                                 placeholder="Search by Entity Name"
                                                                                                 data-search-allowed="true"
                                                                                                 class="form-control select2 entity-field">
-                                                                                                <option value="" disabled 
-                                                                                                    selected hidden>
-                                                                                                    Search by Entity Name
+                                                                                                <option value=""
+                                                                                                    disabled selected
+                                                                                                    hidden>
+                                                                                                    Search by Entity
+                                                                                                    Name
                                                                                                 </option>
                                                                                                 <option
                                                                                                     value="RASA Realty LLC (DE) - Domestic">
-                                                                                                    RASA Realty LLC (DE) - Domestic</option>
+                                                                                                    RASA Realty LLC (DE)
+                                                                                                    - Domestic</option>
                                                                                                 <option
                                                                                                     value="KK RENEWAL HOLDINGS CORP (CA) - Domestic">
-                                                                                                    KK RENEWAL HOLDINGS CORP (CA) - Domestic
+                                                                                                    KK RENEWAL HOLDINGS
+                                                                                                    CORP (CA) - Domestic
                                                                                                 </option>
                                                                                                 <option
                                                                                                     value="RESOURCE INCOME PARTNERS LIMITED PARTNERSHIP (FL) - Foreign">
-                                                                                                    RESOURCE INCOME PARTNERS LIMITED PARTNERSHIP (FL) - Foreign
+                                                                                                    RESOURCE INCOME
+                                                                                                    PARTNERS LIMITED
+                                                                                                    PARTNERSHIP (FL) -
+                                                                                                    Foreign
                                                                                                 </option>
                                                                                                 <option
                                                                                                     value="Pikewood Group, LLC (AI) - Foreign">
-                                                                                                    Pikewood Group, LLC (AI) - Foreign
+                                                                                                    Pikewood Group, LLC
+                                                                                                    (AI) - Foreign
                                                                                                 </option>
                                                                                                 <option
                                                                                                     value="MARKSET FUND I-01-SERIES 1 L.L.C., (WY) - Domestic">
-                                                                                                    MARKSET FUND I-01-SERIES 1 L.L.C., (WY) - Domestic
+                                                                                                    MARKSET FUND
+                                                                                                    I-01-SERIES 1
+                                                                                                    L.L.C., (WY) -
+                                                                                                    Domestic
                                                                                                 </option>
                                                                                                 <option
                                                                                                     value="DEJONG'S QUANTUM TAX STRATEGIES, A PROFESSIONAL ACCOUNTANCY CORPORATION (CA) - Domestic">
-                                                                                                    DEJONG'S QUANTUM TAX STRATEGIES, A PROFESSIONAL ACCOUNTANCY CORPORATION (CA) - Domestic
+                                                                                                    DEJONG'S QUANTUM TAX
+                                                                                                    STRATEGIES, A
+                                                                                                    PROFESSIONAL
+                                                                                                    ACCOUNTANCY
+                                                                                                    CORPORATION (CA) -
+                                                                                                    Domestic
                                                                                                 </option>
                                                                                                 <option
                                                                                                     value="Pikewood Group, LLC (DA) - Domestic">
-                                                                                                    Pikewood Group, LLC (DA) - Domestic
+                                                                                                    Pikewood Group, LLC
+                                                                                                    (DA) - Domestic
                                                                                                 </option>
                                                                                             </select>
                                                                                         </div>
@@ -1470,7 +1544,9 @@
                                                                     profile</p>
                                                                 <form action="/" method="post" class="dropzone bg-white"
                                                                     id="myAwesomeDropzone2" data-plugin="dropzone"
-                                                                    data-previews-container="#file-preview_2">
+                                                                    data-previews-container="#file-preview_2"
+                                                                    data-scanned-container="#scan-preview_2"
+                                                                    data-upload-preview-template="#uploadPreviewTemplate_2">
                                                                     <div class="fallback">
                                                                         <input name="file" type="file" />
                                                                     </div>
@@ -1481,11 +1557,66 @@
                                                                         <h3>Drop document here or click to upload.</h3>
                                                                     </div>
                                                                 </form>
+                                                                <div class="dropzone-previews d-flex flex-wrap"
+                                                                    id="file-preview_2"></div>
+                                                                <div id="uploadPreviewTemplate_2" class="d-none">
+                                                                    <div class="file-preview-pill">
+                                                                        <div
+                                                                            class="d-flex align-items-center border rounded bg-white rounded-lg p-0">
+
+                                                                            <!-- File Icon -->
+                                                                            <div
+                                                                                class="icon-wrapper text-danger d-flex align-items-center justify-content-center flex-shrink-0">
+                                                                                <span
+                                                                                    class="mdi mdi-pdf-box mdi-24px file-icon flex-shrink-0"></span>
+                                                                            </div>
+
+                                                                            <!-- File Info -->
+                                                                            <div class="flex-grow-1">
+                                                                                <div class="d-flex align-items-center">
+                                                                                    <div class="text-truncate"
+                                                                                        style="max-width: 300px;">
+                                                                                        <span
+                                                                                            class="font-weight-bold text-dark"
+                                                                                            title=""
+                                                                                            data-dz-name></span>
+                                                                                    </div>
+                                                                                    <span class="ml-1 text-muted"
+                                                                                        data-dz-size></span>
+                                                                                </div>
+
+                                                                                <!-- Progress -->
+                                                                                <div class="dz-progress progress mb-1"
+                                                                                    style="height: 4px;">
+                                                                                    <div class="dz-upload progress-bar bg-success"
+                                                                                        role="progressbar"
+                                                                                        style="width: 0%;"
+                                                                                        data-dz-uploadprogress>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Remove Button -->
+                                                                            <div class="mx-1">
+                                                                                <button type="button"
+                                                                                    class="btn btn-sm border-0 bg-transparent text-danger p-0 shadow-none"
+                                                                                    data-dz-remove>
+                                                                                    <i
+                                                                                        class="mdi mdi-window-close remove-icon"></i>
+                                                                                </button>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <!-- Error Message -->
+                                                                        <div class="text-danger small d-none"
+                                                                            data-dz-errormessage></div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div id="file-preview_2" class="file-previewContainer d-none">
+                                                <div id="scan-preview_2" class="file-previewContainer d-none">
                                                     <div class="accordion" id="accordionExample_general_scan">
                                                         <div
                                                             class="card mb-3 mt-3 shadow-none border rounded-lg bg-light">
@@ -1502,7 +1633,7 @@
                                                                 </a>
                                                             </div>
 
-                                                            <div id="collapse_general_scan" class="collapse show"
+                                                            <div id="collapse_general_scan" class="collapse"
                                                                 aria-labelledby="heading_general_scan"
                                                                 data-parent="#accordionExample_general_scan">
                                                                 <div class="card-body pt-0">
@@ -1545,30 +1676,42 @@
                                                                                             </option>
                                                                                             <option
                                                                                                 value="RASA Realty LLC (DE) - Domestic">
-                                                                                                RASA Realty LLC (DE) - Domestic</option>
+                                                                                                RASA Realty LLC (DE) -
+                                                                                                Domestic</option>
                                                                                             <option
                                                                                                 value="KK RENEWAL HOLDINGS CORP (CA) - Domestic">
-                                                                                                KK RENEWAL HOLDINGS CORP (CA) - Domestic
+                                                                                                KK RENEWAL HOLDINGS CORP
+                                                                                                (CA) - Domestic
                                                                                             </option>
                                                                                             <option
                                                                                                 value="RESOURCE INCOME PARTNERS LIMITED PARTNERSHIP (FL) - Foreign">
-                                                                                                RESOURCE INCOME PARTNERS LIMITED PARTNERSHIP (FL) - Foreign
+                                                                                                RESOURCE INCOME PARTNERS
+                                                                                                LIMITED PARTNERSHIP (FL)
+                                                                                                - Foreign
                                                                                             </option>
                                                                                             <option
                                                                                                 value="Pikewood Group, LLC (AI) - Foreign">
-                                                                                                Pikewood Group, LLC (AI) - Foreign
+                                                                                                Pikewood Group, LLC (AI)
+                                                                                                - Foreign
                                                                                             </option>
                                                                                             <option
                                                                                                 value="MARKSET FUND I-01-SERIES 1 L.L.C., (WY) - Domestic">
-                                                                                                MARKSET FUND I-01-SERIES 1 L.L.C., (WY) - Domestic
+                                                                                                MARKSET FUND I-01-SERIES
+                                                                                                1 L.L.C., (WY) -
+                                                                                                Domestic
                                                                                             </option>
                                                                                             <option
                                                                                                 value="DEJONG'S QUANTUM TAX STRATEGIES, A PROFESSIONAL ACCOUNTANCY CORPORATION (CA) - Domestic">
-                                                                                                DEJONG'S QUANTUM TAX STRATEGIES, A PROFESSIONAL ACCOUNTANCY CORPORATION (CA) - Domestic
+                                                                                                DEJONG'S QUANTUM TAX
+                                                                                                STRATEGIES, A
+                                                                                                PROFESSIONAL ACCOUNTANCY
+                                                                                                CORPORATION (CA) -
+                                                                                                Domestic
                                                                                             </option>
                                                                                             <option
                                                                                                 value="Pikewood Group, LLC (DA) - Domestic">
-                                                                                                Pikewood Group, LLC (DA) - Domestic
+                                                                                                Pikewood Group, LLC (DA)
+                                                                                                - Domestic
                                                                                             </option>
                                                                                         </select>
                                                                                     </div>
