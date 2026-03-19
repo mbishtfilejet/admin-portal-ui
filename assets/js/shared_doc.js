@@ -391,7 +391,7 @@ $(function () {
                     .css('width', progress + '%')
                     .attr('aria-valuenow', progress);
                 if (progress == 100) {
-                    pillFileUploadProgressBar.fadeOut(2000)
+                    pillFileUploadProgressBar.fadeOut(1000)
                     sopScannedEl.find('.progress').fadeOut(1000);
                 };
             }).on('success', function (file, response) {
@@ -404,20 +404,35 @@ $(function () {
 
                 sopScannedEl.find('iframe').attr('src', response.url);
             }).on('removedfile', function () {
-                const remainingFiles = dz.files;
+                const isBulk = dz?.isBulkRemoval === true;
+                const remainingFiles = dz.files || [];
 
-                if (remainingFiles.length > 0) {
-                    const latestFile = remainingFiles[remainingFiles.length - 1];
-                    runScanUI(sopScannedEl, 'collapse_SOP_scan');
+                // If all file removal -> skip everything
+                if (isBulk) {
+                    if (remainingFiles.length === 0) {
+                        sopScannedEl.fadeOut(100);
+                        sopScannedEl.find('iframe').attr('src', '');
 
-                    // mocking code to showcase backend when file is removed
-                    // fading out progress bar for now
-                    this.emit('success', latestFile, { alert: 'success', url: URL.createObjectURL(latestFile) });
-                    sopScannedEl.find('.progress').fadeOut(10);
-                } else {
-                    sopScannedEl.fadeOut(200);
-                    sopScannedEl.find('iframe').attr('src', '');
+                        delete dz.isBulkRemoval;
+                    }
+                    return;
                 }
+
+                // -- Single file removal logic --
+                if (remainingFiles.length === 0) {
+                    sopScannedEl.fadeOut(100);
+                    sopScannedEl.find('iframe').attr('src', '');
+                    return
+                }
+
+                const latestFile = remainingFiles[remainingFiles.length - 1];
+                runScanUI(sopScannedEl, 'collapse_SOP_scan');
+
+                // mocking code to showcase backend when file is removed
+                // fading out progress bar for now
+                this.emit('success', latestFile, { alert: 'success', url: URL.createObjectURL(latestFile) });
+                sopScannedEl.find('.progress').fadeOut(10);
+
                 window.scrollTo({
                     top: 0,
                     behavior: 'smooth'
@@ -425,10 +440,8 @@ $(function () {
             })
 
             sopScannedEl.on('click', '[data-bz-remove]', function () {
-                sopScannedEl.fadeOut(200);
-                sopScannedEl.find('iframe').attr('src', '');
+                dz.isBulkRemoval = true;
                 dz.removeAllFiles(true);
-
             });
         }
 
@@ -467,8 +480,8 @@ $(function () {
                     nameEl.setAttribute("title", file.name);
                 }
 
-                runScanUI(generalScannedEl,'collapse_general_scan')
-        
+                runScanUI(generalScannedEl, 'collapse_general_scan')
+
                 // emittting this just for mimicking backend, code not need
                 this.emit('success', file, { alert: 'success', url: URL.createObjectURL(file) });
 
@@ -478,7 +491,7 @@ $(function () {
                     .css('width', progress + '%')
                     .attr('aria-valuenow', progress);
                 if (progress == 100) {
-                    pillFileUploadProgressBar.fadeOut(2000)
+                    pillFileUploadProgressBar.fadeOut(1000)
                     generalScannedEl.find('.progress').fadeOut(1000);
                 };
             }).on('success', function (file, response) {
@@ -492,20 +505,35 @@ $(function () {
 
                 generalScannedEl.find('iframe').attr('src', response.url);
             }).on('removedfile', function (file) {
-                const remainingFiles = dz.files;
+                const isBulk = dz?.isBulkRemoval === true;
+                const remainingFiles = dz.files || [];
 
-                if (remainingFiles.length > 0) {
-                    const latestFile = remainingFiles[remainingFiles.length - 1];
-                    runScanUI(generalScannedEl, 'collapse_general_scan');
+                // If all file removal -> skip everything
+                if (isBulk) {
+                    if (remainingFiles.length === 0) {
+                        generalScannedEl.fadeOut(100);
+                        generalScannedEl.find('iframe').attr('src', '');
 
-                    // mocking code to showcase backend when file is removed
-                    // fading out progress for now
-                    this.emit('success', latestFile, { alert: 'success', url: URL.createObjectURL(latestFile) });
-                    generalScannedEl.find('.progress').fadeOut(10);
-                } else {
-                    generalScannedEl.fadeOut(200);
-                    generalScannedEl.find('iframe').attr('src', '');
+                        delete dz.isBulkRemoval;
+                    }
+                    return;
                 }
+
+                // -- Single file removal logic --
+                if (remainingFiles.length === 0) {
+                    generalScannedEl.fadeOut(100);
+                    generalScannedEl.find('iframe').attr('src', '');
+                    return
+                }
+
+                const latestFile = remainingFiles[remainingFiles.length - 1];
+                runScanUI(generalScannedEl, 'collapse_general_scan');
+
+                // mocking code to showcase backend when file is removed
+                // fading out progress bar for now
+                this.emit('success', latestFile, { alert: 'success', url: URL.createObjectURL(latestFile) });
+                generalScannedEl.find('.progress').fadeOut(10);
+
                 window.scrollTo({
                     top: 0,
                     behavior: 'smooth'
@@ -513,8 +541,7 @@ $(function () {
             })
 
             generalScannedEl.on('click', '[data-bz-remove]', function () {
-                generalScannedEl.fadeOut(200);
-                generalScannedEl.find('iframe').attr('src', '');
+                dz.isBulkRemoval = true
                 dz.removeAllFiles(true);
             });
         }
@@ -644,7 +671,7 @@ function delay(ms) {
 }
 
 function animateAIExtractionField(element) {
-    const aiBadgeFields = element.find(".generalSection .form-group .ai-badge");
+    const aiBadgeFields = element.find(".aiFormSection .form-group .ai-badge");
 
     aiBadgeFields.each(function () {
         const aiBadge = $(this);
