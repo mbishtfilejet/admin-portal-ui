@@ -96,15 +96,7 @@ $(function () {
 
                     const latestFile = dz.files[dz.files.length - 1];
                     sopScannedEl.find('iframe').attr('src', URL.createObjectURL(latestFile));
-                } else {
-                    sopScannedEl.fadeOut(100);
-                    sopScannedEl.find('iframe').attr('src', '');
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
                 }
-
             })
 
             sopScannedEl.on('click', '[data-bz-remove]', function () {
@@ -141,7 +133,7 @@ $(function () {
             sopDropZone.options.previewTemplate = $(uploadpreviewSelector).html();
             sopDropZone.previewsContainer = $(sopPreviewSelector).get(0)
             sopDropZone.maxFiles = null
-            dzInput.setAttribute('multiple', 'multiple')
+            dzInput.setAttribute('multiple', 'multiple');
         }
         else {
             sopDropZone.options.maxFiles = 1;
@@ -153,6 +145,12 @@ $(function () {
         }
         console.log(sopDropZone)
         sopDropZone.removeAllFiles(true);
+        sopScannedEl.fadeOut(100);
+        sopScannedEl.find('iframe').attr('src', '');
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     })
 
 
