@@ -141,7 +141,7 @@ $(function () {
             sopDropZone.options.previewsContainer = false;
             sopDropZone.maxFiles = 1
             dzInput.removeAttribute('multiple')
-            sopMulitPartSubmitBtn.addClass('d-none');
+            sopPreviewWrapper.addClass('d-none');
 
         }
         console.log(sopDropZone)
