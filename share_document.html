@@ -292,9 +292,17 @@
                                                             aria-labelledby="heading_SOP"
                                                             data-parent="#accordionExample_SOP">
                                                             <div class="card-body pt-0">
-                                                                <p>Uploaded documents will be available on selected
+                                                                <p class="mb-2">Uploaded documents will be available on
+                                                                    selected
                                                                     entity
                                                                     profile</p>
+                                                                <div class="custom-control custom-checkbox mb-2">
+                                                                    <input type="checkbox" class="custom-control-input"
+                                                                        id="sop_multi_part">
+                                                                    <label class="custom-control-label"
+                                                                        for="sop_multi_part">Upload Mutliple
+                                                                        Parts</label>
+                                                                </div>
                                                                 <form action="/" method="post" class="dropzone bg-white"
                                                                     id="myAwesomeDropzone1" data-plugin="dropzone"
                                                                     data-previews-container="#file-preview_1"
@@ -310,8 +318,16 @@
                                                                         <h3>Drop document here or click to upload.</h3>
                                                                     </div>
                                                                 </form>
-                                                                <div class="dropzone-previews d-flex flex-wrap"
-                                                                    id="file-preview_1"></div>
+                                                                <div class="dropzone-preview-wrapper d-none">
+                                                                    <div
+                                                                        class="d-flex flex-wrap flex-md-nowrap align-items-center justify-content-between">
+                                                                        <div class="dropzone-previews d-flex flex-wrap"
+                                                                            id="file-preview_1"></div>
+                                                                        <button
+                                                                            class="preview-submit-btn ml-1 px-3 py-1 mt-2 btn btn-outline-secondary waves-effect shadow-none">Done</button>
+                                                                    </div>
+                                                                </div>
+
                                                                 <div id="uploadPreviewTemplate_1" class="d-none">
                                                                     <div class="file-preview-pill">
                                                                         <div
@@ -393,12 +409,6 @@
                                                                     <div class="scanned-section">
                                                                         <div class="row h-100">
                                                                             <div class="document-viewer col-lg-6">
-                                                                                <div class="progress">
-                                                                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-info align-items-start pl-1"
-                                                                                        role="progressbar"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"></div>
-                                                                                </div>
                                                                                 <div class="file-loader w-100 border-0">
                                                                                     <div
                                                                                         class="skeleton d-flex flex-column align-items-center justify-content-center h-100">
@@ -416,12 +426,48 @@
                                                                                     <div
                                                                                         class="card-box bg-white border rounded-lg p-2 prefilled-container">
                                                                                         <div class="form-group mb-1">
-                                                                                            <label for="inputEntity"
-                                                                                                class="col-form-label pt-0">Entity
+                                                                                            <label for="inputCustomer"
+                                                                                                class="col-form-label pt-0">Customer 
                                                                                                 <i class="fa-xs mdi mdi-asterisk"
                                                                                                     style="color: #ff551aff;"></i>
                                                                                                 <i
                                                                                                     class="fe-info multi-match-icon"></i></label>
+                                                                                            </label>
+                                                                                            <select id="inputCustomer"
+                                                                                                placeholder="Customer Name"
+                                                                                                data-search-allowed="true"
+                                                                                                class="form-control select2 customer-field">
+                                                                                                <option value=""
+                                                                                                    selected hidden=""
+                                                                                                    disabled="">
+                                                                                                    Search Customer Name
+                                                                                                </option>
+                                                                                                <option
+                                                                                                    value="Corporation Inc.">
+                                                                                                    Corporation Inc.
+                                                                                                </option>
+                                                                                                <option
+                                                                                                    value="Alphabet Inc.">
+                                                                                                    Alphabet Inc.
+                                                                                                </option>
+                                                                                                <option
+                                                                                                    value="ApexAplhaVentures">
+                                                                                                    ApexAplhaVentures
+                                                                                                </option>
+                                                                                                <option
+                                                                                                    value="Amazon Warehouse">
+                                                                                                    Amazon Warehouse
+                                                                                                </option>
+                                                                                                <option
+                                                                                                    value="Nexa Creations">
+                                                                                                    Nexa Creations
+                                                                                                </option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                        <div class="form-group mb-1">
+                                                                                            <label for="inputEntity"
+                                                                                                class="col-form-label">Entity
+                                                                                            </label>
                                                                                             <select id="inputEntity"
                                                                                                 placeholder="Search by Entity Name"
                                                                                                 data-search-allowed="true"
@@ -473,42 +519,6 @@
                                                                                                     value="Pikewood Group, LLC (DA) - Domestic">
                                                                                                     Pikewood Group, LLC
                                                                                                     (DA) - Domestic
-                                                                                                </option>
-                                                                                            </select>
-                                                                                        </div>
-
-                                                                                        <div class="form-group mb-1">
-                                                                                            <label for="inputCustomer"
-                                                                                                class="col-form-label">Customer
-                                                                                                Name</label>
-                                                                                            <select id="inputCustomer"
-                                                                                                placeholder="Customer Name"
-                                                                                                data-search-allowed="true"
-                                                                                                class="form-control select2 customer-field">
-                                                                                                <option value=""
-                                                                                                    selected hidden=""
-                                                                                                    disabled="">
-                                                                                                    Search Customer Name
-                                                                                                </option>
-                                                                                                <option
-                                                                                                    value="Corporation Inc.">
-                                                                                                    Corporation Inc.
-                                                                                                </option>
-                                                                                                <option
-                                                                                                    value="Alphabet Inc.">
-                                                                                                    Alphabet Inc.
-                                                                                                </option>
-                                                                                                <option
-                                                                                                    value="ApexAplhaVentures">
-                                                                                                    ApexAplhaVentures
-                                                                                                </option>
-                                                                                                <option
-                                                                                                    value="Amazon Warehouse">
-                                                                                                    Amazon Warehouse
-                                                                                                </option>
-                                                                                                <option
-                                                                                                    value="Nexa Creations">
-                                                                                                    Nexa Creations
                                                                                                 </option>
                                                                                             </select>
                                                                                         </div>
@@ -677,9 +687,7 @@
                                                                                                 class="form-group mb-1">
                                                                                                 <label for=""
                                                                                                     class="col-form-label pt-0">Entity
-                                                                                                    or DBA Name <i
-                                                                                                        class="fa-xs mdi mdi-asterisk"
-                                                                                                        style="color: #ff551aff;"></i></label>
+                                                                                                    or DBA Name</label>
                                                                                                 <div class="d-flex">
                                                                                                     <div
                                                                                                         class="placeholder form-control w-100">
@@ -890,9 +898,7 @@
                                                                                                 <label
                                                                                                     for="inputEntityorDBA"
                                                                                                     class="col-form-label pt-0">Entity
-                                                                                                    or DBA Name <i
-                                                                                                        class="fa-xs mdi mdi-asterisk"
-                                                                                                        style="color: #ff551aff;"></i></label>
+                                                                                                    or DBA Name</label>
                                                                                                 <div class="d-flex">
                                                                                                     <input type="text"
                                                                                                         class="form-control flex-grow-1"
@@ -1539,9 +1545,17 @@
                                                             aria-labelledby="heading_general"
                                                             data-parent="#accordionExample_general">
                                                             <div class="card-body pt-0">
-                                                                <p>Uploaded documents will be available on selected
+                                                                <p class="mb-2">Uploaded documents will be available on
+                                                                    selected
                                                                     entity
                                                                     profile</p>
+                                                                <div class="custom-control custom-checkbox mb-2">
+                                                                    <input type="checkbox" class="custom-control-input"
+                                                                        id="general_multi_part">
+                                                                    <label class="custom-control-label"
+                                                                        for="general_multi_part">Upload Mutliple
+                                                                        Parts</label>
+                                                                </div>
                                                                 <form action="/" method="post" class="dropzone bg-white"
                                                                     id="myAwesomeDropzone2" data-plugin="dropzone"
                                                                     data-previews-container="#file-preview_2"
@@ -1639,11 +1653,6 @@
                                                                 <div class="card-body pt-0">
                                                                     <div class="row h-100">
                                                                         <div class="document-viewer col-lg-6">
-                                                                            <div class="progress">
-                                                                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-info align-items-start pl-1"
-                                                                                    role="progressbar" aria-valuemin="0"
-                                                                                    aria-valuemax="100"></div>
-                                                                            </div>
                                                                             <div class="file-loader w-100 border-0">
                                                                                 <div
                                                                                     class="skeleton d-flex flex-column align-items-center justify-content-center h-100">
@@ -1661,11 +1670,49 @@
                                                                                 <div
                                                                                     class="card-box bg-white border rounded-lg p-2 prefilled-container">
                                                                                     <div class="form-group mb-1">
-                                                                                        <label for="inputGeneralEntity"
-                                                                                            class="col-form-label pt-0">Entity
+                                                                                        <label
+                                                                                            for="inputGeneralCustomer"
+                                                                                            placeholder="Search Customer"
+                                                                                            class="col-form-label">Customer
+                                                                                            Name
                                                                                             <i class="fa-xs mdi mdi-asterisk"
                                                                                                 style="color: #ff551aff;"></i><i
                                                                                                 class="fe-info multi-match-icon"></i></label>
+                                                                                        <select
+                                                                                            id="inputGeneralCustomer"
+                                                                                            placeholder="Customer Name"
+                                                                                            data-search-allowed="true"
+                                                                                            class="form-control select2 customer-field">
+                                                                                            <option value="" selected
+                                                                                                hidden="" disabled="">
+                                                                                                Customer Name
+                                                                                            </option>
+                                                                                            <option
+                                                                                                value="Corporation Inc.">
+                                                                                                Corporation Inc.
+                                                                                            </option>
+                                                                                            <option
+                                                                                                value="Alphabet Inc.">
+                                                                                                Alphabet Inc.
+                                                                                            </option>
+                                                                                            <option
+                                                                                                value="ApexAplhaVentures">
+                                                                                                ApexAplhaVentures
+                                                                                            </option>
+                                                                                            <option
+                                                                                                value="Amazon Warehouse">
+                                                                                                Amazon Warehouse
+                                                                                            </option>
+                                                                                            <option
+                                                                                                value="Nexa Creations">
+                                                                                                Nexa Creations
+                                                                                            </option>
+                                                                                        </select>
+                                                                                    </div>
+
+                                                                                    <div class="form-group mb-1">
+                                                                                        <label for="inputGeneralEntity"
+                                                                                            class="col-form-label">Entity</label>
                                                                                         <select id="inputGeneralEntity"
                                                                                             placeholder="Search by Entity Name"
                                                                                             data-search-allowed="true"
@@ -1716,43 +1763,6 @@
                                                                                         </select>
                                                                                     </div>
 
-                                                                                    <div class="form-group mb-1">
-                                                                                        <label
-                                                                                            for="inputGeneralCustomer"
-                                                                                            placeholder="Search Customer"
-                                                                                            class="col-form-label">Customer
-                                                                                            Name</label>
-                                                                                        <select
-                                                                                            id="inputGeneralCustomer"
-                                                                                            placeholder="Customer Name"
-                                                                                            data-search-allowed="true"
-                                                                                            class="form-control select2 customer-field">
-                                                                                            <option value="" selected
-                                                                                                hidden="" disabled="">
-                                                                                                Customer Name
-                                                                                            </option>
-                                                                                            <option
-                                                                                                value="Corporation Inc.">
-                                                                                                Corporation Inc.
-                                                                                            </option>
-                                                                                            <option
-                                                                                                value="Alphabet Inc.">
-                                                                                                Alphabet Inc.
-                                                                                            </option>
-                                                                                            <option
-                                                                                                value="ApexAplhaVentures">
-                                                                                                ApexAplhaVentures
-                                                                                            </option>
-                                                                                            <option
-                                                                                                value="Amazon Warehouse">
-                                                                                                Amazon Warehouse
-                                                                                            </option>
-                                                                                            <option
-                                                                                                value="Nexa Creations">
-                                                                                                Nexa Creations
-                                                                                            </option>
-                                                                                        </select>
-                                                                                    </div>
                                                                                     <div class="form-row">
                                                                                         <div
                                                                                             class="form-group mb-0 col-md-6">
@@ -2368,6 +2378,8 @@
         <script src="assets/js/app.min.js"></script>
 
         <script src="assets/js/shared_doc.js"></script>
+
+        <script src="assets/js/upload_files.js"></script>
 
 </body>
 

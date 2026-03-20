@@ -284,10 +284,6 @@ a.line-item {
         .file-icon {
             height: inherit;
         }
-
-        .file-preview-pill{
-            margin-top: 5px;
-        }
     }
 }
 
