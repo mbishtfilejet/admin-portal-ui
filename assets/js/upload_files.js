@@ -47,7 +47,7 @@ $(function () {
                     dz.removeFile(dz.files[0]);
                 }
 
-                if(dz.files.length > 1 && sopMultiUploadCheckbox.is(':checked') ){
+                if (dz.files.length > 1 && sopMultiUploadCheckbox.is(':checked')) {
                     sopScannedEl.fadeOut(100);
                 }
 
@@ -96,6 +96,13 @@ $(function () {
 
                     const latestFile = dz.files[dz.files.length - 1];
                     sopScannedEl.find('iframe').attr('src', URL.createObjectURL(latestFile));
+                } else {
+                    sopScannedEl.fadeOut(100);
+                    sopScannedEl.find('iframe').attr('src', '');
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
                 }
 
             })
