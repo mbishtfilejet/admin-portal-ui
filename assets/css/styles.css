@@ -274,7 +274,7 @@ a.line-item {
     .dropzone-previews {
         gap: 5px;
 
-        &:has(.file-preview-pill){
+        &:has(.file-preview-pill) {
             margin-top: 10px;
         }
         .icon-wrapper {
@@ -361,7 +361,6 @@ a.line-item {
 .text-loader {
     animation: text 1s linear infinite alternate;
 }
-
 
 @keyframes rotate {
     0% {
