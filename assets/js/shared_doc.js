@@ -372,16 +372,16 @@ $(document).ready(function () {
 $(function () {
     // const searchFieldId = ["#inputEntity", "#inputGeneralEntity"];
 
-    $(document).on('select2:select', '.tab-content .select2.customer-field', function () {
+    $(document).on('select2:select', '.tab-content .select2.entity-field', function () {
 
 
         const parent = $(this).closest('.prefilled-container');
 
-        const entityField = parent.find('.entity-field');
+        const customerField = parent.find('.customer-field');
         const groupField = parent.find('.group-field');
         const jurisdictionField = parent.find('.jurisdiction-field');
 
-        setValue(entityField, "RASA Realty LLC (DE) - Domestic");
+        setValue(customerField, "Alphabet Inc.");
         setValue(groupField, "Adept HR");
         setValue(jurisdictionField, "AZ");
 
@@ -399,7 +399,7 @@ $(function () {
     }
 
 
-    $('.tab-content .select2.customer-field').on('select2:open select2:select', function () {
+    $('.tab-content .select2.entity-field').on('select2:open select2:select', function () {
 
         const selectElement = $(this);
         const matchIcon = selectElement.closest('.form-group').find('.multi-match-icon');

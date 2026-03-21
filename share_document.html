@@ -427,11 +427,8 @@
                                                                                         class="card-box bg-white border rounded-lg p-2 prefilled-container">
                                                                                         <div class="form-group mb-1">
                                                                                             <label for="inputCustomer"
-                                                                                                class="col-form-label pt-0">Customer 
-                                                                                                <i class="fa-xs mdi mdi-asterisk"
-                                                                                                    style="color: #ff551aff;"></i>
-                                                                                                <i
-                                                                                                    class="fe-info multi-match-icon"></i></label>
+                                                                                                class="col-form-label pt-0">Customer Name
+                                                                                                </label>
                                                                                             </label>
                                                                                             <select id="inputCustomer"
                                                                                                 placeholder="Customer Name"
@@ -467,6 +464,10 @@
                                                                                         <div class="form-group mb-1">
                                                                                             <label for="inputEntity"
                                                                                                 class="col-form-label">Entity
+                                                                                                <i class="fa-xs mdi mdi-asterisk"
+                                                                                                    style="color: #ff551aff;"></i>
+                                                                                                <i
+                                                                                                    class="fe-info multi-match-icon"></i>
                                                                                             </label>
                                                                                             <select id="inputEntity"
                                                                                                 placeholder="Search by Entity Name"
@@ -1571,8 +1572,15 @@
                                                                         <h3>Drop document here or click to upload.</h3>
                                                                     </div>
                                                                 </form>
-                                                                <div class="dropzone-previews d-flex flex-wrap"
-                                                                    id="file-preview_2"></div>
+                                                                <div class="dropzone-preview-wrapper d-none">
+                                                                    <div
+                                                                        class="d-flex flex-wrap flex-md-nowrap align-items-center justify-content-between">
+                                                                        <div class="dropzone-previews d-flex flex-wrap"
+                                                                            id="file-preview_2"></div>
+                                                                        <button
+                                                                            class="preview-submit-btn ml-1 px-3 py-1 mt-2 btn btn-outline-secondary waves-effect shadow-none">Done</button>
+                                                                    </div>
+                                                                </div>
                                                                 <div id="uploadPreviewTemplate_2" class="d-none">
                                                                     <div class="file-preview-pill">
                                                                         <div
@@ -1674,10 +1682,7 @@
                                                                                             for="inputGeneralCustomer"
                                                                                             placeholder="Search Customer"
                                                                                             class="col-form-label">Customer
-                                                                                            Name
-                                                                                            <i class="fa-xs mdi mdi-asterisk"
-                                                                                                style="color: #ff551aff;"></i><i
-                                                                                                class="fe-info multi-match-icon"></i></label>
+                                                                                            Name</label>
                                                                                         <select
                                                                                             id="inputGeneralCustomer"
                                                                                             placeholder="Customer Name"
@@ -1712,7 +1717,10 @@
 
                                                                                     <div class="form-group mb-1">
                                                                                         <label for="inputGeneralEntity"
-                                                                                            class="col-form-label">Entity</label>
+                                                                                            class="col-form-label">Entity
+                                                                                            <i class="fa-xs mdi mdi-asterisk"
+                                                                                                style="color: #ff551aff;"></i><i
+                                                                                                class="fe-info multi-match-icon"></i></label>
                                                                                         <select id="inputGeneralEntity"
                                                                                             placeholder="Search by Entity Name"
                                                                                             data-search-allowed="true"
@@ -2002,13 +2010,21 @@
                                                                                                             Choose a DOC
                                                                                                             type
                                                                                                         </option>
-                                                                                                        <option
-                                                                                                            selected>
-                                                                                                            Annual
-                                                                                                            Report
-                                                                                                        </option>
-                                                                                                        <option>SOP
-                                                                                                        </option>
+                                                                                                        <option value="Annual Report" selected>Annual Report</option>
+                                                                                                        <option value="Dissolution">Dissolution</option>
+                                                                                                        <option value="SOP">SOP</option>
+                                                                                                        <option value="BOI">BOI</option>
+                                                                                                        <option value="Good Standing">Good Standing</option>
+                                                                                                        <option value="Amendments">Amendments</option>
+                                                                                                        <option value="Business License">Business License</option>
+                                                                                                        <option value="DBA">DBA</option>
+                                                                                                        <option value="Formations">Formations</option>
+                                                                                                        <option value="EIN">EIN</option>
+                                                                                                        <option value="Restate">Restate</option>
+                                                                                                        <option value="Certificate of Cancellation">Certificate of Cancellation</option>
+                                                                                                        <option value="Merger">Merger</option>
+                                                                                                        <option value="25102f">25102f</option>
+                                                                                                        <option value="Certificate of Correction">Certificate of Corrections</option>
                                                                                                     </select>
                                                                                                     <span
                                                                                                         class="ml-1 flex-grow-1 rounded-sm text-white ai-badge"
