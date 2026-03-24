@@ -45,6 +45,7 @@ $(function () {
      * Dropzone - Service of Process(Upload Documents)
      */
     const sopMultiUploadCheckbox = $('#sop_multi_part')
+    const sopUploadSection = $('#accordion_SOP')
     const sopDropzoneContainer = $('#myAwesomeDropzone1');
     const sopActionUrl = sopDropzoneContainer.attr('action')
     const sopPreviewSelector = sopDropzoneContainer.data('previewsContainer');
@@ -101,6 +102,7 @@ $(function () {
                 if (!sopMultiUploadCheckbox.is(':checked')) {
                     // adding loading timeout to just remove loader 
                     showIframeWithDelay(sopScannedEl)
+                    sopUploadSection.fadeOut(100)
                 }
             }).on('removedfile', function () {
                 if (!sopMultiUploadCheckbox.is(':checked')) return;
@@ -117,12 +119,14 @@ $(function () {
 
             sopScannedEl.on('click', '[data-bz-remove]', function () {
                 resetUI(dz, sopScannedEl)
+                sopUploadSection.fadeIn(100)
             });
 
             sopMulitPartSubmitBtn.on('click', function () {
                 sopPreviewWrapper.addClass('d-none');
                 runScanUI(sopScannedEl, 'collapse_SOP_scan')
                 showIframeWithDelay(sopScannedEl)
+                sopUploadSection.fadeOut(100)
             })
         }
 
@@ -161,6 +165,7 @@ $(function () {
      * Dropzone - General(Upload Documents)
      */
     const generalMultiUploadCheckbox = $('#general_multi_part')
+    const generalUploadSection = $('#accordion_general')
     const generalDropzoneContainer = $('#myAwesomeDropzone2');
     const generalActionUrl = generalDropzoneContainer.attr('action')
     const generalPreviewSelector = generalDropzoneContainer.data('previewsContainer');
@@ -216,6 +221,7 @@ $(function () {
                 if (!generalMultiUploadCheckbox.is(':checked')) {
                     // adding loading timeout to just remove loader 
                     showIframeWithDelay(generalScannedEl)
+                    generalUploadSection.fadeOut(100)
                 }
             }).on('removedfile', function () {
                 if (!generalMultiUploadCheckbox.is(':checked')) return;
@@ -232,12 +238,14 @@ $(function () {
 
             generalScannedEl.on('click', '[data-bz-remove]', function () {
                 resetUI(dz, generalScannedEl)
+                generalUploadSection.fadeIn(100)
             });
 
             generalMulitPartSubmitBtn.on('click', function () {
                 generalPreviewWrapper.addClass('d-none');
                 runScanUI(generalScannedEl, 'collapse_general_scan')
                 showIframeWithDelay(generalScannedEl)
+                generalUploadSection.fadeOut(100)
             })
         }
 
