@@ -128,6 +128,11 @@ $(function () {
                 showIframeWithDelay(sopScannedEl)
                 sopUploadSection.fadeOut(100)
             })
+
+            $('#sop_redo_scan').on('click', function () {
+                runScanUI(sopScannedEl, 'collapse_SOP_scan')
+                showIframeWithDelay(sopScannedEl)
+            })
         }
 
     }
@@ -159,7 +164,6 @@ $(function () {
 
         resetUI(sopDropZone, sopScannedEl)
     })
-
 
     /**
      * Dropzone - General(Upload Documents)
@@ -246,6 +250,11 @@ $(function () {
                 runScanUI(generalScannedEl, 'collapse_general_scan')
                 showIframeWithDelay(generalScannedEl)
                 generalUploadSection.fadeOut(100)
+            })
+
+            $('#general_redo_scan').on('click', function () {
+                runScanUI(generalScannedEl, 'collapse_general_scan')
+                showIframeWithDelay(generalScannedEl)
             })
         }
 
