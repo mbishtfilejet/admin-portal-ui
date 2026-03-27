@@ -437,3 +437,100 @@ function debounce(func, wait) {
         }, wait);
     };
 }
+
+// just for refrence to get the layout accurate for order tab table dont need this code
+function tableInit(tableId) {
+    const tableContainer = $(`table[data-tabId="${tableId}"]`)
+
+    console.log(tableContainer)
+    let options = {
+        language: {
+            processing: 'Loading...',
+            emptyTable: `<div class='text-center alert alert-info'><i class='fa fa-info-circle'></i>'No record available'</div>`,
+            sPaginate: {
+                sNext: "<i class='mdi mdi-chevron-left'>",
+                sPrevious: "<i class='mdi mdi-chevron-right'>",
+            }
+        },
+        scrollX: true,
+        scrollY: "45vh",
+        lengthChange: false,
+        searching: true,
+        info: false,
+        paging: true,
+        pagingType: "simple_numbers",
+        drawCallback: function () {
+            $(".dataTables_paginate > .pagination").addClass("pagination-rounded")
+        },
+        buttons: dbuttons(tableContainer),
+        dom: 'Blfrtip',
+        sScrollXInner: "100%",
+        order: [[0, "desc"]],
+    };
+
+    tableContainer.DataTable(options)
+}
+
+
+
+$(function () {
+    const tableId = ["received", "in_process", "completed"]
+
+    tableId.forEach(val => {
+        tableInit(val)
+    })
+})
+
+
+function dbuttons(tableContainer) {
+    let dbuttons = [];
+
+    if ($.type(tableContainer.data('actions')) != "undefined") {
+        $.each(tableContainer.data('actions'), function (bindex, button) {
+
+            let hasExtra = $.type(button.extra) != "undefined";
+
+            let extra = hasExtra ? button.extra : {};
+            console.log(button)
+
+            dbuttons.push({
+                attr: extra, text: button.title, className: button.className, action: function (e, dt, node, config) {
+                    if (!hasExtra) {
+                        window.location = button.url;
+                    }
+                }
+            });
+        });
+    }
+
+
+    return dbuttons
+}
+
+$('#orderTab li a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+    const currentTab = $(e.target);
+    const tabKey = currentTab.data('tab-key');
+    $(`table[data-tabId="${tabKey}"]`).DataTable().columns.adjust()
+});
+
+
+
+// this code is needed to have select2 initialize for ordertab table under upload documents section
+
+
+$(document).ready(function () {
+    $('#uploadDOCtype').select2({
+        placeholder: 'Choose Document Type',
+        minimumResultsForSearch: Infinity
+    })
+
+    $(document).on('select2:select', '#uploadDOCtype', function () {
+        const select = $(this)
+
+        const container = select.closest('.upload_section_wrapper')
+
+        const uploadSection = container.find(".upload_section");
+
+        uploadSection.removeClass("d-none")
+    })
+})

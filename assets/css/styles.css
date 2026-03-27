@@ -202,6 +202,60 @@ a.line-item {
     white-space: nowrap
 }
 
+
+.order-list-item-progress{
+     border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    text-align: center;
+    padding-top: 13px;
+    margin-left: 10px;
+}
+
+.progresss-badge.badge {
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    line-height: 0.8;
+    font-size: 13px;
+    font-weight: 500;
+    color: #ffffff;
+    border-radius: 2px;
+    padding: 0.35em 0.4em;
+    display: block;
+    margin: 0 auto 2px;
+    max-width: 30px;
+    border-radius: 2px;
+}
+
+.badge-lg {
+    width: 45px;
+    height: 35px;
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: 35px;
+}
+
+.badge-circle {
+    min-width: auto;
+    border-radius: 25px !important;
+    max-width: 25px !important;
+    padding: 0 !important;
+    line-height: 25px !important;
+}
+.badge-green {
+    background: #a8d85b;
+}
+
+/* above code is being copied from existing stylesheets to just make accurate page layout no need of adding these above styles
+ as the eexist in admin portal
+*/
+
+
+/* below are the custom styles for the new share document page layout */
+
 .sharedDocumnent_tablist {
     position: relative;
     background-color: #F3F5F8;
@@ -381,3 +435,4 @@ a.line-item {
 .multi-match-icon {
     display: none;
 }
+
