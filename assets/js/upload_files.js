@@ -15,7 +15,7 @@ function showIframeWithDelay(element, delay = 3000) {
     }, delay)
 }
 
-function runScanUI(element, collapse_container_id) {
+function runScanUI(element, collapse_container_id, no_ai_summary = false) {
     element.removeClass('d-none').hide().fadeIn(300);
 
     $(`#${collapse_container_id}`).collapse('show');
