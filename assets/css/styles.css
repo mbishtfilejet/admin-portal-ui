@@ -257,182 +257,155 @@ a.line-item {
 /* below are the custom styles for the new share document page layout */
 
 .sharedDocumnent_tablist {
-    position: relative;
-    background-color: #F3F5F8;
-    max-width: fit-content;
-    padding: 0.25rem;
-    border-radius: 5px;
-
-    &::after {
-        position: absolute;
-        content: "";
-        background-color: #D8DDDF;
-        left: var(--tab-left);
-        right: var(--tab-right);
-        width: var(--tab-width);
-        height: var(--tab-height);
-        transition: all 0.5s ease-in-out;
-        z-index: 0;
-        border-radius: 5px;
-    }
-
-    .nav-link {
-        position: relative;
-        z-index: 1;
-        color: var(--bs-nw-gray-600);
-        font-size: 14px;
-
-        &[aria-selected=true],
-        &.active {
-            color: #272A2E;
-            font-weight: 700;
-        }
-    }
+  position: relative;
+  background-color: #F3F5F8;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  padding: 0.25rem;
+  border-radius: 5px;
+}
+.sharedDocumnent_tablist::after {
+  position: absolute;
+  content: "";
+  background-color: #D8DDDF;
+  left: var(--tab-left);
+  right: var(--tab-right);
+  width: var(--tab-width);
+  height: var(--tab-height);
+  transition: all 0.5s ease-in-out;
+  z-index: 0;
+  border-radius: 5px;
+}
+.sharedDocumnent_tablist .nav-link {
+  position: relative;
+  z-index: 1;
+  color: var(--bs-nw-gray-600);
+  font-size: 14px;
+}
+.sharedDocumnent_tablist .nav-link[aria-selected=true], .sharedDocumnent_tablist .nav-link.active {
+  color: #272A2E;
+  font-weight: 700;
 }
 
-.sharedDocTabContent {
-    .document-viewer {
-
-        iframe,
-        .file-loader {
-            height: 705px;
-        }
-
-        .progress {
-            height: 1.2rem !important;
-            font-size: 1rem !important;
-            font-weight: 600;
-            text-transform: uppercase;
-
-            .progress-bar {
-                color: #000;
-            }
-        }
-    }
-
-
-    .accordion {
-        a[data-toggle="collapse"] {
-            &[aria-expanded=true] .fe-chevron-down {
-                transform: rotate(180deg);
-            }
-        }
-    }
-
-    .col-form-label {
-        display: flex;
-        align-items: center;
-        gap: 2px;
-    }
-
-    .dropzone-previews {
-        gap: 5px;
-
-        &:has(.file-preview-pill) {
-            margin-top: 10px;
-        }
-        .icon-wrapper {
-            width: 30px;
-        }
-
-        .file-icon {
-            height: inherit;
-        }
-    }
+.sharedDocTabContent .document-viewer iframe,
+.sharedDocTabContent .document-viewer .file-loader {
+  height: 705px;
 }
-
+.sharedDocTabContent .document-viewer .progress {
+  height: 1.2rem !important;
+  font-size: 1rem !important;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.sharedDocTabContent .document-viewer .progress .progress-bar {
+  color: #000;
+}
+.sharedDocTabContent .accordion a[data-toggle=collapse][aria-expanded=true] .fe-chevron-down {
+  transform: rotate(180deg);
+}
+.sharedDocTabContent .col-form-label {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.sharedDocTabContent .dropzone-previews {
+  gap: 5px;
+}
+.sharedDocTabContent .dropzone-previews:has(.file-preview-pill) {
+  margin-top: 10px;
+}
+.sharedDocTabContent .dropzone-previews .icon-wrapper {
+  width: 30px;
+}
+.sharedDocTabContent .dropzone-previews .file-icon {
+  height: inherit;
+}
 
 .ai-badge {
-    padding: 5px;
-    width: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    background-color: #F82B02;
+  padding: 5px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  background-color: #F82B02;
 }
 
 .bg-100 {
-    background-color: #00BA70 !important;
+  background-color: #00BA70 !important;
 }
 
 .bg-90 {
-    background-color: #1AAC66 !important;
+  background-color: #1AAC66 !important;
 }
 
 .bg-80 {
-    background-color: #339E5C !important;
+  background-color: #339E5C !important;
 }
 
 .bg-70 {
-    background-color: #4D9053 !important;
+  background-color: #4D9053 !important;
 }
 
 .bg-60 {
-    background-color: #678249 !important;
+  background-color: #678249 !important;
 }
 
 .bg-50 {
-    background-color: #80733F !important;
+  background-color: #80733F !important;
 }
 
 .bg-40 {
-    background-color: #9A6535 !important;
+  background-color: #9A6535 !important;
 }
 
 .bg-30 {
-    background-color: #B4572C !important;
+  background-color: #B4572C !important;
 }
 
 .bg-20 {
-    background-color: #CD4922 !important;
+  background-color: #CD4922 !important;
 }
 
 .bg-10 {
-    background-color: #E73B18 !important;
+  background-color: #E73B18 !important;
 }
 
 .generalSection {
-    min-height: 0;
-    transition: all 1s ease-in-out;
+  min-height: 0;
+  transition: all 1s ease-in-out;
 }
 
 .placeholder {
-    position: relative;
-    transition: all 0.5s ease-in-out;
+  position: relative;
+  transition: all 0.5s ease-in-out;
 }
 
-
 .placeholder::before {
-    position: absolute;
-    content: "";
-    inset: -1px;
-    border-radius: 2px;
-    z-index: 1;
-    animation: skeleton-loading 1s linear infinite alternate
+  position: absolute;
+  content: "";
+  inset: -1px;
+  border-radius: 2px;
+  z-index: 1;
+  animation: skeleton-loading 1s linear infinite alternate;
 }
 
 .text-loader {
-    animation: text 1s linear infinite alternate;
+  animation: text 1s linear infinite alternate;
 }
 
 @keyframes rotate {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    60% {
-        transform: rotate(300deg);
-    }
-
-    100% {
-        transform: rotate(300deg);
-        content: "\FAE2";
-    }
+  0% {
+    transform: rotate(0deg);
+  }
+  60% {
+    transform: rotate(300deg);
+  }
+  100% {
+    transform: rotate(300deg);
+    content: "﫢";
+  }
 }
-
-
 .multi-match-icon {
-    display: none;
+  display: none;
 }
-
