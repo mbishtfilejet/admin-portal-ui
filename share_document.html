@@ -1333,14 +1333,13 @@
                                                       <select
                                                         id="inputSOPType"
                                                         required
-                                                        placeholder="Choose a type of service of process"
-                                                        data-search-allowed="false"
                                                         class="form-control custom-select normal-select"
                                                       >
                                                         <option
                                                           value=""
                                                           selected
                                                           hidden
+                                                          disabled
                                                         >
                                                           Choose a type of
                                                           service of process
@@ -1375,14 +1374,13 @@
                                                       <select
                                                         id="inputFileType"
                                                         required
-                                                        placeholder="Choose a file type"
-                                                        data-search-allowed="false"
                                                         class="form-control custom-select normal-select"
                                                       >
                                                         <option
                                                           value=""
                                                           selected
                                                           hidden
+                                                          disabled
                                                         >
                                                           Choose a file type
                                                         </option>
@@ -1406,8 +1404,6 @@
                                                     <select
                                                       id="inputDeliveryMethod"
                                                       required
-                                                      placeholder="Choose a delivery method"
-                                                      data-search-allowed="false"
                                                       class="form-control custom-select normal-select"
                                                     >
                                                       <option
@@ -1536,8 +1532,6 @@
                                                   <div class="d-flex">
                                                     <select
                                                       id="inputCoverPage"
-                                                      placeholder="Has Cover Page"
-                                                      data-search-allowed="false"
                                                       class="form-control custom-select normal-select"
                                                     >
                                                       <option
@@ -1569,8 +1563,6 @@
                                                     <select
                                                       id="inputHasCheck"
                                                       required
-                                                      placeholder="Has Check"
-                                                      data-search-allowed="false"
                                                       class="form-control custom-select normal-select"
                                                     >
                                                       <option
@@ -2370,7 +2362,7 @@
                                                 <label
                                                   for=""
                                                   class="col-form-label"
-                                                  >Delivery Method
+                                                  >Entity or DBA Name
                                                   <i
                                                     class="fa-xs mdi mdi-asterisk"
                                                     style="color: #ff551aff"
@@ -2390,7 +2382,7 @@
                                                 <label
                                                   for=""
                                                   class="col-form-label"
-                                                  >Issuer</label
+                                                  >Entity File Number</label
                                                 >
                                                 <div class="d-flex">
                                                   <div
@@ -2422,7 +2414,7 @@
                                                       data-search-allowed="false"
                                                       class="form-control select2"
                                                     >
-                                                      <option value="" hidden>
+                                                      <option value="" hidden disabled>
                                                         Choose a DOC type
                                                       </option>
                                                       <option
@@ -2515,11 +2507,9 @@
                                                   <div class="d-flex">
                                                     <select
                                                       id="inputGeneralFileType"
-                                                      placeholder="Choose a file type"
-                                                      data-search-allowed="false"
-                                                      class="form-control select2"
+                                                      class="form-control custom-select normal-select"
                                                     >
-                                                      <option value="" hidden>
+                                                      <option value="" hidden disabled>
                                                         Choose a file type
                                                       </option>
                                                       <option selected>
