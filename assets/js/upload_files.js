@@ -252,10 +252,10 @@ $(function () {
                 generalUploadSection.fadeOut(100)
             })
 
-            $('#general_redo_scan').on('click', function () {
-                runScanUI(generalScannedEl, 'collapse_general_scan')
-                showIframeWithDelay(generalScannedEl)
-            })
+            // $('#general_redo_scan').on('click', function () {
+            //     runScanUI(generalScannedEl, 'collapse_general_scan')
+            //     showIframeWithDelay(generalScannedEl)
+            // })
         }
 
     }
