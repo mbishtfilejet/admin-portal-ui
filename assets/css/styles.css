@@ -439,7 +439,19 @@ a.line-item {
   color: #999;
 }
 
-.normal-select:valid{
+.normal-select:valid {
   color: #6c757d;
 }
 
+
+
+@media (max-width: 1300px) {
+
+  .placeholderSection .form-row .form-group,
+  .aiFormSection .form-row .form-group {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
