@@ -443,6 +443,18 @@ a.line-item {
   color: #6c757d;
 }
 
+.scanPrice{
+  position: relative;
+}
+
+.scanPrice::before {
+  content: "$";
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+}
 
 
 @media (max-width: 1300px) {
