@@ -330,9 +330,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="modal fade paymentmethod-modal" tabindex="-1"
-                        data-keyboard="false" data-backdrop="static" id="add-paymentmethod"
-                        aria-labelledby="modal-heading" aria-hidden="true">
+                    <div class="modal fade paymentmethod-modal" tabindex="-1" data-keyboard="false"
+                        data-backdrop="static" id="add-paymentmethod" aria-labelledby="modal-heading"
+                        aria-hidden="true">
                         <div class="modal-dialog modal-xl">
                             <div class="modal-content">
                                 <div class="modal-header ">
@@ -471,8 +471,8 @@
                                                     </div>
                                                     <div class="form-group card-owner-list">
                                                         <label class="justify-content-start mr-2">Available To </label>
-                                                        <select
-                                                            class="form-control available_to select2" placeholder="Group Name">
+                                                        <select class="form-control customSelect2"
+                                                            placeholder="Group Name">
                                                             <option value="" disabled="" selected="" hidden="">Group
                                                                 Name</option>
                                                             <option value="All">All</option>
@@ -510,6 +510,145 @@
                                         data-dismiss="modal" aria-hidden="true">&times;</button>
                                 </div>
                                 <div class="modal-body">
+                                    <form method="post" accept-charset="utf-8" id="subscriptionForm">
+                                        <div style="display:none;"><input type="hidden" name="_method" value="POST">
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="card">
+                                                    <div class="card-header">Payment Method</div>
+                                                    <div class="card-body">
+                                                        <div class="table-responsive">
+                                                            <table class="table mb-0">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Card Number</th>
+                                                                        <th>Card Type</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>1111</td>
+                                                                        <td>visa</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="card">
+                                                    <div class="card-header">Update Payment Method</div>
+                                                    <div class="card-body">
+                                                        <h5>Choose Payment Method</h5>
+                                                        <div class="row">
+                                                            <div class="col-lg-4 col-12 mb-3">
+                                                                <div class="custom-dropdown">
+                                                                    <select class="form-select customSelect2"
+                                                                        placeholder="Select Payment Method">
+                                                                        <option value="" disabled hidden>Select Payment
+                                                                            Method</option>
+                                                                        <option selected
+                                                                            value="American Express Amex 0005 EXP 09/26">
+                                                                            American Express
+                                                                            Amex 0005 Exp 09/26
+                                                                        </option>
+                                                                        <option value="Bank of America Mastercard 6789">
+                                                                            Bank of America Mastercard 6789
+                                                                            08/29
+                                                                        </option>
+                                                                        <option
+                                                                            value="Emmanuel Sims Visa 4242 Exp 04/36">
+                                                                            Emmanuel Sims Visa 4242 Exp
+                                                                            04/36</option>
+                                                                        <option value="John Doe Visa 1214 Exp 10/20">
+                                                                            John Doe Visa 1214 Exp 10/20
+                                                                        </option>
+                                                                        <option value="Net 30 Terms">Net 30 Terms
+                                                                        </option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row subscription-option card-partner card-admin ">
+                                                            <div class="col-lg-4 col-12">
+                                                                <div class="form-group">
+                                                                    <label for="name">Card/ACH Account<span
+                                                                            class="text-danger">*</span></label>
+                                                                    <select name="card[partner]" class="form-control custom-select normal-select"
+                                                                        required="">
+                                                                        <option value="">Select Card/ACH Account
+                                                                        </option>
+                                                                        <option value="1230">test (Tushar test portal)
+                                                                        </option>
+
+
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row subscription-option card-admin d-none">
+                                                            <p class="ml-2">NOTE: Card/ACH Account will not be charged
+                                                            </p>
+                                                        </div>
+                                                        <!-- <div class="row subscription-option card-client d-none">
+    <div class="col-lg-4 col-12">
+                    <p class="alert alert-warning"><i class="fa fa-info-circle"></i> You do not have any active billing. Use other payment option</p>
+            </div>
+</div> -->
+                                                        <div class="row subscription-option card-other d-none">
+                                                            <div class="col-lg-4 col-12">
+                                                                <div class="form-group">
+                                                                    <label for="name">Card Number<span
+                                                                            class="text-danger">*</span></label>
+                                                                    <input type="text" name="cardNumber"
+                                                                        parsley-trigger="change"
+                                                                        data-parsley-error-message="Card Number should be valid"
+                                                                        data-parsley-minlength="12"
+                                                                        placeholder="Enter Card Number" required=""
+                                                                        class="form-control edit-card-number"
+                                                                        id="cardNumber">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-12">
+                                                                <div class="form-group">
+                                                                    <label for="name">Card Expiration<span
+                                                                            class="text-danger">*</span></label>
+                                                                    <input type="text" name="cardExpiry"
+                                                                        parsley-trigger="change"
+                                                                        data-parsley-minlength="7"
+                                                                        data-parsley-error-message="Card Expiration format should be MM/YYYY"
+                                                                        required="" placeholder="MM/YYYY"
+                                                                        class="form-control edit-input-date-b"
+                                                                        id="cardExpiry">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-12">
+                                                                <div class="form-group">
+                                                                    <label for="emailAddress">CVV<span
+                                                                            class="text-danger">*</span></label>
+                                                                    <input type="password" name="cardCvv"
+                                                                        parsley-trigger="change"
+                                                                        data-parsley-maxlength="4" maxlength="4"
+                                                                        data-parsley-error-message="Card CVV should not exceed 4 digits"
+                                                                        required="" placeholder="Enter CVV"
+                                                                        class="form-control" id="cardCvv">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-lg-right mt-3 mb-2 mt-lg-0">
+                                            <a href="javascript:;" class="btn btn-danger mr-2 width-md"
+                                                data-dismiss="modal">Cancel</a>
+                                            <button class="btn btn-success width-md" type="submit">
+                                                Save Changes
+                                            </button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -1301,6 +1440,53 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
+                                                                <tr role="row" class="odd">
+                                                                    <td class="sorting_1">FL - LLC - Domestic </td>
+                                                                    <td>FL</td>
+                                                                    <td><span class="btn btn-success">Active</span></td>
+                                                                    <td>Jun 09, 2026</td>
+                                                                    <td>Jun 09, 2026</td>
+                                                                    <td>Jun 09, 2027</td>
+                                                                    <td></td>
+                                                                    <td>visa 1111 (test)</td>
+                                                                    <td>
+                                                                        <div class="btn-group mt-1">
+                                                                            <button type="button"
+                                                                                class="btn btn-secondary dropdown-toggle waves-effect waves-light"
+                                                                                data-toggle="dropdown"
+                                                                                aria-expanded="false">Take Action <i
+                                                                                    class="mdi mdi-chevron-down"></i></button>
+                                                                            <div class="dropdown-menu"
+                                                                                x-placement="bottom-start"
+                                                                                style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 38px, 0px);"
+                                                                                x-out-of-boundaries="">
+                                                                                <a class="dropdown-item"
+                                                                                    data-mode="edit" href="#"
+                                                                                    data-backdrop="static"
+                                                                                    data-keyboard="false"
+                                                                                    data-toggle="modal"
+                                                                                    data-target="#update-subscription">
+                                                                                    <i class="mdi mdi-pencil"></i>
+                                                                                    Edit</a>
+                                                                                <a class="dropdown-item updateSubscriptionBtn"
+                                                                                    data-mode="edit" data-sub-id="20207"
+                                                                                    data-backdrop="static"
+                                                                                    data-keyboard="false"
+                                                                                    data-toggle="modal"
+                                                                                    data-target="#update-subscription-id-date"
+                                                                                    href="#"><i
+                                                                                        class="mdi mdi-calendar"></i>Subscription
+                                                                                    Date</a>
+                                                                                <a class="dropdown-item subscription-action"
+                                                                                    data-toggle="tooltip" title=""
+                                                                                    href="#" data-mode="delete"
+                                                                                    data-original-title=""> <i
+                                                                                        class="mdi mdi-trash-can"></i>
+                                                                                    Delete</a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -1974,7 +2160,6 @@
         function tableInit(table) {
             const tableContainer = $(`table.${table}`)
 
-            console.log(tableContainer)
             let options = {
                 language: {
                     processing: 'Loading...',
@@ -2021,7 +2206,6 @@
                     let hasExtra = $.type(button.extra) != "undefined";
 
                     let extra = hasExtra ? button.extra : {};
-                    console.log(button)
 
                     dbuttons.push({
                         attr: extra, text: button.title, className: button.className, action: function (e, dt, node, config) {
@@ -2056,7 +2240,8 @@
 
         $(document).ready(function () {
 
-            $(".available_to.select2").each(function () {
+
+            $(".customSelect2").each(function () {
                 const selectEl = $(this);
                 const placeholder = selectEl.attr('placeholder');
 
@@ -2064,12 +2249,8 @@
                     placeholder: placeholder,
                 })
             })
-
-            $('.tab-content .select2').on('select2:open select2:select', () => {
-                $('.select2-search__field').attr('placeholder', 'Search...');
-            });
         });
-    </script>
+    </script>>
 </body>
 
 </html>
