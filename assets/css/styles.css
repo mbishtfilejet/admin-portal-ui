@@ -1339,19 +1339,20 @@ a.line-item {
 
 .SOP-model .tooltipText.tooltipRight {
   top: 50%;
-  right: 0;
-  transform: translateY(-53%);
+  transform: translateY(-53%) translateX(-58%);
   overflow-wrap: break-word;
   text-transform: capitalize !important;
 }
 
 .SOP-model .tooltipText.tooltipRight::after {
   content: "";
+  position: absolute;
   transform: rotate(-180deg);
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
   border-color: transparent #6e72ee transparent transparent;
+  top: 50%;
   right: -9px !important;
 }
 
@@ -1951,6 +1952,10 @@ a.line-item {
 .icon-circular {
   border-radius: 50%;
   overflow: hidden;
+}
+
+.rounded-3 {
+  border-radius: 0.5rem;
 }
 
 .icon-new-group {
