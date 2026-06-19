@@ -86,13 +86,10 @@ $(document).ready(function () {
 
 function initializeSelect2(container) {
     $(container).find('.customSelect2').each(function () {
-        if ($(this).hasClass('select2-hidden-accessible')) {
-            return; // already initialized
-        }
+        const selectEl = $(this);
 
-        $(this).select2({
-            dropdownParent: $(this).closest('.modal'),
-            placeholder: $(this).attr('placeholder')
+        selectEl.select2({
+            placeholder: selectEl.attr('placeholder')
         });
     });
 }
@@ -185,7 +182,6 @@ $(document).ready(function () {
 
     subscriptionModal.on('shown.bs.modal', function () {
         paymentDataTable.columns.adjust();
-
         initializeSelect2(this)
     })
 
@@ -198,7 +194,6 @@ $(document).ready(function () {
         iconContainer.toggleClass(expandClassName).toggleClass(collapseClassName);
 
         var tr = $(this).parent('td').closest('tr');
-        console.log(paymentDataTable)
         var row = paymentDataTable.row(tr);
 
         if (row.child.isShown()) {
@@ -213,7 +208,7 @@ $(document).ready(function () {
             row.child(div, 'dt-row-child dt-row-active').show();
             tr.addClass('dt-row-active');
 
-            initializeSelect2($(div))
+            initializeSelect2(div)
         }
     });
 
