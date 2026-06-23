@@ -2061,3 +2061,8 @@ a.line-item {
 .customTooltip:hover .tooltipText {
   visibility: visible !important;
 }
+
+.dropdown-item.disabled,
+.dropdown-item:disabled {
+  opacity: 50%;
+}
