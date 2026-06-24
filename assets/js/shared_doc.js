@@ -1,6 +1,9 @@
 
 $(function () {
 
+    if(typeof(Chartist) === "undefined"){
+        return;
+    }
     const formatter = new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD',
@@ -326,7 +329,9 @@ $(function () {
 
 $(document).ready(function () {
     function highlightTabs(tab) {
-
+        if(!tab.length){
+            return;
+        }
         const tabOffset = tab.position();
 
         $(".sharedDocumnent_tablist").css({
@@ -442,7 +447,6 @@ function debounce(func, wait) {
 function tableInit(tableId) {
     const tableContainer = $(`table[data-tabId="${tableId}"]`)
 
-    console.log(tableContainer)
     let options = {
         language: {
             processing: 'Loading...',
@@ -491,7 +495,6 @@ function dbuttons(tableContainer) {
             let hasExtra = $.type(button.extra) != "undefined";
 
             let extra = hasExtra ? button.extra : {};
-            console.log(button)
 
             dbuttons.push({
                 attr: extra, text: button.title, className: button.className, action: function (e, dt, node, config) {
