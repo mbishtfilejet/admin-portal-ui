@@ -1391,28 +1391,25 @@
                                                                         aria-expanded="false">Take Action <i
                                                                             class="mdi mdi-chevron-down"></i></button>
                                                                     <div class="dropdown-menu">
-                                                                        <a class="dropdown-item"
-                                                                            href="#"> <i
+                                                                        <a class="dropdown-item" href="#"> <i
                                                                                 class="mdi mdi-eye"></i> View</a>
 
-                                                                        <a class="dropdown-item disabled" data-mode="edit"
-                                                                            href="#"
+                                                                        <a class="dropdown-item disabled"
+                                                                            data-mode="edit" href="#"
                                                                             data-backdrop="static" data-keyboard="false"
                                                                             data-toggle="modal"
                                                                             data-target="#add-client"> <i
                                                                                 class="mdi mdi-pencil"></i> Edit</a>
 
                                                                         <a class="dropdown-item" data-mode="add-notes"
-                                                                            href="#"
-                                                                            data-backdrop="static" data-keyboard="false"
-                                                                            data-toggle="modal"
+                                                                            href="#" data-backdrop="static"
+                                                                            data-keyboard="false" data-toggle="modal"
                                                                             data-target="#add-notes"> <i
                                                                                 class="mdi mdi-note-outline"></i> Add
                                                                             New Note </a>
 
                                                                         <a class="dropdown-item disabled delete-client-btn"
-                                                                            data-mode="delete"
-                                                                            href="#">
+                                                                            data-mode="delete" href="#">
                                                                             <i class="mdi mdi-delete"></i> Delete</a>
                                                                     </div>
                                                                 </div>
@@ -1802,9 +1799,55 @@
                                             <div class="form-group">
                                                 <div class="checkbox checkbox-primary">
                                                     <input id="is_store_number-checkbox" type="checkbox"
+                                                        data-toggle="collapse" data-target="#storeNumberSection"
+                                                        aria-expanded="false" aria-controls="storeNumberSection"
                                                         name="is_store_number" value="1">
                                                     <label for="is_store_number-checkbox">Enable Store
                                                         Number</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="storeNumberSection" class="col-lg-4 collapse"
+                                            aria-labelledby="is_store_number">
+                                            <div class="form-group">
+                                                <label for="">Label</label>
+                                                <input type="text" name="store_number_label" value="Location #" placeholder="External Reference Number Label"
+                                                    class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="checkbox checkbox-primary">
+                                                    <input id="is_store_number-required" type="checkbox"
+                                                        name="is_store_number-required" value="1">
+                                                    <label for="is_store_number-required">Required</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2 border-bottom">
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <div class="checkbox checkbox-primary">
+                                                    <input id="is_externalRef_number-checkbox" type="checkbox"
+                                                        data-toggle="collapse" data-target="#externalRefSection"
+                                                        aria-expanded="false" aria-controls="externalRefSection"
+                                                        name="is_externalRef_number" value="1">
+                                                    <label for="is_externalRef_number-checkbox">Enable External
+                                                        Reference Number</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="externalRefSection" class="col-lg-4 collapse"
+                                            aria-labelledby="is_externalRef_number">
+                                            <div class="form-group">
+                                                <label for="">Label</label>
+                                                <input type="text" name="external_Ref_number_label" value="External Ref #" placeholder="External Reference Number Label"
+                                                    class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="checkbox checkbox-primary">
+                                                    <input id="is_externalRef_number-required" type="checkbox"
+                                                        name="is_externalRef_number-required" value="1">
+                                                    <label for="is_externalRef_number-required">Required</label>
                                                 </div>
                                             </div>
                                         </div>
