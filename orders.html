@@ -7390,14 +7390,13 @@
                                                                 value="">
                                                         </div>
 
-                                                        <!-- <div class="form-group mt-3 col">
+                                                        <div class="form-group mt-3 col">
                                                             <label>Payment By<span class="text-danger">*</span></label>
                                                             <select class="form-control payer-type" name="payer_type"
                                                                 parsley-trigger="change" required="">
-                                                                <option value="">Select Payment By</option>
+                                                                <option value="" selected hidden disabled>Select Payment
+                                                                    By</option>
                                                                 <option value="partner">Customer</option>
-                                                                <option value="client">Group</option>
-                                                                <option value="other">Other</option>
                                                                 <option value="admin">Admin</option>
                                                             </select>
                                                         </div>
@@ -7407,34 +7406,14 @@
                                                             <select class="form-control payment-mode"
                                                                 name="payment_mode" parsley-trigger="change" required=""
                                                                 data-attr-class="payment-mode-fields">
-                                                                <option value="">Select Payment Mode</option>
+                                                                <option value="" disabled selected hidden>Select Payment
+                                                                    Mode</option>
                                                                 <option value="online">Outside Filejet</option>
                                                                 <option value="offline">With Filejet</option>
                                                             </select>
-                                                        </div> -->
-
-                                                        <div class="form-group mt-3 col-4">
-                                                            <label>Payment Method<span
-                                                                    class="text-danger"> *</span></label>
-                                                            <div class="custom-dropdown">
-                                                                <select class="form-select customSelect2"
-                                                                    placeholder="Select Payment Method">
-                                                                    <option value="" selected disabled hidden>Select Payment Method</option>
-                                                                    <option value="American Express Amex 0005 EXP 09/26">
-                                                                        American Express Amex 0005 Exp 09/26
-                                                                    </option>
-                                                                    <option value="Bank of America Mastercard 6789">
-                                                                        Bank of America Mastercard 6789 08/29
-                                                                    </option>
-                                                                    <option value="Emmanuel Sims Visa 4242 Exp 04/36">
-                                                                        Emmanuel Sims Visa 4242 Exp 04/36
-                                                                    </option>
-                                                                    <option value="John Doe Visa 1214 Exp 10/20">
-                                                                        John Doe Visa 1214 Exp 10/20
-                                                                    </option>
-                                                                </select>
-                                                            </div>
                                                         </div>
+
+
                                                     </div>
                                                     <div class="row">
                                                         <div class="form-group col-lg-3 col-sm-6">
@@ -7490,16 +7469,25 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="row d-none online-fields billing-options">
+                                                    <div class="row online-fields billing-options d-none">
                                                         <div class="form-group col-md-4">
-                                                            <label for="name">Transaction Number <a
-                                                                    data-toggle="tooltip" data-placement="top"
-                                                                    title="Optional"><i
-                                                                        class="mdi mdi-information-outline"></i></a></label>
-                                                            <input type="text" name="trans_ref_id"
-                                                                parsley-trigger="change" value=""
-                                                                placeholder="Enter Transaction Number"
-                                                                class="form-control" id="trans_id">
+                                                            <label for="name">Payment Type</label>
+                                                            <select class="form-control payment-type">
+                                                                <option value="" selected hidden disabled>Select Payment
+                                                                    Type</option>
+                                                                <option value="Check">Check</option>
+                                                                <option value="Wire">Wire</option>
+                                                                <option value="Push ACH">Push ACH</option>
+                                                                <option value="Bill">Bill</option>
+                                                                <option value="Ramp">Ramp</option>
+                                                                <option value="Refund">Refund</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-md-4">
+                                                            <label for="name">Payment Ref</label>
+                                                            <input type="text" name="" parsley-trigger="change" value=""
+                                                                placeholder="Enter Payment Ref (Eg. check #, wire ref #)"
+                                                                class="form-control" id="">
                                                         </div>
                                                     </div>
 
@@ -7530,11 +7518,27 @@
                                                     <div
                                                         class="row d-none offline-fields billing-options payment-options mb-3">
                                                         <div
-                                                            class="form-group billing-option partner-billing col-md-4 d-none">
-                                                            <select name="card[partner]"
-                                                                class="form-control validate[required] partner-billing-info">
-                                                                <option value="1052" selected="">ach</option>
-                                                            </select>
+                                                            class="form-group billing-option partner-billing col-md-4">
+                                                            <div class="custom-dropdown">
+                                                                <select class="form-control"
+                                                                    placeholder="Select Payment Method">
+                                                                    <option value=""  disabled hidden>Select
+                                                                        Payment Method</option>
+                                                                    <option selected
+                                                                        value="American Express Amex 0005 EXP 09/26">
+                                                                        American Express Amex 0005 Exp 09/26
+                                                                    </option>
+                                                                    <option value="Bank of America Mastercard 6789">
+                                                                        Bank of America Mastercard 6789 08/29
+                                                                    </option>
+                                                                    <option value="Emmanuel Sims Visa 4242 Exp 04/36">
+                                                                        Emmanuel Sims Visa 4242 Exp 04/36
+                                                                    </option>
+                                                                    <option value="John Doe Visa 1214 Exp 10/20">
+                                                                        John Doe Visa 1214 Exp 10/20
+                                                                    </option>
+                                                                </select>
+                                                            </div>
                                                         </div>
 
 
@@ -7546,7 +7550,7 @@
                                                                 order to add the Group's Billing.</p>
                                                         </div>
 
-                                                        <div class="col-md-4 billing-option other-billing">
+                                                        <div class="col-md-4 billing-option other-billing d-none">
                                                             <label>Card Number</label>
                                                             <input class="form-control card-number" data-card-type=""
                                                                 name="cardNumber" autocomplete="off"
@@ -7554,7 +7558,7 @@
                                                                 data-parsley-error-message="Card Number should be valid"
                                                                 data-parsley-minlength="12" required="">
                                                         </div>
-                                                        <div class="col-md-4 billing-option other-billing">
+                                                        <div class="col-md-4 billing-option other-billing d-none">
                                                             <label>Card Expiration</label>
                                                             <input class="form-control input-date-b" name="cardExpiry"
                                                                 placeholder="MM/YYYY" autocomplete="off"
@@ -7562,7 +7566,7 @@
                                                                 data-parsley-error-message="Card Expiration format should be MM/YYYY"
                                                                 required="">
                                                         </div>
-                                                        <div class="col-md-4 billing-option other-billing">
+                                                        <div class="col-md-4 billing-option other-billing d-none">
                                                             <label for="cc-expiration">CVV</label>
                                                             <input type="password" name="cardCvv"
                                                                 class="form-control cvvValidation" maxlength="4"
@@ -7573,7 +7577,7 @@
                                                         </div>
 
                                                         <div
-                                                            class="col-md-12 col-sm-12 mt-2 save-card-option billing-option other-billing ">
+                                                            class="col-md-12 col-sm-12 mt-2 save-card-option billing-option other-billing d-none ">
                                                             <div class="custom-control custom-checkbox">
                                                                 <input type="checkbox" name="saveCard"
                                                                     class="custom-control-input" id="save-card"

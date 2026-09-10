@@ -212,6 +212,23 @@ $(document).ready(function () {
         }
     });
 
+    $(this).on('change', '.payment-mode', function () {
+        $("#payment-type-pay_later").trigger('click');
+        let val = $(this).val();
+        $(".billing-options").addClass('d-none');
+        $(`.${val}-fields`).removeClass('d-none');
+        $('.payment-options').addClass('d-none');
+
+    });
+
+    $(this).on('change', ".payment-type-option", function () {
+        if ($(this).val() == 'pay_later') {
+            $(".payment-options").addClass('d-none');
+        } else {
+            $(".payment-options").removeClass('d-none');
+        }
+    });
+
 })
 
 
